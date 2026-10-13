@@ -1,15 +1,15 @@
 import type { CollectionConfig } from 'payload'
 import { contentAccess } from '../lib/access.ts'
-import { icon, localizedList, order, review, row, seedKey, seo, slug, tab, tabs, text, textarea } from '../lib/fields.ts'
+import { icon, localizedList, order, review, row, seedKey, seo, slug, tab, tabs, text, textarea, statusColumn } from '../lib/fields.ts'
 
 /** Four services from compro p.5, shown as the four-petal diagram plus detail rows (docs/02, docs/03). */
 export const Services: CollectionConfig = {
   slug: 'services',
   labels: { singular: 'Layanan', plural: 'Layanan' },
-  admin: { group: 'Konten situs', useAsTitle: 'title', defaultColumns: ['title', 'order', '_status', 'needsReview'], description: 'Empat layanan di diagram kelopak dan rinciannya.' },
+  admin: { hideAPIURL: true, group: 'Konten situs', useAsTitle: 'title', defaultColumns: ['title', 'order', 'statusBadge', 'needsReview'], description: 'Empat layanan di diagram kelopak dan rinciannya.' },
   access: contentAccess,
   versions: { drafts: true },
-  fields: [
+  fields: [statusColumn, 
     tabs(
       tab('Isi layanan', [
         row(text('title', true, 'Nama layanan', { width: '65%' }), icon('icon', '35%')),

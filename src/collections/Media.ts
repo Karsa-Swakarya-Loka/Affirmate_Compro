@@ -1,12 +1,12 @@
 import path from 'node:path'
 import type { CollectionConfig } from 'payload'
 import { contentAccess } from '../lib/access.ts'
-import { seedKey, text } from '../lib/fields.ts'
+import { seedKey, text, statusColumn } from '../lib/fields.ts'
 
 export const Media: CollectionConfig = {
   slug: 'media',
   labels: { singular: 'Foto & file', plural: 'Foto & file' },
-  admin: { group: 'Konten situs', useAsTitle: 'alt', defaultColumns: ['filename', 'alt', '_status'], description: 'Semua foto, logo dan file yang dipakai situs.' },
+  admin: { hideAPIURL: true, group: 'Konten situs', useAsTitle: 'alt', defaultColumns: ['filename', 'alt', 'statusBadge'], description: 'Semua foto, logo dan file yang dipakai situs.' },
   access: contentAccess,
   versions: { drafts: true },
   upload: {
@@ -20,5 +20,5 @@ export const Media: CollectionConfig = {
     ],
     adminThumbnail: 'thumb',
   },
-  fields: [text('alt', true, 'Keterangan gambar', { description: 'Jelaskan isi gambar singkat. Dibaca Google dan pembaca layar.' }), seedKey],
+  fields: [statusColumn, text('alt', true, 'Keterangan gambar', { description: 'Jelaskan isi gambar singkat. Dibaca Google dan pembaca layar.' }), seedKey],
 }

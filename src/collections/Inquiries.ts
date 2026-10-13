@@ -7,8 +7,9 @@ import { validEmail, validPhone } from '../lib/validation.ts'
 export const Inquiries: CollectionConfig = {
   slug: 'inquiries',
   labels: { singular: 'Pesan masuk', plural: 'Pesan masuk' },
-  admin: { group: 'Pesan masuk', useAsTitle: 'name', defaultColumns: ['name', 'company', 'status', 'createdAt', 'emailStatus'], description: 'Pesan dari formulir kontak. Ubah status setelah pengirim dihubungi.' },
-  access: { create: adminOnly, read: adminOnly, update: adminOnly, delete: adminOnly },
+  admin: { hideAPIURL: true, group: 'Pesan masuk', useAsTitle: 'name', defaultColumns: ['name', 'company', 'status', 'createdAt', 'emailStatus'], description: 'Pesan dari formulir kontak. Ubah status setelah pengirim dihubungi.' },
+  // Messages only come from the site's forms (server action with overrideAccess); nobody creates them by hand.
+  access: { create: () => false, read: adminOnly, update: adminOnly, delete: adminOnly },
   timestamps: true,
   fields: [
     row(

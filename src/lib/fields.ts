@@ -70,3 +70,9 @@ export const localizedList = (name: string, label?: string, description?: string
 })
 /** City pin: name + map picker; lat/lng stay in the data but are set by the picker. */
 export const mapPicker = (geo: Record<string, number | string>): Field => ({ name: 'mapPicker', type: 'ui', admin: { components: { Field: { path: '/components/admin/CityPointField#CityPointField', clientProps: { geo } } } } })
+
+/** List column with a coloured publish-state label (draft vs live). Display only: a `ui` field stores nothing. */
+export const statusColumn: Field = {
+  name: 'statusBadge', type: 'ui', label: 'Status tayang',
+  admin: { disableListColumn: false, components: { Cell: '/components/admin/StatusCell#StatusCell' } },
+}

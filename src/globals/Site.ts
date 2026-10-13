@@ -8,7 +8,7 @@ export const Site: GlobalConfig = {
   label: 'Kontak & pengaturan situs',
   access: { ...globalAccess, update: adminOnly },
   versions: { drafts: true },
-  admin: { group: 'Pengaturan', description: 'Identitas, kontak dan media sosial yang tampil di seluruh situs.' },
+  admin: { hideAPIURL: true, group: 'Pengaturan', description: 'Identitas, kontak dan media sosial yang tampil di seluruh situs.' },
   fields: [
     tabs(
       tab('Identitas', [

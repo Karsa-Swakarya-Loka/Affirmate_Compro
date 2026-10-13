@@ -8,7 +8,7 @@ export const Legal: GlobalConfig = {
   label: 'Kebijakan privasi',
   access: globalAccess,
   versions: { drafts: true },
-  admin: { group: 'Halaman', preview: previewUrl('privacy'), description: 'Isi halaman Kebijakan Privasi.' },
+  admin: { hideAPIURL: true, group: 'Halaman', preview: previewUrl('privacy'), description: 'Isi halaman Kebijakan Privasi.' },
   fields: [
     row(text('privacyTitle', true, 'Judul halaman', { width: '65%' }),
       { name: 'updatedAt', type: 'date', label: 'Terakhir diperbarui', admin: { width: '35%', date: { pickerAppearance: 'dayOnly' } } }),
