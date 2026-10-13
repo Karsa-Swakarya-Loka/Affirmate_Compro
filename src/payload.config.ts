@@ -42,17 +42,23 @@ export default buildConfig({
     // The CMS follows the public site's design: light theme, brand logo/icon, favicon (see app/(payload)/admin-theme.css).
     theme: 'light',
     components: {
-   graphics: { Logo: '/components/admin/AdminBrand#AdminLogo', Icon: '/components/admin/AdminBrand#AdminIcon' },
-   // Dashboard starting point: the main task first, then frequent ones and the count of new messages.
-   beforeDashboard: ['/components/admin/StartHere#StartHere'],
-  },
+      graphics: { Logo: '/components/admin/AdminBrand#AdminLogo', Icon: '/components/admin/AdminBrand#AdminIcon' },
+      // Sidebar in the order the team works (components/admin/nav-map.ts), with icons and the count of new messages.
+      Nav: '/components/admin/CmsNav#CmsNav',
+      // Dashboard head: the site's state in numbers and the two most frequent actions.
+      beforeDashboard: ['/components/admin/StartHere#StartHere'],
+    },
+    // The dashboard index follows the sidebar's sections instead of Payload's collection cards.
+    dashboard: {
+      widgets: [{ slug: 'site-map', Component: '/components/admin/SiteMap#SiteMap', label: 'Semua bagian CMS', minWidth: 'full', maxWidth: 'full' }],
+      defaultLayout: [{ widgetSlug: 'site-map', width: 'full' }],
+    },
     meta: {
       titleSuffix: ' | Affirmate Administrative',
       icons: [{ rel: 'icon', type: 'image/svg+xml', url: '/brand/favicon.svg' }, { rel: 'apple-touch-icon', url: '/brand/apple-touch-icon.png' }],
     },
   },
-  // Admin UI in Indonesian for the client's team; content itself is EN (default) + ID.
-  // CMS interface in Indonesian only, for the client's team (content itself stays bilingual via localization).
+  // CMS interface in Indonesian only, for the client's team (content itself stays bilingual: EN default + ID).
   i18n: { supportedLanguages: { id }, fallbackLanguage: 'id', translations: adminTranslations },
   localization,
   collections: [Services, GroupEntities, Milestones, Clients, Cities, Posts, Media, Inquiries, Users],
