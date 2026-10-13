@@ -6,7 +6,7 @@ import { seedKey, text, statusColumn } from '../lib/fields.ts'
 export const Media: CollectionConfig = {
   slug: 'media',
   labels: { singular: 'Foto & file', plural: 'Foto & file' },
-  admin: { hideAPIURL: true, group: 'Konten situs', useAsTitle: 'alt', defaultColumns: ['filename', 'alt', 'statusBadge'], description: 'Semua foto, logo dan file yang dipakai situs.' },
+  admin: { hideAPIURL: true, group: 'Konten situs', useAsTitle: 'alt', defaultColumns: ['filename', 'alt', 'statusBadge'] },
   access: contentAccess,
   versions: { drafts: true },
   upload: {

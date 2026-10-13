@@ -6,7 +6,7 @@ import { order, row, seedKey, text, textarea, statusColumn } from '../lib/fields
 export const Milestones: CollectionConfig = {
   slug: 'milestones',
   labels: { singular: 'Perjalanan (milestone)', plural: 'Perjalanan (milestone)' },
-  admin: { hideAPIURL: true, group: 'Konten situs', useAsTitle: 'label', defaultColumns: ['year', 'label', 'order', 'statusBadge'], description: 'Tonggak perjalanan perusahaan per tahun.' },
+  admin: { hideAPIURL: true, group: 'Konten situs', useAsTitle: 'label', defaultColumns: ['year', 'label', 'order', 'statusBadge'] },
   access: contentAccess,
   versions: { drafts: true },
   fields: [statusColumn, 

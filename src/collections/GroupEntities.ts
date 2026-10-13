@@ -7,7 +7,7 @@ import { httpUrl } from '../lib/validation.ts'
 export const GroupEntities: CollectionConfig = {
   slug: 'group-entities',
   labels: { singular: 'Entitas grup', plural: 'Entitas grup' },
-  admin: { hideAPIURL: true, group: 'Konten situs', useAsTitle: 'name', defaultColumns: ['name', 'brand', 'isSelf', 'order', 'statusBadge'], description: 'Perusahaan di Affirmate Group yang tampil di bagian Group.' },
+  admin: { hideAPIURL: true, group: 'Konten situs', useAsTitle: 'name', defaultColumns: ['name', 'brand', 'isSelf', 'order', 'statusBadge'] },
   access: contentAccess,
   versions: { drafts: true },
   fields: [statusColumn, 

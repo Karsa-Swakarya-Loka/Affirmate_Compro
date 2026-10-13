@@ -7,7 +7,7 @@ import { hasConsentForStatus, httpUrl } from '../lib/validation.ts'
 export const Clients: CollectionConfig = {
   slug: 'clients',
   labels: { singular: 'Klien', plural: 'Klien' },
-  admin: { hideAPIURL: true, group: 'Konten situs', useAsTitle: 'name', defaultColumns: ['name', 'consent', 'order', 'statusBadge'], description: 'Logo klien. Hanya bisa dipublikasikan setelah izin tampil dicentang.' },
+  admin: { hideAPIURL: true, group: 'Konten situs', useAsTitle: 'name', defaultColumns: ['name', 'consent', 'order', 'statusBadge'], description: 'Tayang hanya setelah izin tampil dicentang.' },
   access: contentAccess,
   versions: { drafts: true },
   hooks: {

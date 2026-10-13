@@ -14,7 +14,7 @@ export const Ui: GlobalConfig = {
   label: 'Teks tombol & menu',
   access: globalAccess,
   versions: { drafts: true },
-  admin: { hideAPIURL: true, group: 'Pengaturan', description: 'Teks pendek di menu, tombol dan formulir. Isi versi Inggris dan Indonesia lewat pilihan bahasa di kanan atas.' },
+  admin: { hideAPIURL: true, group: 'Pengaturan', description: 'Versi Indonesia diisi setelah mengganti bahasa di kanan atas.' },
   fields: [
     tabs(
       tab('Menu', [group('nav', [['about', 'Tentang'], ['why', 'Mengapa kami'], ['group', 'Group'], ['services', 'Layanan'], ['journey', 'Perjalanan'], ['clients', 'Klien'],

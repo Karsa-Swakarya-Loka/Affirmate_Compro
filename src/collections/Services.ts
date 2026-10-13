@@ -6,7 +6,7 @@ import { icon, localizedList, order, review, row, seedKey, seo, slug, tab, tabs,
 export const Services: CollectionConfig = {
   slug: 'services',
   labels: { singular: 'Layanan', plural: 'Layanan' },
-  admin: { hideAPIURL: true, group: 'Konten situs', useAsTitle: 'title', defaultColumns: ['title', 'order', 'statusBadge', 'needsReview'], description: 'Empat layanan di diagram kelopak dan rinciannya.' },
+  admin: { hideAPIURL: true, group: 'Konten situs', useAsTitle: 'title', defaultColumns: ['title', 'order', 'statusBadge', 'needsReview'] },
   access: contentAccess,
   versions: { drafts: true },
   fields: [statusColumn, 

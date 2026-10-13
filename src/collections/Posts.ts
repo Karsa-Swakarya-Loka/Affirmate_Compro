@@ -7,7 +7,7 @@ import { previewUrl } from '../lib/admin-preview.ts'
 export const Posts: CollectionConfig = {
   slug: 'posts',
   labels: { singular: 'Artikel', plural: 'Artikel (Insights)' },
-  admin: { hideAPIURL: true, group: 'Konten situs', useAsTitle: 'title', defaultColumns: ['title', 'category', 'publishedAt', 'statusBadge', 'needsReview'], preview: previewUrl('insights', true), description: 'Artikel di halaman Insights.' },
+  admin: { hideAPIURL: true, group: 'Konten situs', useAsTitle: 'title', defaultColumns: ['title', 'category', 'publishedAt', 'statusBadge', 'needsReview'], preview: previewUrl('insights', true) },
   access: contentAccess,
   versions: { drafts: true },
   fields: [statusColumn, 

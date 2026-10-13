@@ -7,7 +7,7 @@ import { MAP } from '../lib/indonesia-land.ts'
 export const Cities: CollectionConfig = {
   slug: 'cities',
   labels: { singular: 'Kota jaringan', plural: 'Kota jaringan' },
-  admin: { hideAPIURL: true, group: 'Konten situs', useAsTitle: 'name', defaultColumns: ['name', 'order'], description: 'Titik kota di peta jaringan. Cukup ketik nama kota, titiknya terisi otomatis.' },
+  admin: { hideAPIURL: true, group: 'Konten situs', useAsTitle: 'name', defaultColumns: ['name', 'order'], description: 'Titik peta terisi otomatis dari nama kota.' },
   access: dataAccess,
   fields: [
     { name: 'name', type: 'text', required: true, label: 'Nama kota', admin: { placeholder: 'mis. Surabaya' } },

@@ -24,7 +24,7 @@ export const Home: GlobalConfig = {
   label: 'Beranda',
   access: globalAccess,
   versions: { drafts: true },
-  admin: { hideAPIURL: true, group: 'Halaman', preview: previewUrl('home'), description: 'Isi halaman utama, satu tab per bagian halaman.' },
+  admin: { hideAPIURL: true, group: 'Halaman', preview: previewUrl('home') },
   fields: [
     tabs(
       tab('Hero', [flat('hero', [
