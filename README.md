@@ -52,3 +52,12 @@ npm run start -- --port 3100   # atau PM2: pm2 start npm --name affirmate -- sta
 
 ## Keamanan repo
 `.env`, `media/`, `.data/`, `node_modules/`, `.next/`, log, dan file hasil generate tidak masuk git (lihat `.gitignore`). Jangan commit kredensial, data klien (`inquiries`), atau dump database. Admin publik hanya menerima dokumen `published`; form kontak lewat server action dengan honeypot, validasi, rate limit.
+
+## Deploy ke Vercel (produksi saat ini: `affirmate-compro`)
+
+Vercel serverless tanpa disk permanen: database Postgres Neon (Singapura) dan media di Vercel Blob (`BLOB_READ_WRITE_TOKEN`; tanpa token, media tetap di `MEDIA_DIR`). Functions di `sin1` (`vercel.json`).
+
+- Env Production + Preview: `PAYLOAD_SECRET`, `DATABASE_ADAPTER=postgres`, `DATABASE_URI` (Neon pooled), `NEXT_PUBLIC_SITE_URL` (domain persis, dipakai CSRF login admin), `BLOB_READ_WRITE_TOKEN`, SMTP_* opsional. Development sengaja kosong agar laptop tidak menyentuh produksi.
+- Build membaca CMS: migrasi dijalankan dari laptop ke Neon **sebelum** push (`npm run migrate`, koneksi unpooled). Build tidak menjalankan migrasi.
+- Skema berubah → `npm run migrate:create` untuk postgres **dengan `BLOB_READ_WRITE_TOKEN` aktif** (plugin Blob menambah kolom `_objectKey`), dan untuk sqlite tanpa token.
+- Seed ke produksi dengan `MEDIA_DIR` folder kosong; kalau tidak, nama file bentrok dengan `media/` lokal dan diberi akhiran `-1`.

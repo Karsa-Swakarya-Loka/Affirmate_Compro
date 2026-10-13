@@ -16,3 +16,7 @@ Thumbs.db
 .DS_Store
 .npm-install.log
 *.log
+
+.vercel
+.env*
+!.env.example
