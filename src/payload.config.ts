@@ -6,7 +6,6 @@ import { lexicalEditor } from '@payloadcms/richtext-lexical'
 import { nodemailerAdapter } from '@payloadcms/email-nodemailer'
 import { vercelBlobStorage } from '@payloadcms/storage-vercel-blob'
 import { id } from '@payloadcms/translations/languages/id'
-import { en } from '@payloadcms/translations/languages/en'
 import sharp from 'sharp'
 import { Services } from './collections/Services.ts'
 import { GroupEntities } from './collections/GroupEntities.ts'
@@ -41,14 +40,19 @@ export default buildConfig({
     importMap: { baseDir: dirname },
     // The CMS follows the public site's design: light theme, brand logo/icon, favicon (see app/(payload)/admin-theme.css).
     theme: 'light',
-    components: { graphics: { Logo: '/components/admin/AdminBrand#AdminLogo', Icon: '/components/admin/AdminBrand#AdminIcon' } },
+    components: {
+   graphics: { Logo: '/components/admin/AdminBrand#AdminLogo', Icon: '/components/admin/AdminBrand#AdminIcon' },
+   // Dashboard starting point: the main task first, then frequent ones and the count of new messages.
+   beforeDashboard: ['/components/admin/StartHere#StartHere'],
+  },
     meta: {
       titleSuffix: ' | Affirmate Administrative',
       icons: [{ rel: 'icon', type: 'image/svg+xml', url: '/brand/favicon.svg' }, { rel: 'apple-touch-icon', url: '/brand/apple-touch-icon.png' }],
     },
   },
   // Admin UI in Indonesian for the client's team; content itself is EN (default) + ID.
-  i18n: { supportedLanguages: { id, en }, fallbackLanguage: 'id' },
+  // CMS interface in Indonesian only, for the client's team (content itself stays bilingual via localization).
+ i18n: { supportedLanguages: { id }, fallbackLanguage: 'id' },
   localization,
   collections: [Services, GroupEntities, Milestones, Clients, Cities, Posts, Media, Inquiries, Users],
   globals: [Site, Home, Legal, Ui],
