@@ -5,8 +5,8 @@ import { seedKey, text } from '../lib/fields.ts'
 
 export const Media: CollectionConfig = {
   slug: 'media',
-  labels: { singular: 'Media', plural: 'Media' },
-  admin: { useAsTitle: 'alt', defaultColumns: ['filename', 'alt', '_status'] },
+  labels: { singular: 'Foto & file', plural: 'Foto & file' },
+  admin: { group: 'Konten situs', useAsTitle: 'alt', defaultColumns: ['filename', 'alt', '_status'], description: 'Semua foto, logo dan file yang dipakai situs.' },
   access: contentAccess,
   versions: { drafts: true },
   upload: {
@@ -20,5 +20,5 @@ export const Media: CollectionConfig = {
     ],
     adminThumbnail: 'thumb',
   },
-  fields: [text('alt', true, 'Teks alternatif'), seedKey],
+  fields: [text('alt', true, 'Keterangan gambar', { description: 'Jelaskan isi gambar singkat. Dibaca Google dan pembaca layar.' }), seedKey],
 }

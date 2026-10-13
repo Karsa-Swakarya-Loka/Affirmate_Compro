@@ -1,17 +1,19 @@
 import type { CollectionConfig } from 'payload'
 import { dataAccess } from '../lib/access.ts'
-import { order, seedKey } from '../lib/fields.ts'
+import { mapPicker, order, seedKey } from '../lib/fields.ts'
+import { MAP } from '../lib/indonesia-land.ts'
 
-/** Network map pins (compro p.9). Coordinates are projected onto the SVG map at render time. */
+/** Network map pins (compro p.9). The CMS sets the point by city name or a click on the map; coordinates stay hidden. */
 export const Cities: CollectionConfig = {
   slug: 'cities',
   labels: { singular: 'Kota jaringan', plural: 'Kota jaringan' },
-  admin: { useAsTitle: 'name', defaultColumns: ['name', 'lat', 'lng', 'order'] },
+  admin: { group: 'Konten situs', useAsTitle: 'name', defaultColumns: ['name', 'order'], description: 'Titik kota di peta jaringan. Cukup ketik nama kota, titiknya terisi otomatis.' },
   access: dataAccess,
   fields: [
-    { name: 'name', type: 'text', required: true },
-    { name: 'lat', type: 'number', required: true, min: -11, max: 6 },
-    { name: 'lng', type: 'number', required: true, min: 95, max: 141 },
+    { name: 'name', type: 'text', required: true, label: 'Nama kota', admin: { placeholder: 'mis. Surabaya' } },
+    mapPicker({ width: MAP.width, height: MAP.height, minLon: MAP.minx, maxLat: MAP.maxy, scale: MAP.scale, padLeft: MAP.padl, padTop: MAP.padt, svg: '/brand/indonesia-land.svg' }),
+    { name: 'lat', type: 'number', required: true, min: -11, max: 6, admin: { hidden: true } },
+    { name: 'lng', type: 'number', required: true, min: 95, max: 141, admin: { hidden: true } },
     order,
     seedKey,
   ],

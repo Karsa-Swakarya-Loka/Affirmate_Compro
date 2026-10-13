@@ -1,6 +1,6 @@
 import type { GlobalConfig } from 'payload'
 import { globalAccess } from '../lib/access.ts'
-import { richText, text } from '../lib/fields.ts'
+import { richText, row, text } from '../lib/fields.ts'
 import { previewUrl } from '../lib/admin-preview.ts'
 
 export const Legal: GlobalConfig = {
@@ -8,10 +8,10 @@ export const Legal: GlobalConfig = {
   label: 'Kebijakan privasi',
   access: globalAccess,
   versions: { drafts: true },
-  admin: { preview: previewUrl('privacy') },
+  admin: { group: 'Halaman', preview: previewUrl('privacy'), description: 'Isi halaman Kebijakan Privasi.' },
   fields: [
-    text('privacyTitle', true),
-    richText('privacyBody', true),
-    { name: 'updatedAt', type: 'date', admin: { date: { pickerAppearance: 'dayOnly' } } },
+    row(text('privacyTitle', true, 'Judul halaman', { width: '65%' }),
+      { name: 'updatedAt', type: 'date', label: 'Terakhir diperbarui', admin: { width: '35%', date: { pickerAppearance: 'dayOnly' } } }),
+    richText('privacyBody', true, 'Isi kebijakan'),
   ],
 }

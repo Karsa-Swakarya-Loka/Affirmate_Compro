@@ -3,12 +3,13 @@ import { adminField, adminOnly, isStaff } from '../lib/access.ts'
 
 export const Users: CollectionConfig = {
   slug: 'users',
-  labels: { singular: 'Pengguna', plural: 'Pengguna' },
+  labels: { singular: 'Pengguna CMS', plural: 'Pengguna CMS' },
   auth: true,
-  admin: { useAsTitle: 'email', defaultColumns: ['email', 'role'] },
+  admin: { group: 'Pengaturan', useAsTitle: 'email', defaultColumns: ['email', 'role'], description: 'Akun yang bisa masuk ke CMS.' },
   access: { admin: ({ req }) => isStaff(req.user), create: adminOnly, read: adminOnly, update: adminOnly, delete: adminOnly },
   fields: [
-    { name: 'role', type: 'select', options: ['admin', 'editor'], required: true, defaultValue: 'editor',
+    { name: 'role', type: 'select', label: 'Peran', options: [{ label: 'Admin (semua akses)', value: 'admin' }, { label: 'Editor (ubah konten)', value: 'editor' }], required: true, defaultValue: 'editor',
+      admin: { description: 'Editor bisa mengubah konten; hanya admin yang bisa mengubah pengaturan situs dan pengguna.' },
       access: { create: adminField, update: adminField }, saveToJWT: true },
   ],
   hooks: {

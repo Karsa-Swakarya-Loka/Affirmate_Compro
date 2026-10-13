@@ -50,3 +50,33 @@ input:focus, textarea:focus, select:focus, .rich-text-lexical .editor:focus-with
 .template-minimal__wrap { padding: 40px; border-radius: var(--radius-lg) var(--radius-lg) var(--radius-lg) var(--radius-leaf); background: var(--surface-raised);
   box-shadow: 0 24px 48px color-mix(in srgb, var(--green-darker) 30%, transparent); }
 .login__brand { margin-bottom: 28px; }
+
+/* ---------- Editing comfort ---------- */
+/* Cards and form panels stay light on the cream page. */
+.card, .collapsible, .array-field__row, .tabs-field__tabs-wrap { background: var(--surface-raised); }
+.tabs-field__tab-button--active { color: var(--brand-text); box-shadow: inset 0 -3px 0 var(--green); }
+.field-description, .cms-help { color: var(--ink-muted); font-size: 13px; line-height: 18px; }
+
+/* Ticks instead of true/false in lists. */
+.cms-check { display: inline-grid; place-items: center; width: 20px; height: 20px; border-radius: 6px; border: 1.5px solid var(--line-strong); color: #fff; vertical-align: middle; }
+.cms-check--on { background: var(--green); border-color: var(--green); }
+
+/* Folded list rows show their content. */
+.cms-rowlabel { display: inline-flex; align-items: center; gap: 10px; font-weight: 600; color: var(--ink); }
+.cms-rowlabel b { font-size: 11px; font-weight: 700; color: var(--brand-text); }
+
+/* City map picker. */
+.cms-mappick { display: grid; gap: 10px; margin: 6px 0 4px; padding: 14px; border: 1px solid var(--line); border-radius: var(--radius-md) var(--radius-md) var(--radius-md) var(--radius-leaf); background: var(--surface-raised); }
+.cms-mappick__head { display: grid; gap: 2px; }
+.cms-mappick__title { font-weight: 600; color: var(--ink); }
+.cms-mappick__hint { font-size: 13px; color: var(--ink-muted); }
+.cms-mappick__search { display: flex; flex-wrap: wrap; gap: 8px; align-items: center; }
+.cms-mappick__search input { flex: 1 1 220px; min-height: 38px; padding: 8px 12px; border: 1px solid var(--color-base-200); border-radius: var(--style-radius-s); font: inherit; background: var(--surface-raised); }
+.cms-mappick__reset { min-height: 38px; padding: 0 14px; border: 1px solid var(--green); border-radius: var(--radius-pill); background: transparent; color: var(--brand-text); font: inherit; font-weight: 600; cursor: pointer; }
+.cms-mappick__map { position: relative; width: 100%; max-width: 720px; border-radius: var(--style-radius-m); background: var(--brand-tint); overflow: hidden; }
+.cms-mappick__land { position: absolute; inset: 0; background: #8fb98a; -webkit-mask-size: 100% 100%; mask-size: 100% 100%; -webkit-mask-repeat: no-repeat; mask-repeat: no-repeat; }
+.cms-mappick__map svg { position: absolute; inset: 0; width: 100%; height: 100%; cursor: crosshair; }
+.cms-mappick__dot { fill: var(--green-darker); stroke: #fff; stroke-width: 3; }
+.cms-mappick__halo { fill: var(--green-darker); opacity: 0.22; }
+.cms-mappick__status { margin: 0; font-size: 13px; color: var(--brand-text); }
+.cms-mappick__status--empty { color: var(--danger); }
