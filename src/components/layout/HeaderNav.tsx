@@ -1,14 +1,17 @@
 'use client'
 // Anchor navigation (desktop row ≥1200px, mobile panel below). The panel locks page scroll while open,
 // Escape closes it, and the current section is marked from the hash after navigation.
+// The panel is portalled to <body>: the header's backdrop-filter would otherwise become the containing block
+// of a position:fixed child and clip the panel to the header's 64px.
 import Link from 'next/link'
-import { useEffect, useId, useRef, useState, useSyncExternalStore, type ReactNode } from 'react'
+import { useEffect, useId, useRef, useState, useSyncExternalStore } from 'react'
+import { createPortal } from 'react-dom'
 import { Icon } from '@/components/ui/Icon'
 import { LanguageToggle } from './LanguageToggle'
 
 export type NavItem = { label: string; href: string }
 type Labels = { openMenu: string; closeMenu: string; language: string }
-type Props = { items: NavItem[]; cta: { label: string; href: string }; labels: Labels; brand: ReactNode }
+type Props = { items: NavItem[]; cta: { label: string; href: string }; labels: Labels }
 
 function subscribeHash(cb: () => void) {
   window.addEventListener('hashchange', cb)
@@ -16,7 +19,7 @@ function subscribeHash(cb: () => void) {
   return () => { window.removeEventListener('hashchange', cb); window.removeEventListener('popstate', cb) }
 }
 
-export function HeaderNav({ items, cta, labels, brand }: Props) {
+export function HeaderNav({ items, cta, labels }: Props) {
   const [open, setOpen] = useState(false)
   const burgerRef = useRef<HTMLButtonElement>(null)
   const uid = useId()
@@ -49,8 +52,12 @@ export function HeaderNav({ items, cta, labels, brand }: Props) {
     const prev = document.body.style.overflow
     document.body.style.overflow = 'hidden'
     const onKey = (e: KeyboardEvent) => { if (e.key === 'Escape') { setOpen(false); burgerRef.current?.focus() } }
+    // Rotating a tablet past the desktop breakpoint hides the panel; close it so the scroll lock goes too.
+    const desktop = window.matchMedia('(min-width: 1200px)')
+    const onDesktop = () => { if (desktop.matches) setOpen(false) }
     document.addEventListener('keydown', onKey)
-    return () => { document.body.style.overflow = prev; document.removeEventListener('keydown', onKey) }
+    desktop.addEventListener('change', onDesktop)
+    return () => { document.body.style.overflow = prev; document.removeEventListener('keydown', onKey); desktop.removeEventListener('change', onDesktop) }
   }, [open])
 
   const isCurrent = (href: string) => href.includes('#') && href.split('#')[1] === current
@@ -68,11 +75,14 @@ export function HeaderNav({ items, cta, labels, brand }: Props) {
           <Icon name={open ? 'x' : 'list'} size={22} />
         </button>
       </div>
-      <div id={`${uid}-panel`} className="af-mobile" hidden={!open}>
-        <div className="af-mobile__brand">{brand}</div>
-        <nav className="af-mobile__nav" aria-label="Main">{links}</nav>
-        <Link className="af-btn af-btn--primary" href={cta.href} onClick={() => setOpen(false)}>{cta.label}</Link>
-      </div>
+      {/* Only rendered while open, so server and first client render agree and document is always defined. */}
+      {open ? createPortal(
+        <div id={`${uid}-panel`} className="af-mobile">
+          <nav className="af-mobile__nav" aria-label="Main">{links}</nav>
+          <Link className="af-btn af-btn--primary af-mobile__cta" href={cta.href} onClick={() => setOpen(false)}>{cta.label}</Link>
+        </div>,
+        document.body,
+      ) : null}
     </>
   )
 }

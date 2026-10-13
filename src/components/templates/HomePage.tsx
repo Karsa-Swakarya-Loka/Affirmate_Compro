@@ -4,7 +4,7 @@ import type { Locale } from '@/i18n/config'
 import { href, type SectionId } from '@/i18n/routes'
 import { asMedia, getCities, getClients, getGroupEntities, getHome, getLatestPosts, getMilestones, getServices, getSite, getUi } from '@/lib/cms'
 import { pageMetadata } from '@/lib/seo'
-import { SiteShell } from '@/components/layout/SiteShell'
+import { SiteShell, sectionVisibility } from '@/components/layout/SiteShell'
 import { Reveal } from '@/components/motion/Reveal'
 import { JsonLd, organizationLd, servicesLd } from '@/components/seo/JsonLd'
 import { Hero } from '@/components/sections/Hero'
@@ -28,13 +28,8 @@ export async function HomePage({ locale }: { locale: Locale }) {
   const [site, ui, home, services, entities, milestones, clients, cities, posts] = await Promise.all([
     getSite(locale), getUi(locale), getHome(locale), getServices(locale), getGroupEntities(locale), getMilestones(locale), getClients(locale), getCities(), getLatestPosts(locale),
   ])
-  const v = (home.sectionsVisible ?? {}) as Record<string, boolean | null | undefined>
-  const on = (id: string) => v[id] !== false
-  const show: Record<SectionId, boolean> = {
-    about: on('about'), why: on('why') && Boolean(home.why?.title), group: on('group') && entities.length > 0, services: on('services') && services.length > 0,
-    journey: on('journey') && milestones.length > 0, clients: on('clients') && clients.length > 0, network: on('network') && cities.length > 0,
-    office: on('office') && Boolean(home.office?.title), insights: on('insights') && posts.length > 0, contact: on('contact'),
-  }
+  const show = await sectionVisibility(locale)
+  const on = (id: string) => (home.sectionsVisible as Record<string, boolean | null | undefined> | undefined)?.[id] !== false
   const sections = (Object.keys(show) as SectionId[]).filter(k => show[k])
   const aboutLabels = { vision: locale === 'id' ? 'Visi Kami' : 'Our Vision', mission: locale === 'id' ? 'Misi Kami' : 'Our Mission' }
   return (

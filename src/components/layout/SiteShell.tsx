@@ -3,17 +3,30 @@ import type { ReactNode } from 'react'
 import { draftMode } from 'next/headers'
 import type { Locale } from '@/i18n/config'
 import { sectionIds, type SectionId } from '@/i18n/routes'
-import { getHome, getLegal, getSite, getUi } from '@/lib/cms'
+import { getCities, getClients, getGroupEntities, getHome, getLatestPosts, getLegal, getMilestones, getServices, getSite, getUi } from '@/lib/cms'
 import { whatsappHref } from '@/lib/whatsapp'
 import { Icon } from '@/components/ui/Icon'
 import { Header } from './Header'
 import { Footer } from './Footer'
 
-/** Sections that exist for navigation: hidden sections (CMS toggle or empty collections) drop out of the menus too. */
+/** Which home sections render: off when their CMS toggle is off or their collection is empty. Shared by the home page
+ * and every other page's menus, so no menu links to a section the home page doesn't show. Reads are request-cached. */
+export async function sectionVisibility(locale: Locale): Promise<Record<SectionId, boolean>> {
+  const [home, services, entities, milestones, clients, cities, posts] = await Promise.all([
+    getHome(locale), getServices(locale), getGroupEntities(locale), getMilestones(locale), getClients(locale), getCities(), getLatestPosts(locale),
+  ])
+  const v = (home.sectionsVisible ?? {}) as Record<string, boolean | null | undefined>
+  const on = (id: string) => v[id] !== false
+  return {
+    about: on('about'), why: on('why') && Boolean(home.why?.title), group: on('group') && entities.length > 0, services: on('services') && services.length > 0,
+    journey: on('journey') && milestones.length > 0, clients: on('clients') && clients.length > 0, network: on('network') && cities.length > 0,
+    office: on('office') && Boolean(home.office?.title), insights: on('insights') && posts.length > 0, contact: on('contact'),
+  }
+}
+
 export async function visibleSections(locale: Locale): Promise<SectionId[]> {
-  const home = await getHome(locale)
-  const v = home.sectionsVisible ?? {}
-  return sectionIds.filter(id => (v as Record<string, boolean | null | undefined>)[id] !== false)
+  const show = await sectionVisibility(locale)
+  return sectionIds.filter(id => show[id])
 }
 
 export async function SiteShell({ locale, children, sections }: { locale: Locale; children: ReactNode; sections?: SectionId[] }) {
