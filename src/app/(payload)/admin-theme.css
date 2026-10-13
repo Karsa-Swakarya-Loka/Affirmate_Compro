@@ -1,0 +1,52 @@
+/* CMS (Payload admin) in the Affirmate design: the site's tokens, Poppins, warm cream neutrals, green primary actions,
+   the leaf-cornered shapes and the green brand gradient on the login screen. Light theme only, like the public site.
+   Payload's own styles live in @layer, so these unlayered rules win without !important. */
+@import '../../styles/tokens.css';
+
+:root {
+  /* Warm cream/green-grey neutral scale (ink #1d2a21 → white) replacing Payload's cool greys. */
+  --color-base-0: #ffffff; --color-base-50: #fbfaf6; --color-base-100: #f4f2ec; --color-base-150: #eae7dd; --color-base-200: #dad6c9;
+  --color-base-250: #cbc7b9; --color-base-300: #b8b6a8; --color-base-350: #a3a596; --color-base-400: #8e9486; --color-base-450: #7c8579;
+  --color-base-500: #6b766d; --color-base-550: #5f6b61; --color-base-600: #525d54; --color-base-650: #455048; --color-base-700: #39443c;
+  --color-base-750: #2e3931; --color-base-800: #1d2a21; --color-base-850: #16211a; --color-base-900: #101912; --color-base-950: #09100b; --color-base-1000: #000000;
+  --style-radius-s: 8px; --style-radius-m: 14px; --style-radius-l: 28px;
+}
+html[data-theme] { --theme-bg: var(--surface-raised); --theme-input-bg: var(--surface-raised); }
+body { font-family: var(--font-body); }
+::selection { background: var(--brand-tint); color: var(--green-darker); }
+:focus-visible { outline-color: var(--green); }
+
+/* Actions: primary = green (hover deeper), pill like the site's buttons. */
+.btn--style-primary { --bg-color: var(--green); --hover-bg: var(--green-deep); --color: var(--on-brand); --hover-color: var(--on-brand); }
+.btn--style-primary.btn--disabled { --bg-color: var(--color-base-200); --color: var(--color-base-500); --hover-bg: var(--bg-color); }
+.btn--style-secondary, .btn--style-pill { --hover-bg: var(--brand-tint); }
+.btn--style-primary, .btn--style-secondary { border-radius: var(--radius-pill); }
+
+/* Navigation: cream panel, green active item with a green bar. */
+.nav { background: var(--surface-soft); border-right: 1px solid var(--line); }
+.nav__link { color: var(--ink); }
+.nav__link:hover, .nav__link.active { color: var(--brand-text); }
+.nav__link-indicator { background: var(--green); width: 3px; }
+.nav-group__toggle, .nav__label { font-size: 12px; font-weight: 600; letter-spacing: 0.08em; text-transform: uppercase; color: var(--brand-text); }
+.nav__header { border-bottom: 1px solid var(--line); }
+
+/* Fields: green focus ring like the site's forms. */
+input:focus, textarea:focus, select:focus, .rich-text-lexical .editor:focus-within, .react-select .rs__control--is-focused {
+  border-color: var(--green) !important; box-shadow: 0 0 0 3px color-mix(in srgb, var(--green) 18%, transparent) !important; }
+
+/* Dashboard cards: the site's leaf corners (three round, one tight), green edge on hover. */
+.card { border-radius: var(--radius-md) var(--radius-md) var(--radius-md) var(--radius-leaf); box-shadow: inset 0 0 0 1px var(--line); transition: box-shadow 160ms ease; }
+.card--has-onclick:hover { box-shadow: inset 0 0 0 1px var(--green), 0 8px 20px color-mix(in srgb, var(--ink) 8%, transparent); }
+.collections__label { font-size: 12px; font-weight: 600; letter-spacing: 0.1em; text-transform: uppercase; color: var(--brand-text); }
+
+.doc-header__title, .list-header h1, .dashboard h1, .step-nav__last { font-weight: 700; }
+
+/* Login: the green brand gradient with a soft leaf shape, form on a cream leaf-cornered card with the logo. */
+.template-minimal { position: relative; isolation: isolate; background: var(--gradient-brand); overflow: hidden; }
+.template-minimal::before { content: ""; position: absolute; z-index: -1; width: 620px; height: 620px; right: -160px; top: -200px; border-radius: 0 50% 0 50%;
+  background: color-mix(in srgb, var(--on-brand) 8%, transparent); }
+.template-minimal::after { content: ""; position: absolute; z-index: -1; width: 380px; height: 380px; left: -120px; bottom: -140px; border-radius: 50% 0 50% 0;
+  background: color-mix(in srgb, var(--on-brand) 6%, transparent); }
+.template-minimal__wrap { padding: 40px; border-radius: var(--radius-lg) var(--radius-lg) var(--radius-lg) var(--radius-leaf); background: var(--surface-raised);
+  box-shadow: 0 24px 48px color-mix(in srgb, var(--green-darker) 30%, transparent); }
+.login__brand { margin-bottom: 28px; }

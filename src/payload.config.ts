@@ -36,7 +36,17 @@ const storage = blobToken ? [vercelBlobStorage({ collections: { media: true }, t
 export default buildConfig({
   serverURL,
   secret,
-  admin: { user: Users.slug, importMap: { baseDir: dirname }, meta: { titleSuffix: ' | Affirmate Administrative' } },
+  admin: {
+    user: Users.slug,
+    importMap: { baseDir: dirname },
+    // The CMS follows the public site's design: light theme, brand logo/icon, favicon (see app/(payload)/admin-theme.css).
+    theme: 'light',
+    components: { graphics: { Logo: '/components/admin/AdminBrand#AdminLogo', Icon: '/components/admin/AdminBrand#AdminIcon' } },
+    meta: {
+      titleSuffix: ' | Affirmate Administrative',
+      icons: [{ rel: 'icon', type: 'image/svg+xml', url: '/brand/favicon.svg' }, { rel: 'apple-touch-icon', url: '/brand/apple-touch-icon.png' }],
+    },
+  },
   // Admin UI in Indonesian for the client's team; content itself is EN (default) + ID.
   i18n: { supportedLanguages: { id, en }, fallbackLanguage: 'id' },
   localization,
