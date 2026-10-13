@@ -1,0 +1,246 @@
+{
+  "nav": {
+    "about": {
+      "en": "About",
+      "id": "Tentang"
+    },
+    "why": {
+      "en": "Why Us",
+      "id": "Keunggulan"
+    },
+    "group": {
+      "en": "Group",
+      "id": "Grup"
+    },
+    "services": {
+      "en": "Services",
+      "id": "Layanan"
+    },
+    "journey": {
+      "en": "Journey",
+      "id": "Perjalanan"
+    },
+    "clients": {
+      "en": "Clients",
+      "id": "Klien"
+    },
+    "network": {
+      "en": "Network",
+      "id": "Jaringan"
+    },
+    "insights": {
+      "en": "Insights",
+      "id": "Wawasan"
+    },
+    "contact": {
+      "en": "Contact",
+      "id": "Kontak"
+    },
+    "office": {
+      "en": "Office",
+      "id": "Kantor"
+    }
+  },
+  "cta": {
+    "contact": {
+      "en": "Contact Us",
+      "id": "Hubungi Kami"
+    },
+    "services": {
+      "en": "Our Services",
+      "id": "Layanan Kami"
+    },
+    "whatsapp": {
+      "en": "Chat on WhatsApp",
+      "id": "Chat via WhatsApp"
+    },
+    "readMore": {
+      "en": "Read more",
+      "id": "Baca selengkapnya"
+    },
+    "allInsights": {
+      "en": "All insights",
+      "id": "Semua wawasan"
+    },
+    "openMaps": {
+      "en": "Open in Google Maps",
+      "id": "Buka di Google Maps"
+    },
+    "visitGroup": {
+      "en": "Visit Affirmate Group",
+      "id": "Kunjungi Affirmate Group"
+    }
+  },
+  "form": {
+    "name": {
+      "en": "Full name",
+      "id": "Nama lengkap"
+    },
+    "company": {
+      "en": "Company",
+      "id": "Perusahaan"
+    },
+    "email": {
+      "en": "Email",
+      "id": "Email"
+    },
+    "phone": {
+      "en": "Phone / WhatsApp",
+      "id": "Telepon / WhatsApp"
+    },
+    "country": {
+      "en": "Country of origin",
+      "id": "Negara asal"
+    },
+    "services": {
+      "en": "Services you need",
+      "id": "Layanan yang dibutuhkan"
+    },
+    "message": {
+      "en": "Message",
+      "id": "Pesan"
+    },
+    "submit": {
+      "en": "Send inquiry",
+      "id": "Kirim permintaan"
+    },
+    "sending": {
+      "en": "Sending…",
+      "id": "Mengirim…"
+    },
+    "success": {
+      "en": "Thank you. Our team will contact you shortly.",
+      "id": "Terima kasih. Tim kami akan segera menghubungi Anda."
+    },
+    "error": {
+      "en": "Something went wrong. Please try again or email us.",
+      "id": "Terjadi kesalahan. Coba lagi atau kirim email kepada kami."
+    },
+    "required": {
+      "en": "This field is required",
+      "id": "Wajib diisi"
+    },
+    "consentRequired": {
+      "en": "Please accept the consent",
+      "id": "Mohon setujui persetujuan data"
+    },
+    "rateLimited": {
+      "en": "Too many submissions. Please try again in a few minutes.",
+      "id": "Terlalu banyak kiriman. Coba lagi beberapa menit lagi."
+    },
+    "invalid": {
+      "en": "Please check this value",
+      "id": "Periksa kembali isian ini"
+    }
+  },
+  "sections": {
+    "youAreHere": {
+      "en": "This website",
+      "id": "Website ini"
+    },
+    "memberOf": {
+      "en": "A dedicated unit of Affirmate Group",
+      "id": "Unit khusus Affirmate Group"
+    },
+    "headOffice": {
+      "en": "Head Office",
+      "id": "Kantor Pusat"
+    },
+    "phone": {
+      "en": "Phone",
+      "id": "Telepon"
+    },
+    "email": {
+      "en": "Email",
+      "id": "Email"
+    },
+    "address": {
+      "en": "Address",
+      "id": "Alamat"
+    },
+    "latestInsights": {
+      "en": "Latest insights",
+      "id": "Wawasan terbaru"
+    },
+    "relatedPosts": {
+      "en": "Related articles",
+      "id": "Artikel terkait"
+    },
+    "categoryAll": {
+      "en": "All",
+      "id": "Semua"
+    },
+    "categoryRegulatoryUpdate": {
+      "en": "Regulatory update",
+      "id": "Pembaruan regulasi"
+    },
+    "categoryGuide": {
+      "en": "Guide",
+      "id": "Panduan"
+    },
+    "categoryCompanyNews": {
+      "en": "Company news",
+      "id": "Berita perusahaan"
+    }
+  },
+  "footer": {
+    "rights": {
+      "en": "All rights reserved.",
+      "id": "Hak cipta dilindungi."
+    },
+    "privacy": {
+      "en": "Privacy Policy",
+      "id": "Kebijakan Privasi"
+    },
+    "mapCredit": {
+      "en": "Map data © OpenStreetMap contributors, geoBoundaries",
+      "id": "Data peta © kontributor OpenStreetMap, geoBoundaries"
+    }
+  },
+  "lang": {
+    "label": {
+      "en": "English",
+      "id": "Bahasa Indonesia"
+    },
+    "switchTo": {
+      "en": "Bahasa Indonesia",
+      "id": "English"
+    }
+  },
+  "notFound": {
+    "title": {
+      "en": "Page not found",
+      "id": "Halaman tidak ditemukan"
+    },
+    "text": {
+      "en": "The page you are looking for does not exist.",
+      "id": "Halaman yang Anda cari tidak ada."
+    },
+    "home": {
+      "en": "Back to home",
+      "id": "Kembali ke beranda"
+    }
+  },
+  "a11y": {
+    "skipToContent": {
+      "en": "Skip to content",
+      "id": "Lompat ke konten"
+    },
+    "openMenu": {
+      "en": "Open menu",
+      "id": "Buka menu"
+    },
+    "closeMenu": {
+      "en": "Close menu",
+      "id": "Tutup menu"
+    },
+    "previewOn": {
+      "en": "Draft preview is on",
+      "id": "Mode pratinjau draf aktif"
+    },
+    "previewExit": {
+      "en": "Exit preview",
+      "id": "Keluar pratinjau"
+    }
+  }
+}

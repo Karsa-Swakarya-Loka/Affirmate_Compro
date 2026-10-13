@@ -1,0 +1,15 @@
+[
+  { "_source": "Compro Rev 3 hal. 9 (13 kota). Koordinat: pusat kota, data publik, dibulatkan 2 desimal.", "name": "Medan", "lat": 3.59, "lng": 98.67, "order": 1 },
+  { "name": "Padang", "lat": -0.95, "lng": 100.35, "order": 2 },
+  { "name": "Pekanbaru", "lat": 0.51, "lng": 101.45, "order": 3 },
+  { "name": "Batam", "lat": 1.05, "lng": 104.03, "order": 4 },
+  { "name": "Palembang", "lat": -2.99, "lng": 104.76, "order": 5 },
+  { "name": "Lampung", "lat": -5.43, "lng": 105.26, "order": 6 },
+  { "name": "Jakarta", "lat": -6.21, "lng": 106.85, "order": 7 },
+  { "name": "Bandung", "lat": -6.91, "lng": 107.61, "order": 8 },
+  { "name": "Semarang", "lat": -6.97, "lng": 110.42, "order": 9 },
+  { "name": "Yogyakarta", "lat": -7.80, "lng": 110.36, "order": 10 },
+  { "name": "Balikpapan", "lat": -1.27, "lng": 116.83, "order": 11 },
+  { "name": "Makassar", "lat": -5.15, "lng": 119.43, "order": 12 },
+  { "name": "Jayapura", "lat": -2.53, "lng": 140.72, "order": 13 }
+]

@@ -1,0 +1,5 @@
+[
+  { "_source": "Compro Rev 3 hal. 8. Status draft sampai file logo asli + izin tampil diterima (OPEN-QUESTIONS #8).", "name": "unicharm", "logo": "design/assets/Clients/unicharm.png", "url": "", "order": 1, "consent": false, "_status": "draft" },
+  { "name": "MUFG Finance and Leasing", "logo": "design/assets/Clients/mufg-finance-leasing.png", "url": "", "order": 2, "consent": false, "_status": "draft", "_note": "Di compro berupa logo MUFG + teks biasa 'Finance and Leasing'; kemungkinan PT BOT Finance Indonesia. Minta logo resmi." },
+  { "name": "Toda Corporation", "logo": "design/assets/Clients/toda-corporation.png", "url": "", "order": 3, "consent": false, "_status": "draft" }
+]

@@ -1,0 +1,15 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 200 200" role="img" aria-label="Affirmate cube mark (approximation for watermark use)">
+  <!-- Approximation of the Affirmate isometric cube monogram, for low-opacity watermark backgrounds only. Replace with the client's master SVG (OPEN-QUESTIONS #6). -->
+  <g fill="none" stroke="#006838" stroke-width="13" stroke-linejoin="round" stroke-linecap="round">
+    <!-- outer hexagon -->
+    <path d="M100 12 L178 57 L178 143 L100 188 L22 143 L22 57 Z"/>
+    <!-- inner spiral stripes (left face) -->
+    <path d="M22 57 L100 102 L100 188"/>
+    <path d="M100 102 L178 57"/>
+    <path d="M48 84 L48 128 L100 158"/>
+    <path d="M74 100 L74 143"/>
+    <!-- right face stripes -->
+    <path d="M126 116 L126 160"/>
+    <path d="M152 101 L152 145"/>
+  </g>
+</svg>

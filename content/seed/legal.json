@@ -1,0 +1,21 @@
+{
+  "_source": "Teks privasi standar KaryaLo (OPEN-QUESTIONS #16). Ganti bila klien punya template grup.",
+  "privacyTitle": { "en": "Privacy Policy", "id": "Kebijakan Privasi" },
+  "privacyBody": {
+    "en": [
+      "PT Affirmate Tatakelola Nusantara (Affirmate Administrative) collects the information you submit through the contact form on this website: name, company, email, phone number, country of origin, the services you are interested in and your message.",
+      "We use this information only to respond to your inquiry and to follow up on the services you requested. It is stored in our website system and forwarded by email to our team. We do not sell or share it with third parties, except service providers that host this website or deliver email on our behalf.",
+      "This website does not use advertising cookies. Basic technical logs (IP address, browser type, time of access) may be kept for security and to prevent abuse of the form.",
+      "You may ask us to correct or delete your data at any time by emailing info@affirmate.co.id.",
+      "Map data on this site is provided by OpenStreetMap contributors and geoBoundaries under the Open Database License."
+    ],
+    "id": [
+      "PT Affirmate Tatakelola Nusantara (Affirmate Administrative) mengumpulkan informasi yang Anda kirim melalui formulir kontak di website ini: nama, perusahaan, email, nomor telepon, negara asal, layanan yang diminati, dan pesan Anda.",
+      "Informasi tersebut hanya digunakan untuk menanggapi permintaan Anda dan menindaklanjuti layanan yang Anda minta. Data disimpan di sistem website kami dan diteruskan lewat email ke tim kami. Kami tidak menjual atau membagikannya kepada pihak ketiga, kecuali penyedia layanan yang menghosting website ini atau mengirim email atas nama kami.",
+      "Website ini tidak memakai cookie iklan. Log teknis dasar (alamat IP, jenis browser, waktu akses) dapat disimpan untuk keamanan dan mencegah penyalahgunaan formulir.",
+      "Anda dapat meminta koreksi atau penghapusan data kapan saja melalui email ke info@affirmate.co.id.",
+      "Data peta di situs ini disediakan oleh kontributor OpenStreetMap dan geoBoundaries di bawah Open Database License."
+    ]
+  },
+  "updatedAt": "2026-10-12"
+}

@@ -1,0 +1,75 @@
+/* App-only styles on top of design/components.css: shell chrome, mobile menu, preview bar, icon sizing. */
+html { scroll-behavior: smooth; scroll-padding-top: 88px; }
+@media (prefers-reduced-motion: reduce) { html { scroll-behavior: auto; } }
+body { margin: 0; }
+main:focus { outline: none; }
+
+/* Phosphor icons (React) inside the circles and buttons */
+.af-ico svg { width: 26px; height: 26px; }
+.af-ico--sm svg { width: 20px; height: 20px; }
+.af-stat__icon svg { width: 30px; height: 30px; }
+.af-btn svg { width: 18px; height: 18px; }
+.af-hero__tile--arrow svg { width: 36px; height: 36px; }
+.af-entity li svg { width: 14px; height: 14px; transform: translateY(2px); flex: none; }
+.af-platform__pillar .af-ico svg { width: 22px; height: 22px; }
+
+/* Skip link */
+.af-skip { position: absolute; left: var(--space-4); top: -100px; z-index: 50; padding: var(--space-2) var(--space-4); background: var(--green-deep); color: var(--on-brand); border-radius: var(--radius-md) var(--radius-md) var(--radius-md) var(--radius-leaf); font-family: var(--font-display); font-weight: 600; text-decoration: none; }
+.af-skip:focus { top: var(--space-4); }
+
+/* Draft preview bar */
+.af-previewbar { position: sticky; top: 0; z-index: 30; display: flex; gap: var(--space-4); align-items: center; justify-content: center; padding: var(--space-2) var(--space-4); background: var(--ink); color: var(--on-brand); font-size: 14px; }
+.af-previewbar button { background: var(--on-brand); color: var(--ink); border: 0; border-radius: var(--radius-sm); padding: var(--space-1) var(--space-3); font: inherit; font-weight: 600; cursor: pointer; }
+
+/* Mobile menu panel */
+.af-mobile { position: fixed; inset: 0; z-index: 25; background: var(--surface); padding: var(--space-6) var(--gutter); display: grid; gap: var(--space-6); align-content: start; overflow-y: auto; }
+.af-mobile[hidden] { display: none; }
+.af-mobile__brand img { height: 36px; width: auto; }
+.af-mobile__nav { display: grid; gap: var(--space-1); }
+.af-mobile__nav a { padding: var(--space-3) 0; border-bottom: 1px solid var(--line); color: var(--ink); text-decoration: none; font-family: var(--font-display); font-weight: 600; font-size: 18px; }
+.af-mobile__nav a[aria-current="true"] { color: var(--brand-text); }
+.af-header { z-index: 26; }
+@media (min-width: 1200px) { .af-mobile { display: none !important; } }
+
+/* Photo wrappers rendered with next/image */
+.af-photo > img, .af-photo > span { width: 100%; height: 100%; }
+.af-hero__cover .af-photo img { height: 100%; }
+
+/* Service petals: equal rows on desktop */
+@media (min-width: 640px) { .af-petals { grid-auto-rows: 1fr; } }
+
+/* Prose for articles and privacy */
+.af-prose { max-width: 70ch; display: grid; gap: var(--space-4); font-size: 17px; line-height: 29px; }
+.af-prose h2 { font-size: 24px; line-height: 32px; margin-top: var(--space-6); }
+.af-prose h3 { font-size: 19px; line-height: 27px; margin-top: var(--space-4); }
+.af-prose ul, .af-prose ol { padding-left: var(--space-6); display: grid; gap: var(--space-2); }
+.af-prose a { color: var(--brand-text); }
+
+/* Pagination & filter chips (Insights) */
+.af-filter { display: flex; flex-wrap: wrap; gap: var(--space-2); margin-bottom: var(--space-8); }
+.af-filter a { padding: var(--space-1) var(--space-4); border-radius: var(--radius-sm) var(--radius-sm) var(--radius-sm) 2px; border: 1px solid var(--line); color: var(--ink); text-decoration: none; font-family: var(--font-display); font-size: 14px; font-weight: 500; }
+.af-filter a[aria-current="true"] { background: var(--green); color: var(--on-brand); border-color: var(--green); }
+.af-pagination { display: flex; gap: var(--space-2); justify-content: center; margin-top: var(--space-10); }
+.af-pagination a, .af-pagination span { min-width: 44px; min-height: 44px; display: inline-grid; place-items: center; border-radius: var(--radius-sm) var(--radius-sm) var(--radius-sm) 2px; border: 1px solid var(--line); text-decoration: none; color: var(--ink); font-family: var(--font-display); font-weight: 600; }
+.af-pagination [aria-current="page"] { background: var(--green); color: var(--on-brand); border-color: var(--green); }
+
+/* Page header for inner pages */
+.af-pagehead { padding-block: var(--space-10) var(--space-6); }
+.af-pagehead .af-breadcrumb { font-size: 14px; color: var(--ink-muted); margin-bottom: var(--space-4); }
+.af-pagehead .af-breadcrumb a { color: var(--brand-text); text-decoration: none; }
+
+/* Services side photo */
+.af-services__photo { aspect-ratio: 4 / 3; border-radius: var(--radius-xl) var(--radius-xl) var(--radius-xl) var(--radius-leaf); }
+.af-services__photo img { position: absolute; inset: 0; }
+.af-services__photo { position: relative; }
+
+/* Contact: success panel should not stretch to the info column height */
+.af-form[role="status"] { align-self: start; }
+
+/* Footer column headings keep h2 semantics with the small-caps look */
+.af-footer .af-footer__h { color: var(--on-brand); font-size: 13px; line-height: 16px; letter-spacing: 1.2px; text-transform: uppercase; margin-bottom: var(--space-3); font-weight: 700; }
+/* Links inside running text are underlined, not colour-only */
+.af-footer__bar a, .af-contact__row a, .af-prose a, .af-office__phones a { text-decoration: underline; text-underline-offset: 3px; text-decoration-color: color-mix(in srgb, currentColor 55%, transparent); }
+
+/* Group section: leave room for the hover zoom so scaled cards never clip */
+#group .af-container { padding-block: var(--space-2); }

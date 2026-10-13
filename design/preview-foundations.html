@@ -1,0 +1,46 @@
+<!doctype html>
+<html lang="en" data-theme="light">
+<head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1"><title>Affirmate Administrative - Foundations</title>
+<link rel="stylesheet" href="tokens.css"><link rel="stylesheet" href="components.css">
+<style>body{margin:0;padding:32px} .sw{display:grid;grid-template-columns:repeat(auto-fill,minmax(150px,1fr));gap:12px} .sw div{border-radius:10px;padding:14px;font-size:12px;line-height:16px;border:1px solid var(--line)} .row{display:flex;flex-wrap:wrap;gap:12px;align-items:center;margin:12px 0} h2.sec{margin:40px 0 12px;font-size:14px;letter-spacing:1.6px;text-transform:uppercase;color:var(--brand-text)} .type > *{margin:6px 0}</style></head>
+<body class="af">
+<h1 class="af-h1">Foundations</h1>
+<h2 class="sec">Colors (one accent family: green; shape rule: pill buttons, 18-28px cards, 10px inputs)</h2>
+<div class="sw">
+  <div style="background:var(--green-deep);color:#fff">green-deep<br>#006636</div>
+  <div style="background:var(--green);color:#fff">green<br>#0c9042</div>
+  <div style="background:var(--green-hover);color:#fff">green-hover</div>
+  <div style="background:var(--green-darker);color:#fff">green-darker</div>
+  <div style="background:var(--gradient-brand);color:#fff">gradient-brand</div>
+  <div style="background:var(--brand-tint);color:var(--green-deep)">brand-tint</div>
+  <div style="background:var(--surface-soft)">surface-soft</div>
+  <div style="background:var(--surface)">surface</div>
+  <div style="background:var(--ink);color:#fff">ink</div>
+  <div style="background:var(--ink-muted);color:#fff">ink-muted</div>
+  <div style="background:var(--line)">line</div>
+  <div style="background:var(--line-strong);color:#fff">line-strong</div>
+  <div style="background:var(--whatsapp);color:#fff">whatsapp</div>
+  <div style="background:var(--danger);color:#fff">danger</div>
+  <div style="background:var(--success);color:#fff">success</div>
+</div>
+<h2 class="sec">Typography (Poppins)</h2>
+<div class="type">
+  <p class="af-hero__title">Display XL: Corporate and administrative support in <em>Indonesia</em></p>
+  <p class="af-h1">Heading 1: Who We Are</p>
+  <p class="af-h2">Heading 2: Trusted by leading companies</p>
+  <p class="af-h3">Heading 3: Expatriate Formalities Services</p>
+  <p class="af-subtitle">Subtitle: Nationwide coverage, <em>global connections</em></p>
+  <p class="af-eyebrow">Eyebrow: End-to-End Business Solutions</p>
+  <p class="af-lead">Body LG (Light 300): Experienced professionals, digital technology, and a client-first approach.</p>
+  <p>Body: As a dedicated unit of Affirmate Group, Affirmate Administrative provides corporate and administrative support services.</p>
+  <p class="af-small">Small: Extensive network across Indonesia</p>
+  <p class="af-stat__value" style="color:var(--green-deep)">35+</p>
+</div>
+<h2 class="sec">Buttons (Phosphor icons)</h2>
+<div class="row"><a class="af-btn af-btn--primary" href="#">Contact Us <i class="ph ph-arrow-right"></i></a><a class="af-btn af-btn--deep" href="#">Deep</a><a class="af-btn af-btn--outline" href="#">Our Services</a><a class="af-btn af-btn--wa" href="#"><i class="ph ph-whatsapp-logo"></i> WhatsApp</a><a class="af-btn af-btn--primary af-btn--sm" href="#">Small</a><a class="af-btn" aria-disabled="true" href="#">Coming soon</a></div>
+<div class="row" style="background:var(--green-deep);padding:16px;border-radius:12px"><a class="af-btn af-btn--light" href="#">Light on deep</a><a class="af-btn af-btn--ghost-light" href="#">Ghost light</a><div class="af-lang"><button aria-pressed="true">EN</button><button aria-pressed="false">ID</button></div></div>
+<h2 class="sec">Icon circle, tags, chips, badge</h2>
+<div class="row"><span class="af-ico"><i class="ph ph-shield-check"></i></span><span class="af-ico af-ico--tint"><i class="ph ph-shield-check"></i></span><span class="af-ico af-ico--sm"><i class="ph ph-phone"></i></span><div class="af-tags"><span class="af-tag">KITAS (Stay Permit)</span><span class="af-tag">RPTKA</span></div><div class="af-chips" style="background:var(--green-deep);padding:8px;border-radius:12px;color:#fff"><span class="af-chip">Company incorporation</span><span class="af-chip">Licensing coordination</span></div></div>
+<h2 class="sec">Form states</h2>
+<div class="af-form" style="max-width:520px"><div class="af-field"><label for="a">Email</label><input id="a" placeholder="name@company.com"></div><div class="af-field af-field--error"><label for="b">Full name</label><input id="b" value=""><span class="af-field__msg af-field__msg--error"><i class="ph ph-warning-circle"></i> This field is required</span></div><div class="af-alert af-alert--success"><i class="ph ph-check-circle"></i> Thank you. Our team will contact you shortly.</div><div class="af-alert af-alert--error"><i class="ph ph-warning-circle"></i> Something went wrong. Please try again or email us.</div></div>
+</body></html>

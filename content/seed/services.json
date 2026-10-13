@@ -1,0 +1,70 @@
+[
+  {
+    "_source": "Compro Rev 3 hal. 5. Istilah izin dibiarkan sesuai compro (OPEN-QUESTIONS #5). Semua needsReview (OPEN-QUESTIONS #2).",
+    "slug": "conversant-expatriate",
+    "order": 1,
+    "icon": "user-check",
+    "title": { "en": "Conversant Expatriate", "id": "Conversant Expatriate" },
+    "summary": {
+      "en": "Our expatriate hosting services use the latest digital technology that provides added value to clients in fulfilling expatriate needs, so clients can stay focused on improving and maintaining their performance and competitive advantage.",
+      "id": "Layanan expatriate hosting kami memakai teknologi digital terkini yang memberi nilai tambah dalam memenuhi kebutuhan ekspatriat, sehingga klien tetap fokus meningkatkan dan menjaga kinerja serta keunggulan kompetitifnya."
+    },
+    "items": [
+      { "en": "KITAS (Stay Permit)", "id": "KITAS (Izin Tinggal Terbatas)" },
+      { "en": "KITAP", "id": "KITAP" },
+      { "en": "Visa & Passport Services", "id": "Layanan Visa & Paspor" },
+      { "en": "All in One Solutions", "id": "All in One Solutions" },
+      { "en": "Senior KITAS", "id": "KITAS Lansia" },
+      { "en": "Senior Visa Services", "id": "Layanan Visa Lansia" }
+    ],
+    "needsReview": true
+  },
+  {
+    "slug": "expatriate-formalities-services",
+    "order": 2,
+    "icon": "identification-badge",
+    "title": { "en": "Expatriate Formalities Services", "id": "Expatriate Formalities Services" },
+    "summary": {
+      "en": "Based on a wide network all over Indonesia, we are here to serve clients in obtaining expatriate permits all over Indonesia.",
+      "id": "Dengan jaringan luas di seluruh Indonesia, kami siap melayani klien dalam pengurusan izin ekspatriat di seluruh Indonesia."
+    },
+    "items": [
+      { "en": "RPTKA (Position Licence)", "id": "RPTKA (Rencana Penggunaan Tenaga Kerja Asing)" },
+      { "en": "Notification IMTA", "id": "Notifikasi IMTA" },
+      { "en": "KITAS (Stay Permit)", "id": "KITAS (Izin Tinggal Terbatas)" },
+      { "en": "MERP", "id": "MERP" },
+      { "en": "SKTT", "id": "SKTT" },
+      { "en": "STM", "id": "STM" },
+      { "en": "KITAP", "id": "KITAP" },
+      { "en": "Sponsorship for Retirement Visa", "id": "Sponsor Visa Lansia (Retirement)" },
+      { "en": "KITAS Investor", "id": "KITAS Investor" },
+      { "en": "Indonesian Business Visa", "id": "Visa Bisnis Indonesia" },
+      { "en": "Indonesian Passport Formalities Documents", "id": "Dokumen Formalitas Paspor Indonesia" }
+    ],
+    "needsReview": true
+  },
+  {
+    "slug": "management-advisory",
+    "order": 3,
+    "icon": "briefcase",
+    "title": { "en": "Management Advisory", "id": "Management Advisory" },
+    "summary": {
+      "en": "Supporting organizations with strategic business advisory, organizational development, operational improvement, risk management, and compliance solutions to help clients achieve sustainable growth and business excellence.",
+      "id": "Mendukung organisasi melalui advisory bisnis strategis, pengembangan organisasi, perbaikan operasional, manajemen risiko, dan solusi kepatuhan untuk membantu klien mencapai pertumbuhan berkelanjutan dan keunggulan bisnis."
+    },
+    "items": [],
+    "needsReview": true
+  },
+  {
+    "slug": "broad-expatriate-hosting",
+    "order": 4,
+    "icon": "buildings",
+    "title": { "en": "Broad Expatriate Hosting", "id": "Broad Expatriate Hosting" },
+    "summary": {
+      "en": "We are a pioneer in the field of expatriate hosting services technology, therefore the process of fulfilling the needs of expatriates from clients all over Indonesia can be done much faster and well managed while still guided by the applicable laws in Indonesia.",
+      "id": "Kami pelopor di bidang teknologi layanan expatriate hosting, sehingga proses pemenuhan kebutuhan ekspatriat dari klien di seluruh Indonesia dapat dilakukan jauh lebih cepat dan terkelola dengan baik, tetap berpedoman pada hukum yang berlaku di Indonesia."
+    },
+    "items": [],
+    "needsReview": true
+  }
+]

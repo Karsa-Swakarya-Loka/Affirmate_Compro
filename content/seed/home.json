@@ -1,0 +1,415 @@
+{
+  "_source": "Compro Affirmate Rev 3 (2026). EN = teks compro (typo diperbaiki), ID = terjemahan KaryaLo (needsReview).",
+  "hero": {
+    "eyebrow": {
+      "en": "For companies and expatriates doing business in Indonesia",
+      "id": "Untuk perusahaan dan tenaga kerja asing yang berbisnis di Indonesia"
+    },
+    "_eyebrowNote": "Eyebrow hero = audiens (siapa). Diringkas dari compro hal. 3 (business operations in Indonesia) + visi (expatriate permit services). needsReview klien.",
+    "headline": {
+      "en": "Corporate and administrative support in Indonesia",
+      "id": "Dukungan korporat dan administrasi di Indonesia"
+    },
+    "highlight": {
+      "en": "Indonesia",
+      "id": "Indonesia"
+    },
+    "lead": {
+      "en": "A dedicated unit of Affirmate Group. More than a service, we deliver value and peace of mind.",
+      "id": "Unit khusus Affirmate Group. Lebih dari sekadar layanan, kami memberi nilai dan ketenangan."
+    },
+    "image": "design/assets/Photography/hero-lobby-signage.jpg",
+    "_note": "Hero dibatasi 4 elemen teks (eyebrow, headline ≤3 baris, lead ≤20 kata, 2 CTA). Paragraf grup dari cover compro dipakai di About dan footer, bukan hero.",
+    "primaryCta": {
+      "label": {
+        "en": "Contact Us",
+        "id": "Hubungi Kami"
+      },
+      "href": "#contact"
+    },
+    "secondaryCta": {
+      "label": {
+        "en": "Our Services",
+        "id": "Layanan Kami"
+      },
+      "href": "#services"
+    },
+    "_compro": "hal. 1 (lead), hal. 3 (headline, highlight)",
+    "coverLabel": {
+      "en": "Company Profile",
+      "id": "Profil Perusahaan"
+    }
+  },
+  "about": {
+    "eyebrow": {
+      "en": "About Us",
+      "id": "Tentang Kami"
+    },
+    "title": {
+      "en": "Who We Are",
+      "id": "Siapa Kami"
+    },
+    "subtitle": {
+      "en": "A locally executed cross-border platform for Indonesia and the world",
+      "id": "Platform lintas negara yang dieksekusi secara lokal untuk Indonesia dan dunia"
+    },
+    "body": {
+      "en": "Affirmate Group supports market entry, investment and business building in Indonesia as a cross-border platform. From investment advisory and business development to administrative services, real estate and culture, we cover the full spectrum going beyond advisory to local execution and principal investment, as your long-term partner on the ground.",
+      "id": "Affirmate Group mendukung masuk pasar, investasi, dan pembangunan bisnis di Indonesia sebagai platform lintas negara. Dari advisory investasi dan pengembangan bisnis hingga layanan administrasi, properti, dan budaya, kami mencakup spektrum penuh, melampaui advisory menuju eksekusi lokal dan investasi langsung, sebagai mitra jangka panjang Anda di lapangan."
+    },
+    "vision": {
+      "en": "Become a market leader in digital-based expatriate permit services and manpower supply management services in Indonesia.",
+      "id": "Menjadi pemimpin pasar layanan perizinan ekspatriat dan pengelolaan manpower supply berbasis digital di Indonesia."
+    },
+    "mission": [
+      {
+        "en": "Accommodating needs and providing the foremost services to clients",
+        "id": "Mengakomodasi kebutuhan dan memberikan layanan terbaik kepada klien"
+      },
+      {
+        "en": "Making the digital process the basis for creating added value for clients",
+        "id": "Menjadikan proses digital sebagai dasar penciptaan nilai tambah bagi klien"
+      },
+      {
+        "en": "Honest in partnering with clients and upholding integrity",
+        "id": "Jujur dalam bermitra dengan klien dan menjunjung integritas"
+      },
+      {
+        "en": "Providing the most adaptive and appropriate solutions in the service process of expatriate licensing and manpower supply management in accordance with clients' needs",
+        "id": "Memberikan solusi paling adaptif dan tepat dalam proses layanan perizinan ekspatriat dan pengelolaan manpower supply sesuai kebutuhan klien"
+      }
+    ],
+    "showVisionMission": true,
+    "stats": [
+      {
+        "value": "35+",
+        "label": {
+          "en": "Cities Covered",
+          "id": "Kota Terjangkau"
+        },
+        "sublabel": {
+          "en": "Extensive network across Indonesia",
+          "id": "Jaringan luas di seluruh Indonesia"
+        },
+        "icon": "globe"
+      },
+      {
+        "value": "7+",
+        "label": {
+          "en": "Years Experience",
+          "id": "Tahun Pengalaman"
+        },
+        "sublabel": {
+          "en": "Delivering excellence with integrity",
+          "id": "Memberikan keunggulan dengan integritas"
+        },
+        "icon": "trend-up"
+      }
+    ],
+    "_compro": "hal. 2. Vision/Mission = teks Apegale (OPEN-QUESTIONS #3). Baris misi ganda di compro dihapus.",
+    "needsReview": true,
+    "image": "design/assets/Photography/office-executive-room.jpg"
+  },
+  "why": {
+    "title": {
+      "en": "Why Affirmate",
+      "id": "Mengapa Affirmate"
+    },
+    "tagline": {
+      "en": "More than a service, we deliver value and peace of mind",
+      "id": "Lebih dari sekadar layanan, kami memberi nilai dan ketenangan"
+    },
+    "body": {
+      "en": "As a dedicated unit of Affirmate Group, Affirmate Administrative provides comprehensive corporate and administrative support services designed to streamline your business operations in Indonesia. Our expertise covers company incorporation, licensing coordination, visa and work permit arrangements, HR and payroll administration, as well as regulatory compliance. We also offer specialized relocation and back-office support to ensure a seamless experience for your business.",
+      "id": "Sebagai unit khusus Affirmate Group, Affirmate Administrative menyediakan layanan dukungan korporat dan administrasi menyeluruh untuk merampingkan operasional bisnis Anda di Indonesia. Keahlian kami mencakup pendirian perusahaan, koordinasi perizinan, pengurusan visa dan izin kerja, administrasi HR dan payroll, serta kepatuhan regulasi. Kami juga menyediakan dukungan relokasi dan back-office khusus agar bisnis Anda berjalan mulus."
+    },
+    "image": "design/assets/Photography/office-glass-meeting-rooms.jpg",
+    "pillars": [
+      {
+        "icon": "monitor",
+        "title": {
+          "en": "Digital Monitoring",
+          "id": "Pemantauan Digital"
+        },
+        "text": {
+          "en": "We utilize digital systems to monitor every process in real time. Clients can track progress anytime, anywhere for full transparency and control.",
+          "id": "Kami memakai sistem digital untuk memantau setiap proses secara real time. Klien dapat melacak progres kapan saja, di mana saja, dengan transparansi dan kendali penuh."
+        }
+      },
+      {
+        "icon": "timer",
+        "title": {
+          "en": "Fast Response",
+          "id": "Respons Cepat"
+        },
+        "text": {
+          "en": "Our team is ready to respond quickly and provide accurate solutions. We value your time and ensure every process moves forward efficiently.",
+          "id": "Tim kami siap merespons cepat dan memberikan solusi yang tepat. Kami menghargai waktu Anda dan memastikan setiap proses berjalan efisien."
+        }
+      },
+      {
+        "icon": "shield-check",
+        "title": {
+          "en": "Compliance Driven",
+          "id": "Berbasis Kepatuhan"
+        },
+        "text": {
+          "en": "We ensure all services are fully compliant with Indonesian regulations, minimizing risks and giving you confidence in every step.",
+          "id": "Kami memastikan seluruh layanan sepenuhnya patuh pada regulasi Indonesia, meminimalkan risiko dan memberi Anda keyakinan di setiap langkah."
+        }
+      },
+      {
+        "icon": "map-trifold",
+        "title": {
+          "en": "Nation Wide Service",
+          "id": "Layanan Nasional"
+        },
+        "text": {
+          "en": "With a strong network across Indonesia, we are able to support your business needs anywhere, anytime with consistent quality.",
+          "id": "Dengan jaringan kuat di seluruh Indonesia, kami mampu mendukung kebutuhan bisnis Anda di mana pun, kapan pun, dengan kualitas konsisten."
+        }
+      }
+    ],
+    "_compro": "hal. 3"
+  },
+  "group": {
+    "title": {
+      "en": "Affirmate Group",
+      "id": "Affirmate Group"
+    },
+    "body": {
+      "en": "Affirmate Group operates through a fully integrated business ecosystem, bringing together specialized companies under one strategic platform. Each business unit is designed to deliver focused expertise while working collaboratively to provide seamless, end-to-end solutions for investment, business expansion, and corporate operations.",
+      "id": "Affirmate Group beroperasi melalui ekosistem bisnis yang terintegrasi penuh, menyatukan perusahaan-perusahaan spesialis dalam satu platform strategis. Setiap unit bisnis dirancang untuk memberikan keahlian terfokus sekaligus bekerja sama menghadirkan solusi menyeluruh untuk investasi, ekspansi bisnis, dan operasional korporat."
+    },
+    "_compro": "hal. 4; entitas di group-entities.json"
+  },
+  "services": {
+    "eyebrow": {
+      "en": "",
+      "id": ""
+    },
+    "title": {
+      "en": "Our Services",
+      "id": "Layanan Kami"
+    },
+    "intro": {
+      "en": "We combine experienced professionals, digital technology, and a client-first approach to deliver solutions that are fast, accurate, compliant, and reliable.",
+      "id": "Kami memadukan profesional berpengalaman, teknologi digital, dan pendekatan yang mengutamakan klien untuk menghadirkan solusi yang cepat, akurat, patuh, dan andal."
+    },
+    "platformTitle": {
+      "en": "Administrative Platform",
+      "id": "Platform Administrasi"
+    },
+    "platformPillars": [
+      {
+        "title": {
+          "en": "Incorporation & Licensing",
+          "id": "Pendirian & Perizinan"
+        }
+      },
+      {
+        "title": {
+          "en": "Visa / Work Permit",
+          "id": "Visa / Izin Kerja"
+        }
+      },
+      {
+        "title": {
+          "en": "HR / Payroll / Corporate Secretary",
+          "id": "HR / Payroll / Sekretaris Korporat"
+        }
+      }
+    ],
+    "platformScope": [
+      {
+        "label": {
+          "en": "Company incorporation",
+          "id": "Pendirian perusahaan"
+        }
+      },
+      {
+        "label": {
+          "en": "Licensing coordination",
+          "id": "Koordinasi perizinan"
+        }
+      },
+      {
+        "label": {
+          "en": "Visa and work permit arrangements",
+          "id": "Pengurusan visa dan izin kerja"
+        }
+      },
+      {
+        "label": {
+          "en": "HR and payroll administration",
+          "id": "Administrasi HR dan payroll"
+        }
+      },
+      {
+        "label": {
+          "en": "Regulatory compliance",
+          "id": "Kepatuhan regulasi"
+        }
+      },
+      {
+        "label": {
+          "en": "Relocation support",
+          "id": "Dukungan relokasi"
+        }
+      },
+      {
+        "label": {
+          "en": "Back-office support",
+          "id": "Dukungan back-office"
+        }
+      }
+    ],
+    "_compro": "hal. 5 (intro, typo 'deliever'/'reliatble' diperbaiki), hal. 4 (pilar), hal. 3 (cakupan)",
+    "image": "design/assets/Photography/office-reception.jpg",
+    "subtitle": {
+      "en": "End-to-end, business solutions",
+      "id": "Menyeluruh, solusi bisnis"
+    }
+  },
+  "journey": {
+    "title": {
+      "en": "Corporate Journey",
+      "id": "Perjalanan Korporat"
+    },
+    "subtitle": {
+      "en": "Expanding Beyond Advisory into Principal Investment",
+      "id": "Berkembang dari Advisory menuju Investasi Langsung"
+    },
+    "body": {
+      "en": "Since its establishment, Affirmate Group has continuously evolved from a business advisory firm into an integrated business and investment platform. Every milestone reflects our commitment to creating long-term value through strategic partnerships and cross-border collaboration.",
+      "id": "Sejak berdiri, Affirmate Group terus berkembang dari firma advisory bisnis menjadi platform bisnis dan investasi terintegrasi. Setiap tonggak mencerminkan komitmen kami menciptakan nilai jangka panjang melalui kemitraan strategis dan kolaborasi lintas negara."
+    },
+    "image": "design/assets/Photography/office-corridor-portrait.jpg",
+    "_compro": "hal. 6; kalimat terakhir compro terpotong ('cross-border'), dilengkapi 'collaboration' (needsReview)",
+    "needsReview": true
+  },
+  "clients": {
+    "title": {
+      "en": "Our Client",
+      "id": "Klien Kami"
+    },
+    "subtitle": {
+      "en": "Trusted by Leading Companies",
+      "id": "Dipercaya Perusahaan Terkemuka"
+    },
+    "body": {
+      "en": "We are proud to work with national and multinational companies across various industries. Their trust and satisfaction drive us to deliver excellent service, every time.",
+      "id": "Kami bangga bekerja bersama perusahaan nasional dan multinasional di berbagai industri. Kepercayaan dan kepuasan mereka mendorong kami memberikan layanan terbaik, setiap saat."
+    },
+    "_compro": "hal. 8"
+  },
+  "network": {
+    "title": {
+      "en": "Our Network",
+      "id": "Jaringan Kami"
+    },
+    "subtitle": {
+      "en": "Nationwide Coverage, Global Connections",
+      "id": "Jangkauan Nasional, Koneksi Global"
+    },
+    "body": {
+      "en": "With a wide network across Indonesia and strategic partnerships worldwide, we are committed to delivering reliable and efficient solutions wherever our clients need us.",
+      "id": "Dengan jaringan luas di seluruh Indonesia dan kemitraan strategis di berbagai negara, kami berkomitmen menghadirkan solusi yang andal dan efisien di mana pun klien membutuhkan kami."
+    },
+    "pillars": [
+      {
+        "icon": "map-pin",
+        "title": {
+          "en": "National Reach",
+          "id": "Jangkauan Nasional"
+        },
+        "text": {
+          "en": "We operate in major cities across Indonesia to serve our clients with local expertise and fast response.",
+          "id": "Kami hadir di kota-kota besar Indonesia untuk melayani klien dengan keahlian lokal dan respons cepat."
+        }
+      },
+      {
+        "icon": "globe",
+        "title": {
+          "en": "Global Connections",
+          "id": "Koneksi Global"
+        },
+        "text": {
+          "en": "Through strategic partnerships, we provide seamless service support for your international needs.",
+          "id": "Melalui kemitraan strategis, kami memberikan dukungan layanan yang mulus untuk kebutuhan internasional Anda."
+        }
+      },
+      {
+        "icon": "handshake",
+        "title": {
+          "en": "Trusted Partners",
+          "id": "Mitra Tepercaya"
+        },
+        "text": {
+          "en": "We build long-term relationships with clients and partners based on trust, integrity, and professionalism.",
+          "id": "Kami membangun hubungan jangka panjang dengan klien dan mitra berdasarkan kepercayaan, integritas, dan profesionalisme."
+        }
+      },
+      {
+        "icon": "users-three",
+        "title": {
+          "en": "Client Focus",
+          "id": "Fokus pada Klien"
+        },
+        "text": {
+          "en": "Our network is designed around our clients, ensuring consistent service quality anywhere.",
+          "id": "Jaringan kami dirancang di sekitar klien, memastikan kualitas layanan yang konsisten di mana pun."
+        }
+      }
+    ],
+    "_compro": "hal. 9; kota di cities.json"
+  },
+  "office": {
+    "title": {
+      "en": "Office Location",
+      "id": "Lokasi Kantor"
+    },
+    "gallery": [
+      "design/assets/Photography/office-lounge-window.jpg",
+      "design/assets/Photography/office-pantry-bar.jpg",
+      "design/assets/Photography/office-lounge-artwall.jpg",
+      "design/assets/Photography/office-meeting-room-portrait.jpg",
+      "design/assets/Photography/office-glass-corridor.jpg"
+    ],
+    "_compro": "hal. 7",
+    "label": {
+      "en": "Head Office",
+      "id": "Kantor Pusat"
+    }
+  },
+  "contact": {
+    "title": {
+      "en": "Contact Us",
+      "id": "Hubungi Kami"
+    },
+    "text": {
+      "en": "Tell us about your plans in Indonesia and our team will get back to you shortly.",
+      "id": "Ceritakan rencana Anda di Indonesia dan tim kami akan segera menghubungi Anda."
+    },
+    "consentText": {
+      "en": "I agree that my data will be used to respond to this inquiry.",
+      "id": "Saya setuju data saya digunakan untuk menanggapi permintaan ini."
+    },
+    "_compro": "hal. 11 (kontak); teks ajakan dan consent ditulis KaryaLo (needsReview)",
+    "needsReview": true
+  },
+  "sectionsVisible": {
+    "about": true,
+    "visionMission": true,
+    "stats": true,
+    "why": true,
+    "group": true,
+    "services": true,
+    "journey": true,
+    "clients": true,
+    "network": true,
+    "office": true,
+    "insights": true,
+    "contact": true
+  }
+}

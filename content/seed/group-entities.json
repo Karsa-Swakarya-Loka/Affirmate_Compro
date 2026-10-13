@@ -1,0 +1,75 @@
+[
+  {
+    "_source": "Compro Rev 3 hal. 4; logo di design/assets/Logos (dari situs grup).",
+    "name": "PT Affirmate Bisnis Nusantara",
+    "brand": "Affirmate Business Advisory",
+    "category": { "en": "Business Advisory / Investment", "id": "Advisory Bisnis / Investasi" },
+    "summary": {
+      "en": "Investment & Business: M&A, strategic investment, financial modeling, valuation, negotiation and corporate governance support.",
+      "id": "Investasi & Bisnis: M&A, investasi strategis, pemodelan keuangan, valuasi, negosiasi, dan dukungan tata kelola korporat."
+    },
+    "bullets": [
+      { "en": "M&A Advisory", "id": "Advisory M&A" },
+      { "en": "Strategic Investment Matching", "id": "Pencocokan Investasi Strategis" },
+      { "en": "Business Development & Partner Search", "id": "Pengembangan Bisnis & Pencarian Mitra" }
+    ],
+    "logo": "design/assets/Logos/affirmate-business-advisory.png",
+    "url": "https://affirmate.co.id",
+    "isSelf": false,
+    "order": 1
+  },
+  {
+    "name": "PT Affirmate Property Nusantara",
+    "brand": "Affirmate Property",
+    "category": { "en": "Property & Real Estate", "id": "Properti & Real Estat" },
+    "summary": {
+      "en": "Specialized in boutique residential development and real estate brokerage, end-to-end from due diligence to closing.",
+      "id": "Berfokus pada pengembangan residensial butik dan brokerage properti, menyeluruh dari due diligence hingga closing."
+    },
+    "bullets": [
+      { "en": "Boutique Residential Development", "id": "Pengembangan Residensial Butik" },
+      { "en": "Investment Property Sourcing", "id": "Pencarian Properti Investasi" },
+      { "en": "Real Estate Due Diligence", "id": "Due Diligence Properti" }
+    ],
+    "logo": "design/assets/Logos/affirmate-property.png",
+    "url": "https://affirmate.co.id",
+    "isSelf": false,
+    "order": 2
+  },
+  {
+    "name": "PT Affirmate Tatakelola Nusantara",
+    "brand": "Affirmate Administrative",
+    "category": { "en": "Administrative Platform", "id": "Platform Administrasi" },
+    "summary": {
+      "en": "Incorporation, licensing, visas, HR & payroll, relocation and back-office services in one stop.",
+      "id": "Pendirian perusahaan, perizinan, visa, HR & payroll, relokasi, dan layanan back-office dalam satu pintu."
+    },
+    "bullets": [
+      { "en": "Incorporation & Licensing", "id": "Pendirian & Perizinan" },
+      { "en": "Visa / Work Permit", "id": "Visa / Izin Kerja" },
+      { "en": "HR / Payroll / Corporate Secretary", "id": "HR / Payroll / Sekretaris Korporat" }
+    ],
+    "logo": "design/assets/Logos/affirmate-administrative.webp",
+    "url": "",
+    "isSelf": true,
+    "order": 3
+  },
+  {
+    "name": "PT Ritz Affirmate Internasional",
+    "brand": "Ritz Affirmate Internasional",
+    "category": { "en": "Strategic Consulting (JV with Ritz Corp)", "id": "Konsultan Strategis (JV dengan Ritz Corp)" },
+    "summary": {
+      "en": "Ritz Corp joint venture covering corporate restructuring and PKPU.",
+      "id": "Usaha patungan dengan Ritz Corp yang mencakup restrukturisasi korporat dan PKPU."
+    },
+    "bullets": [
+      { "en": "Corporate Restructuring", "id": "Restrukturisasi Korporat" },
+      { "en": "Strategic Advisory for SOE-related Projects", "id": "Advisory Strategis Proyek terkait BUMN" },
+      { "en": "PKPU-related Support", "id": "Dukungan terkait PKPU" }
+    ],
+    "logo": "design/assets/Logos/ritz-affirmate.webp",
+    "url": "https://affirmate.co.id",
+    "isSelf": false,
+    "order": 4
+  }
+]

@@ -1,0 +1,37 @@
+{
+  "_source": "Compro Affirmate Rev 3 (2026) hal. 1, 7, 11; situs grup untuk LinkedIn. Typo compro diperbaiki.",
+  "legalName": "PT Affirmate Tatakelola Nusantara",
+  "brandName": "Affirmate Administrative",
+  "groupName": "Affirmate Group",
+  "logo": "design/assets/Logos/affirmate-administrative.webp",
+  "logoWhite": "design/assets/Logos/affirmate-administrative-white.png",
+  "phone": "021 5092 8670",
+  "phone2": "0819 0505 6482",
+  "whatsapp": "",
+  "email": "info@affirmate.co.id",
+  "address": {
+    "en": "Ascott Sudirman Jakarta, 31st Floor Affirmate Office, Ciputra World 2, Jl. Prof. Dr. Satrio Kav. 11, Jakarta 12930, Indonesia",
+    "id": "Ascott Sudirman Jakarta, Lantai 31 Affirmate Office, Ciputra World 2, Jl. Prof. Dr. Satrio Kav. 11, Jakarta 12930, Indonesia"
+  },
+  "mapsUrl": "https://www.google.com/maps/search/?api=1&query=Ascott+Sudirman+Jakarta+Ciputra+World+2",
+  "workingHours": { "en": "", "id": "" },
+  "social": [{ "platform": "linkedin", "url": "" }],
+  "groupUrl": "https://affirmate.co.id",
+  "groupBlurb": {
+    "en": "Affirmate Group provides cross-border support in Indonesia, facilitating investment, real estate, and administrative services. We connect businesses and investors, offering advisory, coordination, and market entry support to help clients successfully establish and grow their presence in Indonesia.",
+    "id": "Affirmate Group memberikan dukungan lintas negara di Indonesia, memfasilitasi investasi, properti, dan layanan administrasi. Kami menghubungkan pelaku usaha dan investor melalui advisory, koordinasi, serta dukungan masuk pasar agar klien dapat membangun dan mengembangkan kehadirannya di Indonesia."
+  },
+  "seoDefault": {
+    "title": {
+      "en": "Affirmate Administrative | Corporate & Administrative Support in Indonesia",
+      "id": "Affirmate Administrative | Dukungan Korporat & Administrasi di Indonesia"
+    },
+    "description": {
+      "en": "A dedicated unit of Affirmate Group providing company incorporation, licensing, visa and work permit, HR and payroll administration, compliance, relocation and back-office support in Indonesia.",
+      "id": "Unit Affirmate Group untuk pendirian perusahaan, perizinan, visa dan izin kerja, administrasi HR dan payroll, kepatuhan, relokasi, serta dukungan back-office di Indonesia."
+    },
+    "ogImage": "design/assets/Photography/hero-lobby-signage.jpg"
+  },
+  "inquiryRecipients": ["info@affirmate.co.id"],
+  "needsReview": ["whatsapp", "workingHours", "social", "inquiryRecipients", "address.id"]
+}
