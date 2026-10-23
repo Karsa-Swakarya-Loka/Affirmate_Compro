@@ -40,7 +40,7 @@
 .af-photo img { width: 100%; height: 100%; object-fit: cover; filter: saturate(.6) contrast(1.04); }
 .af-photo::after { content: ""; position: absolute; inset: 0; background: var(--photo-tint); mix-blend-mode: multiply; pointer-events: none; }
 /* Column-filling photo: the wrapper is stretched by its grid row, the image fills it (desktop only) */
-@media (min-width: 1024px) { .af-photo--fill { aspect-ratio: auto; height: auto; } .af-photo--fill img { position: absolute; inset: 0; } }
+@media (min-width: 1024px) { .af-photo.af-photo--fill { aspect-ratio: auto; height: auto; width: auto; } .af-photo.af-photo--fill img { position: absolute; inset: 0; } }
 
 /* Typography helpers */
 .af-eyebrow { display: inline-flex; align-items: center; gap: var(--space-2); font-family: var(--font-display); font-size: var(--text-eyebrow-size); line-height: var(--text-eyebrow-line); font-weight: var(--text-eyebrow-weight); letter-spacing: var(--text-eyebrow-tracking); text-transform: uppercase; color: var(--brand-text); }
@@ -160,8 +160,9 @@
 .af-hero__proof dd { margin: 0; font-family: var(--font-display); font-size: 13px; line-height: 18px; font-weight: 600; color: var(--ink); }
 @media (min-width: 1024px) {
   .af-hero__in { grid-template-columns: minmax(0, 46%) minmax(0, 54%); padding-block: var(--space-12) var(--space-16); align-items: stretch; }
-  .af-hero__cover { min-height: 520px; margin-right: calc(-1 * (max(0px, (100vw - var(--container)) / 2) + var(--gutter))); }
-  .af-hero__cover .af-photo { position: absolute; inset: 0; aspect-ratio: auto; border-radius: 160px 0 0 var(--radius-leaf); }
+  /* The photo stops at the container edge, in line with the navbar; only its height follows the copy column */
+  .af-hero__cover { min-height: 520px; }
+  .af-hero__cover .af-photo { position: absolute; inset: 0; aspect-ratio: auto; border-radius: 160px var(--radius-xl) var(--radius-xl) var(--radius-leaf); }
   .af-hero__cover .af-photo img { position: absolute; inset: 0; }
   .af-hero__proof { left: var(--space-8); bottom: var(--space-8); }
 }
