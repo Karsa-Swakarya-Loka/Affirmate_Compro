@@ -12,6 +12,7 @@ main:focus { outline: none; }
 .af-hero__tile--arrow svg { width: 36px; height: 36px; }
 .af-entity li svg { width: 14px; height: 14px; transform: translateY(2px); flex: none; }
 .af-platform__pillar .af-ico svg { width: 22px; height: 22px; }
+.af-ledger__link svg { width: 16px; height: 16px; }
 
 /* Skip link */
 .af-skip { position: absolute; left: var(--space-4); top: -100px; z-index: 50; padding: var(--space-2) var(--space-4); background: var(--green-deep); color: var(--on-brand); border-radius: var(--radius-md) var(--radius-md) var(--radius-md) var(--radius-leaf); font-family: var(--font-display); font-weight: 600; text-decoration: none; }
@@ -33,9 +34,6 @@ main:focus { outline: none; }
 /* Photo wrappers rendered with next/image */
 .af-photo > img, .af-photo > span { width: 100%; height: 100%; }
 .af-hero__cover .af-photo img { height: 100%; }
-
-/* Service petals: equal rows on desktop */
-@media (min-width: 640px) { .af-petals { grid-auto-rows: 1fr; } }
 
 /* Prose for articles and privacy */
 .af-prose { max-width: 70ch; display: grid; gap: var(--space-4); font-size: 17px; line-height: 29px; }

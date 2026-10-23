@@ -12,6 +12,7 @@ Bahasa visual template v2 dipertahankan (leaf corners, mark, hatch, petal diagra
 - **Tanpa kartu berlebih**: panel krem About, kartu Group, kartu detail layanan, kartu klien, kartu berita, kotak form Kontak, panel peta dihapus. Konten berdiri di atas garis (`--rule`, otomatis krem transparan di section hijau).
 - **Tanpa pill**: tag/chip jadi daftar inline bergaris pemisah (`.af-specs`); ikon lingkaran jadi kotak leaf (`.af-ico`); filter Insights jadi tab bergaris bawah.
 - **Kepala section** (`.af-sechead`): satu garis selebar kontainer; kiri mark + judul, kanan sub-judul + lead (grid 5/7 di >=1024px; `stack` untuk kolom sempit).
+- **Layanan tanpa diagram kelopak** (23 Okt malam): daftar bergaris `.af-ledger` (indeks besar Poppins 300, judul, ringkasan, tautan ke katalog) di samping foto setinggi daftar; katalog sub-layanan per kategori (`.af-cats`, `.af-catlist`); Platform Administrasi jadi bidang hijau penuh selebar layar yang menutup section (`.af-platform`, bukan kotak).
 - **Kolom kiri-kanan sama tinggi**: foto mengisi kolom (`.af-photo--fill`, Hero/About/Journey; frame Why; foto Layanan), daftar fakta (`.af-facts`) dibagi rata setinggi kolom sebelahnya (Office, Contact), hatch di kaki kolom (`.af-side`). Hero: foto lari sampai tepi kanan viewport.
 
 ## Bahasa visual template (apa yang diterjemahkan ke web)

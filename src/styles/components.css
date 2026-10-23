@@ -12,7 +12,7 @@
 .af :where(a) { color: var(--brand-text); }
 .af :focus-visible { outline: 2px solid var(--focus); outline-offset: 2px; }
 .af img { max-width: 100%; display: block; }
-.af :where(.af-grid, .af-split, .af-form__row, .af-hero__in, .af-platform, .af-group, .af-office, .af-contact, .af-petals, .af-journey, .af-about, .af-network, .af-sechead, .af-leaders, .af-services) > * { min-width: 0; }
+.af :where(.af-grid, .af-split, .af-form__row, .af-hero__in, .af-platform, .af-group, .af-office, .af-contact, .af-ledger__row, .af-journey, .af-about, .af-network, .af-sechead, .af-leaders, .af-services, .af-platform__in) > * { min-width: 0; }
 .af .ph { font-size: 22px; line-height: 1; flex: none; }
 .af-container { max-width: var(--container); margin: 0 auto; padding-inline: var(--gutter); }
 .af-section { --rule: var(--line); padding-block: var(--space-12); }
@@ -247,28 +247,28 @@
   .af-entity ul { align-content: start; }
 }
 
-/* Services: template four-petal diagram. Four flat leaf quadrants (two shades, checkered) around a centre circle.
-   Left column: the photo, which stretches to the diagram's height, closed by the hatch. */
+/* Services ledger: the photo on the left, as tall as the list; on the right one ruled row per service with a large
+   light index (template page numbers), title, summary and a link to its catalogue. Rows share the column height. */
+.af-section--services { padding-bottom: 0; overflow-x: clip; }
 .af-services { display: grid; gap: var(--space-8); align-items: stretch; }
 .af-services__side { display: grid; gap: var(--space-6); grid-template-rows: minmax(0, 1fr) auto; }
-.af-petals { position: relative; display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: var(--space-3); }
-.af-petal { background: var(--green-deep); color: var(--on-brand); padding: var(--space-6); min-height: 230px; display: grid; align-content: start; gap: var(--space-2); transition: transform var(--motion-base) var(--ease), box-shadow var(--motion-base) var(--ease); }
-.af-petal:nth-child(2), .af-petal:nth-child(3) { background: var(--green); }
-.af-petal:hover { transform: translateY(calc(-1 * var(--lift))); box-shadow: var(--shadow-raised); }
-.af-petal:nth-child(1) { border-radius: var(--radius-xl) var(--radius-md) var(--radius-leaf) var(--radius-md); }
-.af-petal:nth-child(2) { border-radius: var(--radius-md) var(--radius-xl) var(--radius-md) var(--radius-leaf); }
-.af-petal:nth-child(3) { border-radius: var(--radius-md) var(--radius-leaf) var(--radius-md) var(--radius-xl); align-content: end; }
-.af-petal:nth-child(4) { border-radius: var(--radius-leaf) var(--radius-md) var(--radius-xl) var(--radius-md); align-content: end; }
-/* Left-aligned text in petal 04 starts beside the centre circle: push it below the circle's reach */
-.af-petal:nth-child(4) { padding-top: var(--space-12); }
-.af-petal__num { font-family: var(--font-display); font-size: 28px; line-height: 32px; font-weight: 800; opacity: .9; }
-.af-petal h3 { color: var(--on-brand); font-size: var(--text-heading-3-size); line-height: var(--text-heading-3-line); font-weight: 700; }
-.af-petal p { font-size: 14px; line-height: 22px; color: var(--on-brand-muted); }
-.af-petals__core { position: absolute; left: 50%; top: 50%; transform: translate(-50%, -50%); width: 96px; height: 96px; border-radius: 50%; background: var(--surface); display: grid; place-items: center; box-shadow: 0 0 0 8px var(--surface); }
-.af-petals__core img { width: 54px; height: auto; }
-/* Phones: one petal per row (two columns left ~120px of text per line); the centre mark has no corner to sit in */
-@media (max-width: 639px) { .af-petals { grid-template-columns: minmax(0, 1fr); } .af-petal, .af-petal:nth-child(4) { min-height: 0; padding: var(--space-5) var(--space-6); } .af-petals__core { display: none; } }
-@media (min-width: 1024px) { .af-services { grid-template-columns: minmax(0, .9fr) minmax(0, 1.1fr); gap: var(--space-10); } }
+.af-ledger { list-style: none; margin: 0; padding: 0; display: grid; border-top: 1px solid var(--rule); }
+.af-ledger__row { display: grid; grid-template-columns: 64px minmax(0, 1fr); gap: var(--space-4); align-items: start; padding: var(--space-5) 0; border-bottom: 1px solid var(--rule); }
+.af-ledger__num { font-family: var(--font-display); font-weight: 300; font-size: 40px; line-height: 40px; letter-spacing: -1px; color: var(--green); }
+.af-ledger__body { display: grid; gap: var(--space-2); justify-items: start; }
+.af-ledger__body h3 { font-size: var(--text-heading-3-size); line-height: var(--text-heading-3-line); font-weight: 700; color: var(--ink); }
+.af-ledger__body p { font-size: 14px; line-height: 22px; color: var(--ink-muted); max-width: 60ch; }
+.af-ledger__link { display: inline-flex; align-items: center; gap: var(--space-1); font-family: var(--font-display); font-size: 13px; font-weight: 600; color: var(--brand-text); text-decoration: underline; text-decoration-color: transparent; text-underline-offset: 4px; transition: text-decoration-color var(--motion-fast); }
+.af-ledger__link:hover { text-decoration-color: currentColor; }
+.af-ledger__link svg { width: 16px; height: 16px; }
+@media (min-width: 1024px) {
+  .af-services { grid-template-columns: minmax(0, .8fr) minmax(0, 1.2fr); gap: var(--space-10); }
+  .af-ledger { grid-auto-rows: 1fr; }
+  .af-ledger__row { grid-template-columns: 80px minmax(0, 1fr); align-content: center; }
+  .af-ledger__num { font-size: 48px; line-height: 48px; }
+}
+.af-svcdetail { padding-bottom: var(--space-12); }
+@media (min-width: 768px) { .af-svcdetail { padding-bottom: var(--space-16); } }
 /* Service catalogue under the diagram: one ruled block per service. Head: number in a leaf square, title, item count.
    Then the categories as columns (kicker = group title, heading = sub-label, a green rule under each), each a
    numbered list on hairlines. A flat list flows over columns with its numbering continuing (01..11). */
@@ -292,25 +292,27 @@
 .af-catlist--flow { margin-top: var(--space-2); border-top: 2px solid var(--green); padding-top: var(--space-1); }
 @media (min-width: 768px) { .af-cats { grid-template-columns: repeat(auto-fit, minmax(240px, 1fr)); gap: var(--space-8); } .af-catlist--flow { columns: 2; column-gap: var(--space-8); } }
 @media (min-width: 1024px) { .af-svcdetail { grid-template-columns: minmax(0, 1fr) minmax(0, 1fr); column-gap: var(--space-10); } .af-svcrow--wide { grid-column: 1 / -1; } .af-catlist--flow { columns: 3; } }
-/* Fifth service (23 Oct 2026): the 2x2 diagram keeps its core; the extra petal runs wide beneath it. */
-.af-petalset { display: grid; gap: var(--space-3); grid-template-rows: minmax(0, 1fr) auto; }
-.af-petalset > .af-petal--wide { min-height: 0; grid-template-columns: auto minmax(0, 1fr); gap: var(--space-5); align-content: start; align-items: start; padding: var(--space-5) var(--space-6); border-radius: var(--radius-md) var(--radius-md) var(--radius-xl) var(--radius-leaf); }
-.af-petal--wide > div { display: grid; gap: var(--space-2); }
-/* Grouped detail: heading per group, optional uppercase sub-label, then the same ruled list. */
-.af-svcgroups { display: grid; gap: var(--space-4); }
-.af-svcgroup { display: grid; gap: var(--space-2); }
-.af-svcgroup__title { font-family: var(--font-display); font-weight: 700; font-size: 15px; line-height: 22px; color: var(--green-deep); }
-.af-svcgroup__label { font-family: var(--font-display); font-weight: 600; font-size: 12px; line-height: 18px; letter-spacing: .06em; text-transform: uppercase; color: var(--ink-muted); }
-/* Platform strip: one flat green-deep leaf block (the template "green page") */
-.af-platform { background: var(--green-deep); color: var(--on-brand); border-radius: var(--radius-xl) var(--radius-xl) var(--radius-xl) var(--radius-leaf); padding: var(--space-8) var(--space-6); display: grid; gap: var(--space-6); margin-top: var(--space-10); }
-.af-platform__title { font-family: var(--font-display); font-weight: 700; font-size: 22px; line-height: 30px; }
-.af-platform__lead { display: grid; gap: var(--space-5); justify-items: start; }
+/* Platform band: the template "green page" as a flat full-width band closing the Services section (no box).
+   Left the title and the next step; right the three pillars divided by vertical rules; the scope under one rule. */
+.af-platform { --rule: var(--rule-on-brand); background: var(--green-deep); color: var(--on-brand); }
+.af-platform__in { max-width: var(--container); margin: 0 auto; padding: var(--space-10) var(--gutter); display: grid; gap: var(--space-8); }
+.af-platform__lead { display: grid; gap: var(--space-4); justify-items: start; align-content: start; }
+.af-platform__lead .af-mark { background: var(--on-brand); }
+.af-platform__title { font-family: var(--font-display); font-weight: 700; font-size: var(--text-heading-2-size); line-height: var(--text-heading-2-line); max-width: 20ch; text-wrap: balance; }
 .af-platform__pillars { display: grid; gap: var(--space-4); }
-.af-platform__pillar { display: flex; align-items: center; gap: var(--space-3); font-family: var(--font-display); font-weight: 600; font-size: 15px; }
-.af-platform__pillar .af-ico { width: 48px; height: 48px; background: var(--on-brand); color: var(--green-deep); }
-.af-platform__pillar .af-ico .ph { font-size: 22px; }
-.af-platform__scope { grid-column: 1 / -1; padding-top: var(--space-5); border-top: 1px solid var(--rule-on-brand); }
-@media (min-width: 768px) { .af-platform { grid-template-columns: minmax(0, 1fr) minmax(0, 2fr); align-items: center; padding: var(--space-8) var(--space-10); } .af-platform__pillars { grid-template-columns: repeat(3, minmax(0, 1fr)); } }
+.af-platform__pillar { display: flex; align-items: center; gap: var(--space-3); font-family: var(--font-display); font-weight: 600; font-size: 15px; line-height: 22px; }
+.af-platform__pillar .af-ico { width: 48px; height: 48px; }
+.af-platform__scope { padding-top: var(--space-5); border-top: 1px solid var(--rule); }
+@media (min-width: 768px) {
+  .af-platform__in { padding-block: var(--space-12); }
+  .af-platform__pillars { grid-template-columns: repeat(3, minmax(0, 1fr)); gap: var(--space-6); }
+  .af-platform__pillar { display: grid; grid-template-columns: 48px minmax(0, 1fr); align-items: center; }
+  .af-platform__pillar + .af-platform__pillar { border-left: 1px solid var(--rule); padding-left: var(--space-6); }
+}
+@media (min-width: 1024px) {
+  .af-platform__in { grid-template-columns: minmax(0, 5fr) minmax(0, 7fr); column-gap: var(--space-8); align-items: center; }
+  .af-platform__scope { grid-column: 1 / -1; }
+}
 
 /* Journey: template "table of content" numbered green blocks on the left, the photo on the right at the same height */
 .af-journey { display: grid; gap: var(--space-8); align-items: stretch; }
@@ -436,4 +438,4 @@
 /* Motion */
 .af-reveal { opacity: 0; transform: translateY(16px); transition: opacity var(--motion-reveal) var(--ease), transform var(--motion-reveal) var(--ease); }
 .af-reveal.is-in { opacity: 1; transform: none; }
-@media (prefers-reduced-motion: reduce) { .af-reveal { opacity: 1; transform: none; transition: none; } .af-petal { transition: none; } .af-petal:hover { transform: none; } .af-btn:active { transform: none; } }
+@media (prefers-reduced-motion: reduce) { .af-reveal { opacity: 1; transform: none; transition: none; } .af-btn:active { transform: none; } }

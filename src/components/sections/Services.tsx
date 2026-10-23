@@ -1,4 +1,3 @@
-import Image from 'next/image'
 import Link from 'next/link'
 import type { Locale } from '@/i18n/config'
 import type { Home, Service } from '@/payload-types'
@@ -16,7 +15,7 @@ const hasDetail = (s: Service) => (s.items?.length ?? 0) > 0 || (s.groups?.lengt
 // Grouped catalogues and long lists span the row; a lone half-width row would leave a hole in the grid, so it spans too.
 const isLong = (s: Service) => (s.items?.length ?? 0) > 6 || (s.groups?.length ?? 0) > 0
 
-/** Ruled inline list for short scopes (platform strip). */
+/** Ruled inline list for short scopes (platform band). */
 function Specs({ items }: { items: Tag[] }) {
   return <ul className="af-specs">{items.map(it => <li key={it.id ?? it.label}>{it.label}</li>)}</ul>
 }
@@ -34,17 +33,18 @@ function CatalogueList({ items, flow }: { items: Tag[]; flow?: boolean }) {
   return <ol className={['af-catlist', flow ? 'af-catlist--flow' : ''].filter(Boolean).join(' ')}>{items.map(it => <li key={it.id ?? it.label}>{it.label}</li>)}</ol>
 }
 
+// Head on the rule. Then the ledger: the photo on the left, as tall as the list; on the right every service as a
+// ruled row (large light index, title, summary, link to its catalogue). Under it the catalogue of sub-services, and
+// the Administrative Platform as a full-width green band closing the section.
 export function Services({ block, services, cta, locale }: { block: NonNullable<Home['services']>; services: Service[]; cta?: Cta; locale: Locale }) {
-  // Head on the rule; left the photo stretched to the diagram's height, right the four-petal diagram.
-  // A fifth service (Corporate Secretary, 23 Oct 2026) sits as a wide petal under it.
-  const petals = services.slice(0, 4)
-  const extra = services.slice(4)
   const withItems = services.filter(hasDetail)
   const halves = withItems.filter(s => !isLong(s))
   const loneHalf = halves.length % 2 === 1 ? halves[halves.length - 1] : null
-  const countLabel = (n: number) => (locale === 'id' ? `${n} layanan` : `${n} ${n === 1 ? 'service' : 'services'}`)
+  const t = locale === 'id'
+    ? { count: (n: number) => `${n} layanan`, detail: 'Lihat rincian' }
+    : { count: (n: number) => `${n} ${n === 1 ? 'service' : 'services'}`, detail: 'See details' }
   return (
-    <section className="af-section" id="services">
+    <section className="af-section af-section--services" id="services">
       <div className="af-container">
         <SectionHead title={block.title} eyebrow={block.eyebrow} subtitle={block.subtitle} lead={block.intro} />
         <div className="af-services">
@@ -52,24 +52,18 @@ export function Services({ block, services, cta, locale }: { block: NonNullable<
             <Photo media={block.image} className="af-services__photo" sizes="(min-width: 1024px) 40vw, 100vw" />
             <div className="af-hatch" aria-hidden="true" />
           </div>
-          <div className="af-petalset">
-            <div className="af-petals">
-              {petals.map((s, i) => (
-                <article className="af-petal" key={s.id}>
-                  <span className="af-petal__num">{pad(i + 1)}</span>
+          <ol className="af-ledger">
+            {services.map((s, i) => (
+              <li className="af-ledger__row" key={s.id}>
+                <span className="af-ledger__num" aria-hidden="true">{pad(i + 1)}</span>
+                <div className="af-ledger__body">
                   <h3>{s.title}</h3>
                   <p>{s.summary}</p>
-                </article>
-              ))}
-              <div className="af-petals__core" aria-hidden="true"><Image src="/brand/favicon.svg" alt="" width={64} height={64} /></div>
-            </div>
-            {extra.map((s, i) => (
-              <article className="af-petal af-petal--wide" key={s.id}>
-                <span className="af-petal__num">{pad(i + 5)}</span>
-                <div><h3>{s.title}</h3><p>{s.summary}</p></div>
-              </article>
+                  {hasDetail(s) ? <a className="af-ledger__link" href={`#svc-${s.slug}`}>{t.detail} <Icon name="arrow-down-right" size={16} /></a> : null}
+                </div>
+              </li>
             ))}
-          </div>
+          </ol>
         </div>
         {/* Service catalogue: one ruled block per service with sub-services, each category a numbered column. */}
         {withItems.length ? (
@@ -81,11 +75,11 @@ export function Services({ block, services, cta, locale }: { block: NonNullable<
               const total = cats.reduce((n, c) => n + c.items.length, 0)
               const flat = cats.length === 1 && !cats[0].title
               return (
-                <article className={['af-svcrow', wide ? 'af-svcrow--wide' : ''].filter(Boolean).join(' ')} key={s.id} aria-labelledby={`svc-${s.slug}`}>
+                <article className={['af-svcrow', wide ? 'af-svcrow--wide' : ''].filter(Boolean).join(' ')} key={s.id} id={`svc-${s.slug}`} aria-labelledby={`svc-${s.slug}-title`}>
                   <div className="af-svcrow__head">
                     <span className="af-svcrow__num" aria-hidden="true">{pad(idx + 1)}</span>
-                    <h3 className="af-svcrow__title" id={`svc-${s.slug}`}>{s.title}</h3>
-                    {total ? <span className="af-svcrow__count">{countLabel(total)}</span> : null}
+                    <h3 className="af-svcrow__title" id={`svc-${s.slug}-title`}>{s.title}</h3>
+                    {total ? <span className="af-svcrow__count">{t.count(total)}</span> : null}
                   </div>
                   {s.summary ? <p className="af-svcrow__sum">{s.summary}</p> : null}
                   {flat ? <CatalogueList items={cats[0].items} flow /> : cats.length ? (
@@ -107,24 +101,27 @@ export function Services({ block, services, cta, locale }: { block: NonNullable<
             })}
           </div>
         ) : null}
-        {block.platformTitle || block.platformPillars?.length ? (
-          <div className="af-platform">
+      </div>
+      {block.platformTitle || block.platformPillars?.length ? (
+        <div className="af-platform">
+          <div className="af-platform__in">
             {/* The visitor has just read what we do: the next step sits here, at the end of the offer. */}
             <div className="af-platform__lead">
+              <span className="af-mark" aria-hidden="true" />
               <p className="af-platform__title">{block.platformTitle}</p>
               {cta ? <Link className="af-btn af-btn--light" href={cta.href}>{cta.label} <Icon name="arrow-right" size={18} /></Link> : null}
             </div>
             {block.platformPillars?.length ? (
               <div className="af-platform__pillars">
                 {block.platformPillars.map((p, i) => (
-                  <div className="af-platform__pillar" key={p.id ?? p.label}><span className="af-ico"><Icon name={['bank', 'identification-card', 'file-text'][i] ?? 'check'} size={22} /></span>{p.label}</div>
+                  <div className="af-platform__pillar" key={p.id ?? p.label}><span className="af-ico af-ico--light"><Icon name={['bank', 'identification-card', 'file-text'][i] ?? 'check'} size={22} /></span><span>{p.label}</span></div>
                 ))}
               </div>
             ) : null}
             {block.platformScope?.length ? <div className="af-platform__scope"><Specs items={block.platformScope} /></div> : null}
           </div>
-        ) : null}
-      </div>
+        </div>
+      ) : null}
     </section>
   )
 }
