@@ -269,12 +269,29 @@
 /* Phones: one petal per row (two columns left ~120px of text per line); the centre mark has no corner to sit in */
 @media (max-width: 639px) { .af-petals { grid-template-columns: minmax(0, 1fr); } .af-petal, .af-petal:nth-child(4) { min-height: 0; padding: var(--space-5) var(--space-6); } .af-petals__core { display: none; } }
 @media (min-width: 1024px) { .af-services { grid-template-columns: minmax(0, .9fr) minmax(0, 1.1fr); gap: var(--space-10); } }
-/* Service detail under the diagram: ruled rows, number in a leaf square, scope as a ruled inline list */
+/* Service catalogue under the diagram: one ruled block per service. Head: number in a leaf square, title, item count.
+   Then the categories as columns (kicker = group title, heading = sub-label, a green rule under each), each a
+   numbered list on hairlines. A flat list flows over columns with its numbering continuing (01..11). */
 .af-svcdetail { margin-top: var(--space-12); display: grid; border-top: 1px solid var(--rule); }
-.af-svcrow { display: grid; gap: var(--space-3); align-content: start; padding: var(--space-6) 0; border-bottom: 1px solid var(--rule); }
-.af-svcrow__head { display: flex; align-items: center; gap: var(--space-3); font-family: var(--font-display); font-weight: 700; font-size: var(--text-heading-3-size); line-height: var(--text-heading-3-line); color: var(--ink); }
-.af-svcrow__num { width: 34px; height: 34px; border-radius: var(--radius-sm) var(--radius-sm) var(--radius-sm) 2px; background: var(--green); color: var(--on-brand); display: grid; place-items: center; font-size: 13px; font-weight: 800; }
-@media (min-width: 1024px) { .af-svcdetail { grid-template-columns: minmax(0, 1fr) minmax(0, 1fr); column-gap: var(--space-10); } .af-svcrow--wide { grid-column: 1 / -1; } }
+.af-svcrow { display: grid; gap: var(--space-4); align-content: start; padding: var(--space-8) 0; border-bottom: 1px solid var(--rule); }
+.af-svcrow__head { display: flex; flex-wrap: wrap; align-items: center; gap: var(--space-3); }
+.af-svcrow__title { font-family: var(--font-display); font-weight: 700; font-size: var(--text-heading-2-size); line-height: var(--text-heading-2-line); color: var(--ink); }
+.af-svcrow__num { width: 34px; height: 34px; flex: none; border-radius: var(--radius-sm) var(--radius-sm) var(--radius-sm) 2px; background: var(--green); color: var(--on-brand); display: grid; place-items: center; font-family: var(--font-display); font-size: 13px; font-weight: 800; }
+.af-svcrow__count { margin-left: auto; font-family: var(--font-display); font-size: var(--text-caption-size); line-height: var(--text-caption-line); letter-spacing: 1.2px; text-transform: uppercase; font-weight: 700; color: var(--brand-text); white-space: nowrap; }
+.af-svcrow__sum { font-size: 15px; line-height: 24px; color: var(--ink-muted); max-width: 72ch; }
+.af-svcrow__note { display: flex; gap: var(--space-2); align-items: flex-start; margin-top: var(--space-2); font-family: var(--font-display); font-size: 14px; line-height: 22px; font-weight: 500; color: var(--green-deep); max-width: 80ch; }
+.af-svcrow__note svg { flex: none; width: 22px; height: 22px; padding: 4px; border-radius: 7px 7px 7px 2px; background: var(--brand-tint); }
+.af-cats { display: grid; gap: var(--space-6); margin-top: var(--space-2); }
+.af-cat { display: grid; gap: var(--space-2); align-content: start; }
+.af-cat__head { display: grid; gap: 2px; padding-bottom: var(--space-2); border-bottom: 2px solid var(--green); }
+.af-cat__kicker { font-family: var(--font-display); font-size: var(--text-caption-size); line-height: var(--text-caption-line); letter-spacing: 1.2px; text-transform: uppercase; font-weight: 700; color: var(--brand-text); }
+.af-cat__title { font-family: var(--font-display); font-weight: 700; font-size: 16px; line-height: 24px; color: var(--ink); }
+.af-catlist { list-style: none; margin: 0; padding: 0; counter-reset: cat; }
+.af-catlist li { counter-increment: cat; display: grid; grid-template-columns: 26px minmax(0, 1fr); gap: var(--space-2); align-items: start; padding: var(--space-2) 0; border-bottom: 1px solid var(--rule); font-size: 14px; line-height: 22px; color: var(--ink); break-inside: avoid; }
+.af-catlist li::before { content: counter(cat, decimal-leading-zero); font-family: var(--font-display); font-size: 12px; line-height: 22px; font-weight: 700; color: var(--brand-text); }
+.af-catlist--flow { margin-top: var(--space-2); border-top: 2px solid var(--green); padding-top: var(--space-1); }
+@media (min-width: 768px) { .af-cats { grid-template-columns: repeat(auto-fit, minmax(240px, 1fr)); gap: var(--space-8); } .af-catlist--flow { columns: 2; column-gap: var(--space-8); } }
+@media (min-width: 1024px) { .af-svcdetail { grid-template-columns: minmax(0, 1fr) minmax(0, 1fr); column-gap: var(--space-10); } .af-svcrow--wide { grid-column: 1 / -1; } .af-catlist--flow { columns: 3; } }
 /* Fifth service (23 Oct 2026): the 2x2 diagram keeps its core; the extra petal runs wide beneath it. */
 .af-petalset { display: grid; gap: var(--space-3); grid-template-rows: minmax(0, 1fr) auto; }
 .af-petalset > .af-petal--wide { min-height: 0; grid-template-columns: auto minmax(0, 1fr); gap: var(--space-5); align-content: start; align-items: start; padding: var(--space-5) var(--space-6); border-radius: var(--radius-md) var(--radius-md) var(--radius-xl) var(--radius-leaf); }
