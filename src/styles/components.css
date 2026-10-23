@@ -252,33 +252,35 @@
 .af-section--services { padding-bottom: 0; overflow-x: clip; }
 .af-services { display: grid; gap: var(--space-8); align-items: stretch; }
 .af-services__side { display: grid; gap: var(--space-6); grid-template-rows: minmax(0, 1fr) auto; }
+/* One index style for a service wherever it appears: large light figure (template page numbers) */
+.af-index { font-family: var(--font-display); font-weight: 300; font-size: 40px; line-height: 40px; letter-spacing: -1px; color: var(--green); font-variant-numeric: tabular-nums; }
+.af-index--sm { font-size: 30px; line-height: 32px; letter-spacing: -.5px; }
 .af-ledger { list-style: none; margin: 0; padding: 0; display: grid; border-top: 1px solid var(--rule); }
 .af-ledger__row { display: grid; grid-template-columns: 64px minmax(0, 1fr); gap: var(--space-4); align-items: start; padding: var(--space-5) 0; border-bottom: 1px solid var(--rule); }
-.af-ledger__num { font-family: var(--font-display); font-weight: 300; font-size: 40px; line-height: 40px; letter-spacing: -1px; color: var(--green); }
 .af-ledger__body { display: grid; gap: var(--space-2); justify-items: start; }
-.af-ledger__body h3 { font-size: var(--text-heading-3-size); line-height: var(--text-heading-3-line); font-weight: 700; color: var(--ink); }
-.af-ledger__body p { font-size: 14px; line-height: 22px; color: var(--ink-muted); max-width: 60ch; }
-.af-ledger__link { display: inline-flex; align-items: center; gap: var(--space-1); font-family: var(--font-display); font-size: 13px; font-weight: 600; color: var(--brand-text); text-decoration: underline; text-decoration-color: transparent; text-underline-offset: 4px; transition: text-decoration-color var(--motion-fast); }
+.af-ledger__body h3 { font-size: 20px; line-height: 28px; font-weight: 700; color: var(--ink); }
+.af-ledger__body p { font-size: 15px; line-height: 24px; color: var(--ink-muted); max-width: 60ch; }
+.af-ledger__link { display: inline-flex; align-items: center; gap: var(--space-1); margin-top: var(--space-1); font-family: var(--font-display); font-size: 14px; font-weight: 600; color: var(--brand-text); text-decoration: underline; text-decoration-color: transparent; text-underline-offset: 4px; transition: text-decoration-color var(--motion-fast); }
 .af-ledger__link:hover { text-decoration-color: currentColor; }
 .af-ledger__link svg { width: 16px; height: 16px; }
 @media (min-width: 1024px) {
   .af-services { grid-template-columns: minmax(0, .8fr) minmax(0, 1.2fr); gap: var(--space-10); }
   .af-ledger { grid-auto-rows: 1fr; }
   .af-ledger__row { grid-template-columns: 80px minmax(0, 1fr); align-content: center; }
-  .af-ledger__num { font-size: 48px; line-height: 48px; }
+  .af-ledger__row .af-index { font-size: 48px; line-height: 48px; }
 }
+.af-svcdetail__head { display: grid; gap: var(--space-2); justify-items: start; }
+.af-svcdetail__head .af-small { max-width: 60ch; }
 .af-svcdetail { padding-bottom: var(--space-12); }
 @media (min-width: 768px) { .af-svcdetail { padding-bottom: var(--space-16); } }
 /* Service catalogue under the diagram: one ruled block per service. Head: number in a leaf square, title, item count.
    Then the categories as columns (kicker = group title, heading = sub-label, a green rule under each), each a
    numbered list on hairlines. A flat list flows over columns with its numbering continuing (01..11). */
-.af-svcdetail { margin-top: var(--space-12); display: grid; row-gap: var(--space-12); }
+.af-svcdetail { margin-top: var(--space-16); display: grid; row-gap: var(--space-10); }
 .af-svcrow { display: grid; gap: var(--space-4); align-content: start; }
-.af-svcrow__head { display: flex; flex-wrap: wrap; align-items: center; gap: var(--space-3); }
-.af-svcrow__title { font-family: var(--font-display); font-weight: 700; font-size: var(--text-heading-2-size); line-height: var(--text-heading-2-line); color: var(--ink); }
-.af-svcrow__num { width: 34px; height: 34px; flex: none; border-radius: var(--radius-sm) var(--radius-sm) var(--radius-sm) 2px; background: var(--green); color: var(--on-brand); display: grid; place-items: center; font-family: var(--font-display); font-size: 13px; font-weight: 800; }
+.af-svcrow__head { display: flex; flex-wrap: wrap; align-items: baseline; gap: var(--space-3); }
+.af-svcrow__title { font-family: var(--font-display); font-weight: 700; font-size: 22px; line-height: 30px; color: var(--ink); }
 .af-svcrow__count { margin-left: auto; font-family: var(--font-display); font-size: var(--text-caption-size); line-height: var(--text-caption-line); letter-spacing: 1.2px; text-transform: uppercase; font-weight: 700; color: var(--brand-text); white-space: nowrap; }
-.af-svcrow__sum { font-size: 15px; line-height: 24px; color: var(--ink-muted); max-width: 72ch; }
 .af-svcrow__note { display: flex; gap: var(--space-2); align-items: flex-start; margin-top: var(--space-2); font-family: var(--font-display); font-size: 14px; line-height: 22px; font-weight: 500; color: var(--green-deep); max-width: 80ch; }
 .af-svcrow__note svg { flex: none; width: 22px; height: 22px; padding: 4px; border-radius: 7px 7px 7px 2px; background: var(--brand-tint); }
 /* Category cards: one leaf card per category (kicker, heading, numbered items), no rules inside */
