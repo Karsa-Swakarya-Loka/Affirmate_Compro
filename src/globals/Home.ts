@@ -14,7 +14,7 @@ const heading = (titleRequired = true) => [
   row(text('eyebrow', false, 'Teks kecil di atas judul', { width: '35%' }), text('title', titleRequired, 'Judul bagian', { width: '65%' })),
 ]
 const sections: [string, string][] = [
-  ['about', 'Tentang kami'], ['visionMission', 'Visi & misi'], ['stats', 'Angka'], ['why', 'Mengapa kami'], ['group', 'Affirmate Group'], ['services', 'Layanan'],
+  ['about', 'Tentang kami'], ['visionMission', 'Visi & misi'], ['stats', 'Angka'], ['leadership', 'Pimpinan'], ['why', 'Mengapa kami'], ['group', 'Affirmate Group'], ['services', 'Layanan'],
   ['journey', 'Perjalanan'], ['clients', 'Klien'], ['network', 'Jaringan'], ['office', 'Kantor'], ['insights', 'Insights'], ['contact', 'Kontak'],
 ]
 
@@ -42,6 +42,14 @@ export const Home: GlobalConfig = {
           row({ name: 'value', type: 'text', required: true, label: 'Angka', admin: { width: '25%', placeholder: '20+' } }, text('label', true, 'Keterangan', { width: '40%' }),
             text('sublabel', false, 'Keterangan kecil', { width: '35%' })),
           icon(),
+        ] },
+      ])]),
+      tab('Pimpinan', [flat('leadership', [
+        row(text('title', true, 'Judul bagian', { width: '60%' }), text('subtitle', false, 'Subjudul', { width: '40%' })),
+        textarea('body', false, 'Paragraf'),
+        { name: 'people', type: 'array', maxRows: 8, label: 'Pimpinan (maks. 8)', labels: { singular: 'Orang', plural: 'Orang' }, admin: listAdmin('Urutan di sini = urutan tampil. Foto potret rasio 4:5, wajah di bagian atas.'), fields: [
+          row({ name: 'name', type: 'text', required: true, label: 'Nama', admin: { width: '50%' } }, text('role', true, 'Jabatan', { width: '50%' })),
+          upload('photo', true, 'Foto'),
         ] },
       ])]),
       tab('Mengapa kami', [flat('why', [

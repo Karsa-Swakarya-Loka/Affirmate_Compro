@@ -1,6 +1,6 @@
 # Affirmate Administrative — website company profile
 
-Landing page + CMS untuk PT Affirmate Tatakelola Nusantara (unit Affirmate Group). Next.js 16 App Router + Payload CMS 3 dalam satu aplikasi. Bahasa: English (`/`) dan Indonesia (`/id`). Halaman: landing (11 section), Insights (`/insights`, `/id/wawasan`), Privacy, 404, `sitemap.xml`, `robots.txt`.
+Landing page + CMS untuk PT Affirmate Tatakelola Nusantara (unit Affirmate Group). Next.js 16 App Router + Payload CMS 3 dalam satu aplikasi. Bahasa: English (`/`) dan Indonesia (`/id`). Halaman: landing (12 section), Insights (`/insights`, `/id/wawasan`), Privacy, 404, `sitemap.xml`, `robots.txt`.
 
 Dokumen: `docs/PLAN.md`, `docs/01-brief.md` … `docs/04-acceptance.md`, `docs/OPEN-QUESTIONS.md` (bahan evaluasi klien), `design/README.md` (sistem desain), `docs/STEP-*-STATUS.md` (progres dan bukti uji).
 

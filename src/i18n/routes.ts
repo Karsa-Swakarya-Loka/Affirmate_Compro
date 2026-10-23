@@ -33,5 +33,5 @@ export function switchLocalePath(pathname: string, target: Locale, search = '', 
 }
 
 /** Section anchors on the landing page, in compro order. */
-export const sectionIds = ['about', 'why', 'group', 'services', 'journey', 'clients', 'network', 'office', 'insights', 'contact'] as const
+export const sectionIds = ['about', 'leadership', 'why', 'group', 'services', 'journey', 'clients', 'network', 'office', 'insights', 'contact'] as const
 export type SectionId = (typeof sectionIds)[number]

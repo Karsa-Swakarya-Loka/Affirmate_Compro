@@ -1,9 +1,11 @@
 import type { Home, Service, Site, Ui } from '@/payload-types'
 import { Icon } from '@/components/ui/Icon'
 import { ContactForm } from '@/components/forms/ContactForm'
+import { whatsappDisplay, whatsappHref } from '@/lib/whatsapp'
 
 export function Contact({ block, site, ui, services, locale }: { block: NonNullable<Home['contact']>; site: Site; ui: Ui; services: Service[]; locale: 'en' | 'id' }) {
   const f = ui.form ?? {}
+  const wa = whatsappHref(site.whatsapp)
   const labels = {
     name: f.name || 'Full name', company: f.company || 'Company', email: f.email || 'Email', phone: f.phone || 'Phone', country: f.country || 'Country',
     services: f.services || 'Service', message: f.message || 'Message', submit: f.submit || 'Send', sending: f.sending || 'Sending…', success: f.success || 'Thank you.',
@@ -25,6 +27,7 @@ export function Contact({ block, site, ui, services, locale }: { block: NonNulla
                 {[site.phone, site.phone2].filter(Boolean).map((p, i) => <span key={p}>{i ? <br /> : null}<a href={`tel:${String(p).replace(/\D/g, '')}`}>{p}</a></span>)}
               </div></div>
             ) : null}
+            {wa ? <div className="af-contact__row"><span className="af-ico af-ico--sm"><Icon name="whatsapp" size={20} /></span><div><strong>WhatsApp</strong><a href={wa} target="_blank" rel="noopener noreferrer">{whatsappDisplay(site.whatsapp)}</a></div></div> : null}
             <div className="af-hatch" aria-hidden="true" />
           </div>
           <ContactForm locale={locale} labels={labels} services={services.map(s => ({ slug: s.slug, title: s.title }))} />

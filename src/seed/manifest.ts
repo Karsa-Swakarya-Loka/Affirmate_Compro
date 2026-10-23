@@ -17,8 +17,13 @@ export const mediaAlt: Record<string, { en: string; id: string }> = {
   'design/assets/Photography/office-lounge-artwall.jpg': { en: 'Lounge with artwork wall at the Affirmate office.', id: 'Lounge dengan dinding karya seni di kantor Affirmate.' },
   'design/assets/Photography/office-meeting-room-portrait.jpg': { en: 'Meeting room at the Affirmate office.', id: 'Ruang meeting di kantor Affirmate.' },
   'design/assets/Photography/office-glass-corridor.jpg': { en: 'Glass corridor at the Affirmate office.', id: 'Koridor kaca di kantor Affirmate.' },
+  'design/assets/People/yukifri-nazir.jpg': { en: 'Yukifri Nazir, Group CEO of Affirmate Group.', id: 'Yukifri Nazir, CEO Affirmate Group.' },
+  'design/assets/People/deny-y-imran.jpg': { en: 'Deny Y. Imran, CEO of PT Affirmate Tatakelola Nusantara.', id: 'Deny Y. Imran, CEO PT Affirmate Tatakelola Nusantara.' },
+  'design/assets/People/mulyadi.jpg': { en: 'Mulyadi, Finance Director.', id: 'Mulyadi, Direktur Keuangan.' },
   'design/assets/Clients/unicharm.png': { en: 'unicharm logo.', id: 'Logo unicharm.' },
   'design/assets/Clients/mufg-finance-leasing.png': { en: 'MUFG Finance and Leasing logo.', id: 'Logo MUFG Finance and Leasing.' },
   'design/assets/Clients/toda-corporation.png': { en: 'Toda Corporation logo.', id: 'Logo Toda Corporation.' },
 }
+/** Slugs the seed removes before upserting, so a renamed service never leaves its old document behind (23 Oct 2026: Management Advisory → Expatriate Advisory). */
+export const retiredServices = ['management-advisory'] as const
 export const seedFiles = ['site', 'home', 'legal', 'services', 'group-entities', 'milestones', 'clients', 'cities', 'posts', 'ui-dictionary'] as const

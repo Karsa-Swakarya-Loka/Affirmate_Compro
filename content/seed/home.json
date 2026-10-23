@@ -110,6 +110,17 @@
     "needsReview": true,
     "image": "design/assets/Photography/office-executive-room.jpg"
   },
+  "leadership": {
+    "_source": "Revisi klien 23 Okt 2026: tiga foto pimpinan; nama dan jabatan dari nama file yang dikirim klien.",
+    "title": { "en": "Our Leadership", "id": "Pimpinan Kami" },
+    "subtitle": { "en": "The people behind Affirmate Administrative", "id": "Orang-orang di balik Affirmate Administrative" },
+    "body": { "en": "", "id": "" },
+    "people": [
+      { "name": "Yukifri Nazir", "role": { "en": "Group CEO", "id": "CEO Affirmate Group" }, "photo": "design/assets/People/yukifri-nazir.jpg" },
+      { "name": "Deny Y. Imran", "role": { "en": "CEO, PT Affirmate Tatakelola Nusantara", "id": "CEO PT Affirmate Tatakelola Nusantara" }, "photo": "design/assets/People/deny-y-imran.jpg" },
+      { "name": "Mulyadi", "role": { "en": "Finance Director", "id": "Direktur Keuangan" }, "photo": "design/assets/People/mulyadi.jpg" }
+    ]
+  },
   "why": {
     "title": {
       "en": "Why Affirmate",
@@ -120,8 +131,8 @@
       "id": "Lebih dari sekadar layanan, kami memberi nilai dan ketenangan"
     },
     "body": {
-      "en": "As a dedicated unit of Affirmate Group, Affirmate Administrative provides comprehensive corporate and administrative support services designed to streamline your business operations in Indonesia. Our expertise covers company incorporation, licensing coordination, visa and work permit arrangements, HR and payroll administration, as well as regulatory compliance. We also offer specialized relocation and back-office support to ensure a seamless experience for your business.",
-      "id": "Sebagai unit khusus Affirmate Group, Affirmate Administrative menyediakan layanan dukungan korporat dan administrasi menyeluruh untuk merampingkan operasional bisnis Anda di Indonesia. Keahlian kami mencakup pendirian perusahaan, koordinasi perizinan, pengurusan visa dan izin kerja, administrasi HR dan payroll, serta kepatuhan regulasi. Kami juga menyediakan dukungan relokasi dan back-office khusus agar bisnis Anda berjalan mulus."
+      "en": "As a dedicated unit of Affirmate Group, Affirmate Administrative provides comprehensive corporate and administrative support services designed to streamline your business operations in Indonesia. Our expertise covers company incorporation, licensing coordination, visa and work permit arrangements, HR administration, as well as regulatory compliance. We also offer specialized relocation and back-office support to ensure a seamless experience for your business.",
+      "id": "Sebagai unit khusus Affirmate Group, Affirmate Administrative menyediakan layanan dukungan korporat dan administrasi menyeluruh untuk merampingkan operasional bisnis Anda di Indonesia. Keahlian kami mencakup pendirian perusahaan, koordinasi perizinan, pengurusan visa dan izin kerja, administrasi HR, serta kepatuhan regulasi. Kami juga menyediakan dukungan relokasi dan back-office khusus agar bisnis Anda berjalan mulus."
     },
     "image": "design/assets/Photography/office-glass-meeting-rooms.jpg",
     "pillars": [
@@ -215,8 +226,8 @@
       },
       {
         "title": {
-          "en": "HR / Payroll / Corporate Secretary",
-          "id": "HR / Payroll / Sekretaris Korporat"
+          "en": "HR / Corporate Secretary",
+          "id": "HR / Sekretaris Korporat"
         }
       }
     ],
@@ -241,8 +252,8 @@
       },
       {
         "label": {
-          "en": "HR and payroll administration",
-          "id": "Administrasi HR dan payroll"
+          "en": "HR administration",
+          "id": "Administrasi HR"
         }
       },
       {
@@ -402,6 +413,7 @@
     "about": true,
     "visionMission": true,
     "stats": true,
+    "leadership": true,
     "why": true,
     "group": true,
     "services": true,

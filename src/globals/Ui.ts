@@ -17,7 +17,7 @@ export const Ui: GlobalConfig = {
   admin: { hideAPIURL: true, group: 'Pengaturan', description: 'Versi Indonesia diisi setelah mengganti bahasa di kanan atas.' },
   fields: [
     tabs(
-      tab('Menu', [group('nav', [['about', 'Tentang'], ['why', 'Mengapa kami'], ['group', 'Group'], ['services', 'Layanan'], ['journey', 'Perjalanan'], ['clients', 'Klien'],
+      tab('Menu', [group('nav', [['about', 'Tentang'], ['leadership', 'Pimpinan'], ['why', 'Mengapa kami'], ['group', 'Group'], ['services', 'Layanan'], ['journey', 'Perjalanan'], ['clients', 'Klien'],
         ['network', 'Jaringan'], ['office', 'Kantor'], ['insights', 'Insights'], ['contact', 'Kontak']])]),
       tab('Tombol', [group('cta', [['contact', 'Hubungi kami'], ['services', 'Lihat layanan'], ['whatsapp', 'WhatsApp'], ['readMore', 'Baca selengkapnya'], ['allInsights', 'Semua artikel'],
         ['openMaps', 'Buka peta'], ['visitGroup', 'Kunjungi grup']])]),

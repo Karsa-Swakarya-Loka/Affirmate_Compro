@@ -1,7 +1,7 @@
 import { readFile } from 'node:fs/promises'
 import path from 'node:path'
 import type { Locale } from '../i18n/config.ts'
-import { mediaAlt, seedFiles } from './manifest.ts'
+import { mediaAlt, retiredServices, seedFiles } from './manifest.ts'
 import { alignArrayIDs, atPath, emptyToUndefined, labels, list, localized, object, richText, type Data } from './normalize.ts'
 import type { SeedCollection, SeedStore } from './store.ts'
 
@@ -41,11 +41,16 @@ export async function runSeed(store: SeedStore, root: string, overwrite = false)
 
   // 2. Collections.
   const counts: Record<string, number> = { media: mediaIDs.size }
+  for (const slug of retiredServices) {
+    const doc = await store.find('services', 'slug', slug, 'en')
+    if (doc) await store.delete('services', doc.id as number | string)
+  }
   for (const raw of list(sources.services)) {
     const slug = String(raw.slug)
     await upsert('services', 'slug', slug, locale => {
       const d = object(localized(raw, locale))
-      return { ...d, items: labels(d.items), seedKey: slug, needsReview: raw.needsReview === true, _status: 'published' }
+      const groups = list(d.groups).map(g => ({ title: g.title, label: emptyToUndefined(g.label), items: labels(g.items) }))
+      return { ...d, items: labels(d.items), groups, seedKey: slug, needsReview: raw.needsReview === true, _status: 'published' }
     }, 'title')
     counts.services = (counts.services ?? 0) + 1
   }
@@ -94,10 +99,11 @@ export async function runSeed(store: SeedStore, root: string, overwrite = false)
     }) },
     { slug: 'home', source: 'home', marker: 'hero.headline', shape: (d) => {
       const hero = object(d.hero); const about = object(d.about); const why = object(d.why); const services = object(d.services)
-      const journey = object(d.journey); const network = object(d.network); const office = object(d.office)
+      const journey = object(d.journey); const network = object(d.network); const office = object(d.office); const leadership = object(d.leadership)
       return {
         hero: { ...hero, image: media(hero.image) },
         about: { ...about, image: media(about.image), mission: labels(about.mission), needsReview: undefined },
+        leadership: { ...leadership, body: emptyToUndefined(leadership.body), people: list(leadership.people).map(p => ({ name: p.name, role: p.role, photo: media(p.photo) })) },
         why: { ...why, image: media(why.image) },
         group: d.group,
         services: { ...services, image: media(services.image), platformPillars: labels(list(services.platformPillars).map(p => p.title)), platformScope: labels(list(services.platformScope).map(p => p.label)) },

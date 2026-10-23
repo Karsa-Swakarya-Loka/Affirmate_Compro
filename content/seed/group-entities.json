@@ -41,13 +41,13 @@
     "brand": "Affirmate Administrative",
     "category": { "en": "Administrative Platform", "id": "Platform Administrasi" },
     "summary": {
-      "en": "Incorporation, licensing, visas, HR & payroll, relocation and back-office services in one stop.",
-      "id": "Pendirian perusahaan, perizinan, visa, HR & payroll, relokasi, dan layanan back-office dalam satu pintu."
+      "en": "Incorporation, licensing, visas, HR, corporate secretary, relocation and back-office services in one stop.",
+      "id": "Pendirian perusahaan, perizinan, visa, HR, sekretaris korporat, relokasi, dan layanan back-office dalam satu pintu."
     },
     "bullets": [
       { "en": "Incorporation & Licensing", "id": "Pendirian & Perizinan" },
       { "en": "Visa / Work Permit", "id": "Visa / Izin Kerja" },
-      { "en": "HR / Payroll / Corporate Secretary", "id": "HR / Payroll / Sekretaris Korporat" }
+      { "en": "HR / Corporate Secretary", "id": "HR / Sekretaris Korporat" }
     ],
     "logo": "design/assets/Logos/affirmate-administrative.webp",
     "url": "",

@@ -39,6 +39,10 @@
     "office": {
       "en": "Office",
       "id": "Kantor"
+    },
+    "leadership": {
+      "en": "Leadership",
+      "id": "Pimpinan"
     }
   },
   "cta": {

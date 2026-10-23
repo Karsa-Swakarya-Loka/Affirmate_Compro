@@ -8,12 +8,21 @@ import { SectionHead } from '@/components/ui/SectionHead'
 const pad = (n: number) => String(n).padStart(2, '0')
 
 type Cta = { label: string; href: string }
+type Tag = { id?: string | null; label: string }
+
+const hasDetail = (s: Service) => (s.items?.length ?? 0) > 0 || (s.groups?.length ?? 0) > 0 || Boolean(s.body)
+// Long tag lists and grouped lists span the row; a lone half-width row would leave a hole in the grid, so it spans too.
+const isLong = (s: Service) => (s.items?.length ?? 0) > 8 || (s.groups?.length ?? 0) > 0
+
+function Tags({ items }: { items: Tag[] }) {
+  return <div className="af-tags">{items.map(it => <span className="af-tag" key={it.id ?? it.label}>{it.label}</span>)}</div>
+}
 
 export function Services({ block, services, cta }: { block: NonNullable<Home['services']>; services: Service[]; cta?: Cta }) {
+  // The four-petal diagram keeps its shape; a fifth service (Corporate Secretary, 23 Oct 2026) sits as a wide petal under it.
   const petals = services.slice(0, 4)
-  const withItems = services.filter(s => (s.items?.length ?? 0) > 0 || s.body)
-  // Long tag lists span the row; a lone half-width row would leave a hole in the grid, so it spans too.
-  const isLong = (s: Service) => (s.items?.length ?? 0) > 8
+  const extra = services.slice(4)
+  const withItems = services.filter(hasDetail)
   const halves = withItems.filter(s => !isLong(s))
   const loneHalf = halves.length % 2 === 1 ? halves[halves.length - 1] : null
   return (
@@ -25,15 +34,23 @@ export function Services({ block, services, cta }: { block: NonNullable<Home['se
             <Photo media={block.image} className="af-services__photo" sizes="(min-width: 1024px) 40vw, 100vw" />
             <div className="af-hatch" style={{ marginTop: 'var(--space-6)' }} aria-hidden="true" />
           </div>
-          <div className="af-petals">
-            {petals.map((s, i) => (
-              <article className="af-petal" key={s.id}>
-                <span className="af-petal__num">{pad(i + 1)}</span>
-                <h3>{s.title}</h3>
-                <p>{s.summary}</p>
+          <div className="af-petalset">
+            <div className="af-petals">
+              {petals.map((s, i) => (
+                <article className="af-petal" key={s.id}>
+                  <span className="af-petal__num">{pad(i + 1)}</span>
+                  <h3>{s.title}</h3>
+                  <p>{s.summary}</p>
+                </article>
+              ))}
+              <div className="af-petals__core" aria-hidden="true"><Image src="/brand/favicon.svg" alt="" width={64} height={64} /></div>
+            </div>
+            {extra.map((s, i) => (
+              <article className="af-petal af-petal--wide" key={s.id}>
+                <span className="af-petal__num">{pad(i + 5)}</span>
+                <div><h3>{s.title}</h3><p>{s.summary}</p></div>
               </article>
             ))}
-            <div className="af-petals__core" aria-hidden="true"><Image src="/brand/favicon.svg" alt="" width={64} height={64} /></div>
           </div>
         </div>
         {withItems.length ? (
@@ -44,7 +61,18 @@ export function Services({ block, services, cta }: { block: NonNullable<Home['se
               return (
                 <div className={['af-svcrow', wide ? 'af-svcrow--wide' : ''].filter(Boolean).join(' ')} key={s.id}>
                   <div className="af-svcrow__head"><span className="af-svcrow__num">{pad(idx + 1)}</span>{s.title}</div>
-                  {s.items?.length ? <div className="af-tags">{s.items.map(it => <span className="af-tag" key={it.id ?? it.label}>{it.label}</span>)}</div> : null}
+                  {s.items?.length ? <Tags items={s.items} /> : null}
+                  {s.groups?.length ? (
+                    <div className="af-svcgroups">
+                      {s.groups.map((g, i, all) => (
+                        <div className="af-svcgroup" key={g.id ?? i}>
+                          {i === 0 || all[i - 1].title !== g.title ? <h4 className="af-svcgroup__title">{g.title}</h4> : null}
+                          {g.label ? <p className="af-svcgroup__label">{g.label}</p> : null}
+                          {g.items?.length ? <Tags items={g.items} /> : null}
+                        </div>
+                      ))}
+                    </div>
+                  ) : null}
                   {s.body ? <p className="af-small">{s.body}</p> : null}
                 </div>
               )
@@ -61,7 +89,7 @@ export function Services({ block, services, cta }: { block: NonNullable<Home['se
             {block.platformPillars?.length ? (
               <div className="af-platform__pillars">
                 {block.platformPillars.map((p, i) => (
-                  <div className="af-platform__pillar" key={p.id ?? p.label}><span className="af-ico"><Icon name={['bank', 'identification-card', 'wallet'][i] ?? 'check'} size={22} /></span>{p.label}</div>
+                  <div className="af-platform__pillar" key={p.id ?? p.label}><span className="af-ico"><Icon name={['bank', 'identification-card', 'file-text'][i] ?? 'check'} size={22} /></span>{p.label}</div>
                 ))}
               </div>
             ) : null}

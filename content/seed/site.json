@@ -7,7 +7,7 @@
   "logoWhite": "design/assets/Logos/affirmate-administrative-white.png",
   "phone": "021 5092 8670",
   "phone2": "0819 0505 6482",
-  "whatsapp": "",
+  "whatsapp": "6281905056482",
   "email": "info@affirmate.co.id",
   "address": {
     "en": "Ascott Sudirman Jakarta, 31st Floor Affirmate Office, Ciputra World 2, Jl. Prof. Dr. Satrio Kav. 11, Jakarta 12930, Indonesia",
@@ -27,11 +27,11 @@
       "id": "Affirmate Administrative | Dukungan Korporat & Administrasi di Indonesia"
     },
     "description": {
-      "en": "A dedicated unit of Affirmate Group providing company incorporation, licensing, visa and work permit, HR and payroll administration, compliance, relocation and back-office support in Indonesia.",
-      "id": "Unit Affirmate Group untuk pendirian perusahaan, perizinan, visa dan izin kerja, administrasi HR dan payroll, kepatuhan, relokasi, serta dukungan back-office di Indonesia."
+      "en": "A dedicated unit of Affirmate Group providing company incorporation, licensing, visa and work permit, HR administration, corporate secretary, compliance, relocation and back-office support in Indonesia.",
+      "id": "Unit Affirmate Group untuk pendirian perusahaan, perizinan, visa dan izin kerja, administrasi HR, sekretaris korporat, kepatuhan, relokasi, serta dukungan back-office di Indonesia."
     },
     "ogImage": "design/assets/Photography/hero-lobby-signage.jpg"
   },
   "inquiryRecipients": ["info@affirmate.co.id"],
-  "needsReview": ["whatsapp", "workingHours", "social", "inquiryRecipients", "address.id"]
+  "needsReview": ["workingHours", "social", "inquiryRecipients", "address.id"]
 }

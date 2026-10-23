@@ -251,6 +251,15 @@
 .af-tags { display: flex; flex-wrap: wrap; gap: var(--space-2); }
 .af-tag { padding: 3px var(--space-3); border-radius: var(--radius-sm) var(--radius-sm) var(--radius-sm) 2px; background: var(--brand-tint); color: var(--green-deep); font-family: var(--font-display); font-size: 13px; line-height: 20px; font-weight: 500; }
 @media (min-width: 1024px) { .af-svcdetail { grid-template-columns: minmax(0, 1fr) minmax(0, 1fr); } .af-svcrow--wide { grid-column: 1 / -1; } }
+/* Fifth service (23 Oct 2026): the 2x2 diagram keeps its core; the extra petal runs wide beneath it. */
+.af-petalset { display: grid; gap: var(--space-3); }
+.af-petalset > .af-petal--wide { min-height: 0; grid-template-columns: auto minmax(0, 1fr); gap: var(--space-5); align-content: start; align-items: start; padding: var(--space-5) var(--space-6); border-radius: var(--radius-md) var(--radius-md) var(--radius-xl) var(--radius-leaf); }
+.af-petal--wide > div { display: grid; gap: var(--space-2); }
+/* Grouped detail: heading per group, optional uppercase sub-label, then the same tags. */
+.af-svcgroups { display: grid; gap: var(--space-4); }
+.af-svcgroup { display: grid; gap: var(--space-2); }
+.af-svcgroup__title { font-family: var(--font-display); font-weight: 700; font-size: 15px; line-height: 22px; color: var(--green-deep); }
+.af-svcgroup__label { font-family: var(--font-display); font-weight: 600; font-size: 12px; line-height: 18px; letter-spacing: .06em; text-transform: uppercase; color: var(--ink-muted); }
 /* Platform strip */
 .af-platform { background: var(--green-deep); color: var(--on-brand); border-radius: var(--radius-xl) var(--radius-xl) var(--radius-xl) var(--radius-leaf); padding: var(--space-8) var(--space-6); display: grid; gap: var(--space-6); margin-top: var(--space-6); }
 .af-platform__title { font-family: var(--font-display); font-weight: 700; font-size: 22px; line-height: 30px; }
@@ -311,6 +320,25 @@
 .af-gallery .af-photo { height: 150px; border-radius: var(--radius-lg) var(--radius-lg) var(--radius-lg) var(--radius-leaf); }
 .af-gallery .af-photo:nth-child(odd) { border-radius: var(--radius-lg) var(--radius-leaf) var(--radius-lg) var(--radius-lg); }
 .af-gallery .af-photo:first-child { grid-column: 1 / -1; height: 260px; border-radius: var(--radius-xl) var(--radius-xl) var(--radius-xl) var(--radius-leaf); }
+/* Leadership: heading column + leaf-shaped portraits with name and role; no card chrome. Portraits keep natural skin
+   tones (lighter desaturation, no green multiply) so faces read as people, not as office interiors. */
+.af-leaders { display: grid; gap: var(--space-8); align-items: start; }
+.af-leaders__head { display: grid; gap: var(--space-5); justify-items: start; }
+.af-leaders__list { list-style: none; margin: 0; padding: 0; display: grid; grid-template-columns: repeat(auto-fit, minmax(150px, 1fr)); gap: var(--space-5); }
+.af-leader { display: grid; gap: var(--space-3); align-content: start; }
+.af-leader__photo { aspect-ratio: 4 / 5; border-radius: var(--radius-xl) var(--radius-xl) var(--radius-xl) var(--radius-leaf); background: var(--surface-soft); }
+.af-leader__photo img { object-position: 50% 12%; filter: saturate(.85) contrast(1.02); }
+.af-leader__photo::after { display: none; }
+.af-leader:nth-child(2n) .af-leader__photo { border-radius: var(--radius-xl) var(--radius-leaf) var(--radius-xl) var(--radius-xl); }
+.af-leader__meta { display: flex; gap: var(--space-3); align-items: flex-start; }
+.af-leader__num { width: 34px; height: 34px; flex: none; border-radius: var(--radius-sm) var(--radius-sm) var(--radius-sm) 2px; background: var(--green); color: var(--on-brand); display: grid; place-items: center; font-family: var(--font-display); font-size: 13px; font-weight: 800; }
+.af-leader__meta strong { display: block; font-family: var(--font-display); font-weight: 700; font-size: 17px; line-height: 24px; color: var(--ink); }
+.af-leader__role { display: block; font-size: var(--text-small-size); line-height: var(--text-small-line); color: var(--ink-muted); }
+@media (min-width: 1024px) {
+  .af-leaders { grid-template-columns: minmax(0, 1fr) minmax(0, 2fr); gap: var(--space-10); }
+  .af-leaders__head { position: sticky; top: 96px; }
+  .af-leader:nth-child(2) { margin-top: var(--space-8); }
+}
 @media (min-width: 1024px) { .af-office { grid-template-columns: minmax(0, .75fr) minmax(0, 1.25fr); align-items: start; } .af-gallery { grid-template-columns: repeat(4, minmax(0, 1fr)); } .af-gallery .af-photo { height: 150px; } .af-gallery .af-photo:first-child { grid-column: 1 / -1; height: 340px; } }
 
 /* News card */

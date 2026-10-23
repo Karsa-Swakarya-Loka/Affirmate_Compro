@@ -1,6 +1,6 @@
 [
   {
-    "_source": "Compro Rev 3 hal. 5. Istilah izin dibiarkan sesuai compro (OPEN-QUESTIONS #5). Semua needsReview (OPEN-QUESTIONS #2).",
+    "_source": "Compro Rev 3 hal. 5; revisi klien 23 Okt 2026: rincian KITAS dan visa (single entry tipe C, multiple entry tipe D, kode visa dari klien). Istilah izin dibiarkan sesuai compro (OPEN-QUESTIONS #5). Semua needsReview (OPEN-QUESTIONS #2, #18).",
     "slug": "conversant-expatriate",
     "order": 1,
     "icon": "user-check",
@@ -10,12 +10,41 @@
       "id": "Layanan expatriate hosting kami memakai teknologi digital terkini yang memberi nilai tambah dalam memenuhi kebutuhan ekspatriat, sehingga klien tetap fokus meningkatkan dan menjaga kinerja serta keunggulan kompetitifnya."
     },
     "items": [
-      { "en": "KITAS (Stay Permit)", "id": "KITAS (Izin Tinggal Terbatas)" },
-      { "en": "KITAP", "id": "KITAP" },
-      { "en": "Visa & Passport Services", "id": "Layanan Visa & Paspor" },
-      { "en": "All in One Solutions", "id": "All in One Solutions" },
-      { "en": "Senior KITAS", "id": "KITAS Lansia" },
-      { "en": "Senior Visa Services", "id": "Layanan Visa Lansia" }
+      { "en": "KITAP (Permanent Stay Permit)", "id": "KITAP (Izin Tinggal Tetap)" },
+      { "en": "All in One Solutions", "id": "All in One Solutions" }
+    ],
+    "groups": [
+      {
+        "title": { "en": "KITAS (Stay Permit)", "id": "KITAS (Izin Tinggal Terbatas)" },
+        "label": { "en": "", "id": "" },
+        "items": [
+          { "en": "Working KITAS (E23, E28, etc.)", "id": "KITAS Kerja (E23, E28, dll.)" },
+          { "en": "Dependent KITAS (E31)", "id": "KITAS Pendamping (E31)" },
+          { "en": "Retirement KITAS (E32)", "id": "KITAS Lansia (E32)" }
+        ]
+      },
+      {
+        "title": { "en": "Visa & Passport Services", "id": "Layanan Visa & Paspor" },
+        "label": { "en": "Indonesian Visas", "id": "Visa Indonesia" },
+        "items": [
+          { "en": "Visit Visa Single Entry (C1, C2, C6, C7, C10, C11, C17, etc.)", "id": "Visa Kunjungan Single Entry (C1, C2, C6, C7, C10, C11, C17, dll.)" },
+          { "en": "Visit Visa Multiple Entry (D1, D2, D6, D17, etc.)", "id": "Visa Kunjungan Multiple Entry (D1, D2, D6, D17, dll.)" },
+          { "en": "Working Visa (E23, E28, etc.)", "id": "Visa Kerja (E23, E28, dll.)" },
+          { "en": "Retirement Visa (E32)", "id": "Visa Lansia (E32)" },
+          { "en": "Dependent Visa (E31)", "id": "Visa Pendamping (E31)" }
+        ]
+      },
+      {
+        "title": { "en": "Visa & Passport Services", "id": "Layanan Visa & Paspor" },
+        "label": { "en": "Global Visas", "id": "Visa Global" },
+        "items": [
+          { "en": "Schengen Visa", "id": "Visa Schengen" },
+          { "en": "Australia Visa", "id": "Visa Australia" },
+          { "en": "Japan Visa", "id": "Visa Jepang" },
+          { "en": "China Visa", "id": "Visa China" },
+          { "en": "Other countries on request", "id": "Negara lain sesuai permintaan" }
+        ]
+      }
     ],
     "needsReview": true
   },
@@ -41,18 +70,21 @@
       { "en": "Indonesian Business Visa", "id": "Visa Bisnis Indonesia" },
       { "en": "Indonesian Passport Formalities Documents", "id": "Dokumen Formalitas Paspor Indonesia" }
     ],
+    "groups": [],
     "needsReview": true
   },
   {
-    "slug": "management-advisory",
+    "_source": "Revisi klien 23 Okt 2026: Management Advisory diganti nama menjadi Expatriate Advisory (slug lama management-advisory dihapus seed). Ringkasan masih teks compro hal. 5, menunggu teks baru klien (OPEN-QUESTIONS #17).",
+    "slug": "expatriate-advisory",
     "order": 3,
     "icon": "briefcase",
-    "title": { "en": "Management Advisory", "id": "Management Advisory" },
+    "title": { "en": "Expatriate Advisory", "id": "Expatriate Advisory" },
     "summary": {
       "en": "Supporting organizations with strategic business advisory, organizational development, operational improvement, risk management, and compliance solutions to help clients achieve sustainable growth and business excellence.",
       "id": "Mendukung organisasi melalui advisory bisnis strategis, pengembangan organisasi, perbaikan operasional, manajemen risiko, dan solusi kepatuhan untuk membantu klien mencapai pertumbuhan berkelanjutan dan keunggulan bisnis."
     },
     "items": [],
+    "groups": [],
     "needsReview": true
   },
   {
@@ -65,6 +97,21 @@
       "id": "Kami pelopor di bidang teknologi layanan expatriate hosting, sehingga proses pemenuhan kebutuhan ekspatriat dari klien di seluruh Indonesia dapat dilakukan jauh lebih cepat dan terkelola dengan baik, tetap berpedoman pada hukum yang berlaku di Indonesia."
     },
     "items": [],
+    "groups": [],
+    "needsReview": true
+  },
+  {
+    "_source": "Revisi klien 23 Okt 2026: Corporate Secretary jadi layanan kelima. Ringkasan disusun KaryaLo dari pilar platform compro hal. 4, menunggu teks klien (OPEN-QUESTIONS #17).",
+    "slug": "corporate-secretary",
+    "order": 5,
+    "icon": "file-text",
+    "title": { "en": "Corporate Secretary", "id": "Corporate Secretary" },
+    "summary": {
+      "en": "Corporate secretarial support for your entity in Indonesia, keeping company records, statutory documents and regulatory filings in order as part of our Administrative Platform.",
+      "id": "Dukungan sekretaris korporat untuk entitas Anda di Indonesia: dokumen perusahaan, dokumen wajib, dan pelaporan regulasi tetap tertib sebagai bagian dari Platform Administrasi kami."
+    },
+    "items": [],
+    "groups": [],
     "needsReview": true
   }
 ]

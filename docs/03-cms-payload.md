@@ -9,6 +9,7 @@ Localization: `locales: [{ code: 'en', label: 'English' }, { code: 'id', label: 
 ### `home`
 - `hero`: `eyebrow` **L**, `headline` **L**, `highlight` **L**, `lead` **L**, `image`, `primaryCta`/`secondaryCta` (label **L**, href).
 - `about`: `eyebrow` **L**, `title` **L**, `subtitle` **L**, `body` **L** (richText), `vision` **L**, `mission` **L** (array text), `showVisionMission` (checkbox), `stats` (array: `value`, `label` **L**, `sublabel` **L**, `icon`).
+- `leadership` (23 Okt 2026): `title` **L**, `subtitle` **L**, `body` **L**, `people` (array ≤8: `name`, `role` **L**, `photo` upload). Section tampil bila ≥1 orang berfoto.
 - `why`: `title` **L**, `tagline` **L**, `body` **L**, `image`, `pillars` (array 4: `icon`, `title` **L**, `text` **L**).
 - `group`: `title` **L**, `body` **L** (richText).
 - `services`: `eyebrow` **L**, `title` **L**, `intro` **L**, `platformTitle` **L**, `platformPillars` (array 3: `title` **L**), `platformScope` (array 7: `label` **L**).
@@ -27,7 +28,7 @@ Kamus label UI dua bahasa. Seed `content/seed/ui-dictionary.json`.
 
 ## Collections
 ### `services`
-`title` **L** · `slug` · `order` · `icon` (select Lucide) · `summary` **L** · `items` **L** (array text; daftar KITAS, RPTKA, dst.) · `body` **L** (richText, opsional) · `seo`. Seed: 4 layanan compro hal. 5.
+`title` **L** · `slug` · `order` · `icon` (select Lucide) · `summary` **L** · `items` **L** (array text; daftar KITAS, RPTKA, dst.) · `groups` (array: `title` **L**, `label` **L** opsional, `items` **L**; rincian berkelompok, dipakai Conversant Expatriate untuk jenis KITAS dan Visa Indonesia / Global, 23 Okt 2026) · `body` **L** (richText, opsional) · `seo`. Seed: 5 layanan (4 dari compro hal. 5 dengan Management Advisory → Expatriate Advisory, plus Corporate Secretary; revisi klien 23 Okt 2026).
 
 ### `groupEntities`
 `name` (PT lengkap) · `brand` ("Affirmate Business Advisory") · `category` **L** ("Business Advisory / Investment") · `summary` **L** · `bullets` **L** (array) · `logo` · `url` · `isSelf` (checkbox; ATN = true) · `order`. Seed: 4 entitas hal. 4.

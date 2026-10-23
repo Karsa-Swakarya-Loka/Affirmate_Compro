@@ -18,7 +18,7 @@ export async function sectionVisibility(locale: Locale): Promise<Record<SectionI
   const v = (home.sectionsVisible ?? {}) as Record<string, boolean | null | undefined>
   const on = (id: string) => v[id] !== false
   return {
-    about: on('about'), why: on('why') && Boolean(home.why?.title), group: on('group') && entities.length > 0, services: on('services') && services.length > 0,
+    about: on('about'), leadership: on('leadership') && (home.leadership?.people ?? []).some(p => p.photo), why: on('why') && Boolean(home.why?.title), group: on('group') && entities.length > 0, services: on('services') && services.length > 0,
     journey: on('journey') && milestones.length > 0, clients: on('clients') && clients.length > 0, network: on('network') && cities.length > 0,
     office: on('office') && Boolean(home.office?.title), insights: on('insights') && posts.length > 0, contact: on('contact'),
   }
