@@ -4,11 +4,11 @@ import { SectionHead } from '@/components/ui/SectionHead'
 
 type Props = { about: NonNullable<Home['about']>; showVisionMission: boolean; showStats: boolean; labels: { vision: string; mission: string } }
 
-// Green page. Head on the rule; then the story on the left with the figures at its foot, and the photo on the right
-// at exactly the same height; vision and mission under one more rule, split by a vertical one.
-export function About({ about, showVisionMission, showStats, labels }: Props) {
-  const stats = showStats ? about.stats ?? [] : []
+// Green page. Head on the rule; then the story with vision and mission under it on the left, and the photo on the
+// right at exactly the same height. The figures (stats) are shown once, on the hero photo, not repeated here.
+export function About({ about, showVisionMission, labels }: Props) {
   const mission = (about.mission ?? []).map(m => m.label).filter(Boolean)
+  const vm = showVisionMission && (about.vision || mission.length)
   return (
     <section className="af-section af-section--green" id="about">
       <div className="af-container">
@@ -17,26 +17,15 @@ export function About({ about, showVisionMission, showStats, labels }: Props) {
         <div className="af-about">
           <div className="af-about__text">
             <p className="af-about__body">{about.body}</p>
-            {stats.length ? (
-              <div className="af-stats">
-                {stats.map(s => (
-                  <div className="af-stat" key={s.id ?? s.value}>
-                    <div className="af-stat__value">{s.value}</div>
-                    <div className="af-stat__label">{s.label}</div>
-                    {s.sublabel ? <div className="af-stat__sub">{s.sublabel}</div> : null}
-                  </div>
-                ))}
+            {vm ? (
+              <div className="af-vm">
+                {about.vision ? <div className="af-vm__row"><strong>{labels.vision}</strong>{about.vision}</div> : null}
+                {mission.length ? <div className="af-vm__row"><strong>{labels.mission}</strong><ol>{mission.map(m => <li key={m}>{m.replace(/[.\s]+$/, '')}</li>)}</ol></div> : null}
               </div>
             ) : null}
           </div>
           <Photo media={about.image} className="af-about__photo af-photo--fill" />
         </div>
-        {showVisionMission && (about.vision || mission.length) ? (
-          <div className="af-vm">
-            {about.vision ? <div className="af-vm__row"><strong>{labels.vision}</strong>{about.vision}</div> : null}
-            {mission.length ? <div className="af-vm__row"><strong>{labels.mission}</strong><ol>{mission.map(m => <li key={m}>{m.replace(/[.\s]+$/, '')}</li>)}</ol></div> : null}
-          </div>
-        ) : null}
       </div>
     </section>
   )

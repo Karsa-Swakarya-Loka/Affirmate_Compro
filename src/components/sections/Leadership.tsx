@@ -11,7 +11,7 @@ export function Leadership({ block }: { block: NonNullable<Home['leadership']> }
   const people = (block.people ?? []).filter(p => p.photo)
   if (!people.length) return null
   return (
-    <section className="af-section" id="leadership">
+    <section className="af-section af-section--soft" id="leadership">
       <div className="af-container">
         <div className="af-leaders">
           <div className="af-leaders__head">

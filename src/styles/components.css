@@ -59,7 +59,7 @@
    (subtitle, then lead). Both columns stand on the same rule, so the content under them starts aligned. */
 .af-sechead { display: grid; gap: var(--space-4); margin-bottom: var(--space-10); padding-bottom: var(--space-6); border-bottom: 1px solid var(--rule); }
 .af-sechead__main { display: grid; gap: var(--space-2); align-content: start; justify-items: start; }
-.af-sechead__aside { display: grid; gap: var(--space-3); align-content: end; }
+.af-sechead__aside { display: grid; gap: var(--space-3); align-content: start; }
 .af-sechead__row { display: flex; align-items: center; gap: var(--space-3); }
 .af-sechead--tight { margin-bottom: var(--space-8); }
 .af-sechead--flush { margin-bottom: 0; padding-bottom: 0; border-bottom: 0; }
@@ -67,7 +67,7 @@
 .af-sechead--center .af-sechead__row { justify-content: center; }
 .af-sechead--center .af-lead { text-align: center; }
 @media (min-width: 1024px) {
-  .af-sechead:not(.af-sechead--center):not(.af-sechead--stack) { grid-template-columns: minmax(0, 5fr) minmax(0, 7fr); gap: var(--space-8); align-items: end; }
+  .af-sechead:not(.af-sechead--center):not(.af-sechead--stack) { grid-template-columns: minmax(0, 5fr) minmax(0, 7fr); gap: var(--space-8); align-items: start; }
 }
 /* Title tab: green rounded label with cream text (template "OUR VISION", "COMPANY PROFILE") */
 .af-tab { display: inline-flex; align-items: center; gap: var(--space-3); background: var(--green); color: var(--on-brand); padding: var(--space-3) var(--space-5); border-radius: var(--radius-md) var(--radius-md) var(--radius-md) var(--radius-leaf); font-family: var(--font-display); font-weight: 700; font-size: 14px; line-height: 20px; letter-spacing: .6px; text-transform: uppercase; text-decoration: none; }
@@ -81,8 +81,7 @@
 .af-section--green .af-specs li + li::before, .af-platform .af-specs li + li::before { background: var(--on-brand); opacity: .5; }
 
 /* Ruled fact list (dt/dd rows). Inside a two-column block its rows spread over the column height. */
-.af-facts { margin: 0; display: grid; align-content: stretch; border-top: 1px solid var(--rule); }
-@media (min-width: 1024px) { .af-facts { grid-auto-rows: 1fr; } }
+.af-facts { margin: 0; display: grid; align-content: start; border-top: 1px solid var(--rule); }
 .af-facts > div { display: grid; gap: 2px; align-content: center; padding: var(--space-4) 0; border-bottom: 1px solid var(--rule); }
 .af-facts dt { font-family: var(--font-display); font-size: var(--text-caption-size); line-height: var(--text-caption-line); letter-spacing: 1.2px; text-transform: uppercase; font-weight: 700; color: var(--brand-text); }
 .af-facts dd { margin: 0; font-family: var(--font-display); font-weight: 600; font-size: 16px; line-height: 25px; color: var(--ink); }
@@ -181,20 +180,17 @@
 /* About: green page. Story and figures on the left (no panel), photo on the right at the same height;
    vision and mission under one more rule, split by a vertical one. */
 .af-about { display: grid; gap: var(--space-8); align-items: stretch; }
-.af-about__text { display: grid; gap: var(--space-8); align-content: space-between; }
+.af-about__text { display: grid; gap: var(--space-6); align-content: start; }
 .af-about__body { font-size: 17px; line-height: 29px; color: var(--on-brand); max-width: 60ch; }
-.af-about .af-stats { padding-top: var(--space-6); border-top: 1px solid var(--rule); }
-.af-about .af-stat__value, .af-about .af-stat__label { color: var(--on-brand); }
-.af-about .af-stat__sub { color: var(--on-brand-muted); opacity: 1; }
 .af-about__photo { aspect-ratio: 16 / 10; border-radius: var(--radius-xl) var(--radius-xl) var(--radius-leaf) var(--radius-xl); }
 @media (min-width: 1024px) { .af-about { grid-template-columns: minmax(0, 1.05fr) minmax(0, .95fr); gap: var(--space-10); } .af-about__photo { min-height: 380px; } }
-.af-vm { display: grid; gap: var(--space-6); margin-top: var(--space-8); padding-top: var(--space-6); border-top: 1px solid var(--rule); }
+.af-vm { display: grid; gap: var(--space-5); padding-top: var(--space-6); border-top: 1px solid var(--rule); }
 .af-vm__row { font-size: 15px; line-height: 24px; color: var(--on-brand); }
 .af-vm__row strong { display: block; font-family: var(--font-display); font-size: 13px; letter-spacing: 1.2px; text-transform: uppercase; opacity: .85; margin-bottom: var(--space-2); }
 .af-vm__row ol { margin: 0; padding: 0; list-style: none; display: grid; gap: var(--space-2); counter-reset: mission; }
 .af-vm__row ol li { display: grid; grid-template-columns: 28px minmax(0, 1fr); counter-increment: mission; }
 .af-vm__row ol li::before { content: counter(mission, decimal-leading-zero); font-weight: 700; font-size: 13px; opacity: .85; }
-@media (min-width: 1024px) { .af-vm { grid-template-columns: minmax(0, .8fr) minmax(0, 1.2fr); gap: var(--space-10); } .af-vm__row + .af-vm__row { border-left: 1px solid var(--rule); padding-left: var(--space-10); } }
+.af-vm__row + .af-vm__row { padding-top: var(--space-5); border-top: 1px solid var(--rule); }
 
 /* Split (text + photo) */
 .af-split { display: grid; gap: var(--space-8); align-items: center; }
@@ -303,6 +299,7 @@
 .af-platform__in { max-width: var(--container); margin: 0 auto; padding: var(--space-10) var(--gutter); display: grid; gap: var(--space-8); }
 .af-platform__lead { display: grid; gap: var(--space-4); justify-items: start; align-content: start; }
 .af-platform__lead .af-mark { background: var(--on-brand); }
+.af-platform__row { display: flex; align-items: center; gap: var(--space-3); }
 .af-platform__title { font-family: var(--font-display); font-weight: 700; font-size: var(--text-heading-2-size); line-height: var(--text-heading-2-line); max-width: 20ch; text-wrap: balance; }
 .af-platform__pillars { display: grid; gap: var(--space-4); }
 .af-platform__pillar { display: flex; align-items: center; gap: var(--space-3); font-family: var(--font-display); font-weight: 600; font-size: 15px; line-height: 22px; }
@@ -369,7 +366,7 @@
 
 /* Leadership: the head takes the first column of the portrait row (its hatch sits at the row's foot), then the
    leaf-shaped portraits with number, name and role; no card chrome. Portraits keep natural skin tones. */
-.af-leaders { display: grid; gap: var(--space-8) var(--space-6); align-items: stretch; }
+.af-leaders { display: grid; align-items: stretch; }
 .af-leaders__head { display: grid; gap: var(--space-5); align-content: space-between; justify-items: start; }
 .af-leaders__list { display: contents; }
 .af-leader { display: grid; gap: var(--space-3); align-content: start; }
@@ -381,8 +378,10 @@
 .af-leader__num { width: 34px; height: 34px; flex: none; border-radius: var(--radius-sm) var(--radius-sm) var(--radius-sm) 2px; background: var(--green); color: var(--on-brand); display: grid; place-items: center; font-family: var(--font-display); font-size: 13px; font-weight: 800; }
 .af-leader__meta strong { display: block; font-family: var(--font-display); font-weight: 700; font-size: 17px; line-height: 24px; color: var(--ink); }
 .af-leader__role { display: block; font-size: var(--text-small-size); line-height: var(--text-small-line); color: var(--ink-muted); }
-@media (min-width: 640px) { .af-leaders { grid-template-columns: repeat(2, minmax(0, 1fr)); } .af-leaders__head { grid-column: 1 / -1; } }
-@media (min-width: 1024px) { .af-leaders { grid-template-columns: repeat(4, minmax(0, 1fr)); } .af-leaders__head { grid-column: auto; padding-right: var(--space-4); } }
+/* Two columns on phones and tablets: the head takes the first cell, so three portraits complete a 2x2 grid */
+.af-leaders { grid-template-columns: repeat(2, minmax(0, 1fr)); gap: var(--space-6) var(--space-4); }
+.af-leaders__head { padding-right: var(--space-2); }
+@media (min-width: 1024px) { .af-leaders { grid-template-columns: repeat(4, minmax(0, 1fr)); gap: var(--space-8) var(--space-6); } .af-leaders__head { padding-right: var(--space-4); } }
 
 /* News: leaf-shaped cover, text on a rule, no box */
 .af-news { display: grid; grid-template-rows: auto 1fr; gap: var(--space-4); }
@@ -434,7 +433,9 @@
 .af-footer__bar-in { max-width: var(--container); margin: 0 auto; padding: var(--space-4) var(--gutter); display: flex; flex-wrap: wrap; gap: var(--space-3) var(--space-6); justify-content: space-between; font-size: 13px; color: var(--on-brand-muted); }
 .af-footer__group { display: inline-flex; align-items: center; gap: var(--space-2); font-size: 14px; }
 .af-footer__group img { height: 18px; }
-@media (min-width: 768px) { .af-footer__in { grid-template-columns: minmax(0, 1.4fr) minmax(0, 1fr) minmax(0, 1fr); } }
+@media (min-width: 640px) { .af-footer__bar-in { padding-right: 220px; } }
+/* Explore links in two columns (the list leaves the grid display so CSS columns apply) */
+@media (min-width: 768px) { .af-footer__in { grid-template-columns: minmax(0, 1.4fr) minmax(0, 1fr) minmax(0, 1.2fr); } .af-footer .af-footer__links { display: block; columns: 2; column-gap: var(--space-6); } .af-footer .af-footer__links li { break-inside: avoid; padding-bottom: var(--space-2); } }
 
 /* WhatsApp float */
 .af-wa { position: fixed; right: var(--space-4); bottom: var(--space-4); z-index: 30; display: inline-flex; align-items: center; gap: var(--space-2); background: var(--whatsapp); color: #fff; padding: var(--space-3) var(--space-4); border-radius: var(--radius-md) var(--radius-md) var(--radius-md) var(--radius-leaf); box-shadow: var(--shadow-raised); font-family: var(--font-display); font-weight: 600; font-size: 14px; text-decoration: none; }

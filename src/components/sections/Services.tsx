@@ -115,8 +115,7 @@ export function Services({ block, services, cta, locale }: { block: NonNullable<
           <div className="af-platform__in">
             {/* The visitor has just read what we do: the one solid next step sits here, at the end of the offer. */}
             <div className="af-platform__lead">
-              <span className="af-mark" aria-hidden="true" />
-              <p className="af-platform__title">{block.platformTitle}</p>
+              <div className="af-platform__row"><span className="af-mark" aria-hidden="true" /><p className="af-platform__title">{block.platformTitle}</p></div>
               {cta ? <Link className="af-btn af-btn--light af-btn--lg" href={cta.href}>{cta.label} <Icon name="arrow-right" size={18} /></Link> : null}
             </div>
             {block.platformPillars?.length ? (

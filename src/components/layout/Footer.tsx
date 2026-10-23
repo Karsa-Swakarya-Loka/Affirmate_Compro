@@ -33,7 +33,7 @@ export function Footer({ locale, site, ui, sections, showPrivacy }: Props) {
         </div>
         <div>
           <h2 className="af-footer__h">Explore</h2>
-          <ul>
+          <ul className="af-footer__links">
             {sections.filter(s => s !== 'contact').map(s => <li key={s}><Link href={href(locale, 'home', undefined, s)}>{nav[s] || s}</Link></li>)}
             <li><Link href={href(locale, 'home', undefined, 'contact')}>{nav.contact || 'Contact'}</Link></li>
             {site.groupUrl ? <li><a href={site.groupUrl} target="_blank" rel="noopener noreferrer">{ui.cta?.visitGroup || site.groupName}</a></li> : null}
