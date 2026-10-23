@@ -23,6 +23,7 @@ type Props = {
 
 // Above the fold, in reading order: who it is for (eyebrow) → what it is (headline + points)
 // → why it matters (lead + proof on the photo) → what to do next (one solid action + what happens after).
+// On desktop the photo runs to the right edge of the viewport and is exactly as tall as the copy column.
 export function Hero({ hero, points, stats, nextStep }: Props) {
   return (
     <section className="af-hero" id="top">
@@ -43,15 +44,15 @@ export function Hero({ hero, points, stats, nextStep }: Props) {
             </div>
             {nextStep ? <p className="af-hero__after">{nextStep}</p> : null}
           </div>
+          <div className="af-hatch" aria-hidden="true" />
         </div>
         <div className="af-hero__cover">
-          <Photo media={hero.image} sizes="(min-width: 1024px) 54vw, 100vw" priority />
+          <Photo media={hero.image} sizes="(min-width: 1024px) 60vw, 100vw" priority />
           {stats.length ? (
             <dl className="af-hero__proof">
               {stats.map(s => <div key={s.value}><dt>{s.value}</dt><dd>{s.label}</dd></div>)}
             </dl>
           ) : null}
-          <div className="af-hatch" aria-hidden="true" />
         </div>
       </div>
     </section>

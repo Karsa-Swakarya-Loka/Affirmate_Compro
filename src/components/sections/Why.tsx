@@ -3,6 +3,7 @@ import { Icon } from '@/components/ui/Icon'
 import { Photo } from '@/components/ui/Photo'
 import { SectionHead } from '@/components/ui/SectionHead'
 
+// Framed photo on the left, as tall as the text column; title, message, and the pillars under a rule on the right.
 export function Why({ why }: { why: NonNullable<Home['why']> }) {
   return (
     <section className="af-section" id="why">
@@ -12,12 +13,12 @@ export function Why({ why }: { why: NonNullable<Home['why']> }) {
             <Photo media={why.image} sizes="(min-width: 1024px) 40vw, 100vw" />
           </div>
           <div>
-            <SectionHead title={why.title} subtitle={why.tagline} lead={why.body} longLead space="flush" />
+            <SectionHead title={why.title} subtitle={why.tagline} lead={why.body} longLead space="flush" stack />
             {why.pillars?.length ? (
               <div className="af-pillars">
                 {why.pillars.map(p => (
                   <div className="af-pillar" key={p.id ?? p.title}>
-                    <span className="af-ico"><Icon name={p.icon} size={26} /></span>
+                    <span className="af-ico af-ico--tint"><Icon name={p.icon} size={26} /></span>
                     <div><h3>{p.title}</h3><p>{p.text}</p></div>
                   </div>
                 ))}

@@ -7,7 +7,7 @@ main:focus { outline: none; }
 /* Phosphor icons (React) inside the circles and buttons */
 .af-ico svg { width: 26px; height: 26px; }
 .af-ico--sm svg { width: 20px; height: 20px; }
-.af-stat__icon svg { width: 30px; height: 30px; }
+.af-stat__icon svg { width: 26px; height: 26px; }
 .af-btn svg { width: 18px; height: 18px; }
 .af-hero__tile--arrow svg { width: 36px; height: 36px; }
 .af-entity li svg { width: 14px; height: 14px; transform: translateY(2px); flex: none; }
@@ -44,10 +44,11 @@ main:focus { outline: none; }
 .af-prose ul, .af-prose ol { padding-left: var(--space-6); display: grid; gap: var(--space-2); }
 .af-prose a { color: var(--brand-text); }
 
-/* Pagination & filter chips (Insights) */
-.af-filter { display: flex; flex-wrap: wrap; gap: var(--space-2); margin-bottom: var(--space-8); }
-.af-filter a { padding: var(--space-1) var(--space-4); border-radius: var(--radius-sm) var(--radius-sm) var(--radius-sm) 2px; border: 1px solid var(--line); color: var(--ink); text-decoration: none; font-family: var(--font-display); font-size: 14px; font-weight: 500; }
-.af-filter a[aria-current="true"] { background: var(--green); color: var(--on-brand); border-color: var(--green); }
+/* Filter (Insights): underlined tabs on a rule, no chips */
+.af-filter { display: flex; flex-wrap: wrap; gap: var(--space-5); margin-bottom: var(--space-8); border-bottom: 1px solid var(--line); }
+.af-filter a { padding: var(--space-2) 0 var(--space-3); margin-bottom: -1px; border-bottom: 2px solid transparent; color: var(--ink-muted); text-decoration: none; font-family: var(--font-display); font-size: 14px; font-weight: 600; }
+.af-filter a:hover { color: var(--ink); }
+.af-filter a[aria-current="true"] { color: var(--brand-text); border-bottom-color: var(--green); }
 .af-pagination { display: flex; gap: var(--space-2); justify-content: center; margin-top: var(--space-10); }
 .af-pagination a, .af-pagination span { min-width: 44px; min-height: 44px; display: inline-grid; place-items: center; border-radius: var(--radius-sm) var(--radius-sm) var(--radius-sm) 2px; border: 1px solid var(--line); text-decoration: none; color: var(--ink); font-family: var(--font-display); font-weight: 600; }
 .af-pagination [aria-current="page"] { background: var(--green); color: var(--on-brand); border-color: var(--green); }
@@ -57,10 +58,10 @@ main:focus { outline: none; }
 .af-pagehead .af-breadcrumb { font-size: 14px; color: var(--ink-muted); margin-bottom: var(--space-4); }
 .af-pagehead .af-breadcrumb a { color: var(--brand-text); text-decoration: none; }
 
-/* Services side photo */
-.af-services__photo { aspect-ratio: 4 / 3; border-radius: var(--radius-xl) var(--radius-xl) var(--radius-xl) var(--radius-leaf); }
+/* Services side photo: 4:3 on small screens; on desktop it stretches to the diagram's height */
+.af-services__photo { position: relative; aspect-ratio: 4 / 3; border-radius: var(--radius-xl) var(--radius-xl) var(--radius-xl) var(--radius-leaf); }
 .af-services__photo img { position: absolute; inset: 0; }
-.af-services__photo { position: relative; }
+@media (min-width: 1024px) { .af-services__photo { aspect-ratio: auto; min-height: 320px; } }
 
 /* Contact: success panel should not stretch to the info column height */
 .af-form[role="status"] { align-self: start; }
@@ -68,7 +69,5 @@ main:focus { outline: none; }
 /* Footer column headings keep h2 semantics with the small-caps look */
 .af-footer .af-footer__h { color: var(--on-brand); font-size: 13px; line-height: 16px; letter-spacing: 1.2px; text-transform: uppercase; margin-bottom: var(--space-3); font-weight: 700; }
 /* Links inside running text are underlined, not colour-only */
-.af-footer__bar a, .af-contact__row a, .af-prose a, .af-office__phones a { text-decoration: underline; text-underline-offset: 3px; text-decoration-color: color-mix(in srgb, currentColor 55%, transparent); }
+.af-footer__bar a, .af-facts dd a, .af-prose a { text-decoration: underline; text-underline-offset: 3px; text-decoration-color: color-mix(in srgb, currentColor 55%, transparent); }
 
-/* Group section: leave room for the hover zoom so scaled cards never clip */
-#group .af-container { padding-block: var(--space-2); }

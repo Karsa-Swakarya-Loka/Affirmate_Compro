@@ -4,6 +4,16 @@ File: `tokens.json` (sumber nilai) → `tokens.css` (generate: `node scripts/bui
 
 **Acuan visual v2 (12 Okt 2026 malam): `../../template_design.jpeg`**, template brosur hijau-krem pilihan klien. Struktur dan konten tetap seperti v1 (urutan compro, 11 section); yang berubah hanya bahasa visual, agar berbeda dari website Apegale (maroon, diagonal).
 
+## v2.1 "flat & ruled" (23 Okt 2026)
+
+Bahasa visual template v2 dipertahankan (leaf corners, mark, hatch, petal diagram, tab hijau, foto bertint, Poppins). Yang diubah hanya ini:
+
+- **Tanpa gradien**: `--gradient-brand` = `var(--green-deep)`, `--gradient-overlay: none`. Section hijau, petal (dua nada hijau berselang-seling), platform strip, footer: satu warna.
+- **Tanpa kartu berlebih**: panel krem About, kartu Group, kartu detail layanan, kartu klien, kartu berita, kotak form Kontak, panel peta dihapus. Konten berdiri di atas garis (`--rule`, otomatis krem transparan di section hijau).
+- **Tanpa pill**: tag/chip jadi daftar inline bergaris pemisah (`.af-specs`); ikon lingkaran jadi kotak leaf (`.af-ico`); filter Insights jadi tab bergaris bawah.
+- **Kepala section** (`.af-sechead`): satu garis selebar kontainer; kiri mark + judul, kanan sub-judul + lead (grid 5/7 di >=1024px; `stack` untuk kolom sempit).
+- **Kolom kiri-kanan sama tinggi**: foto mengisi kolom (`.af-photo--fill`, Hero/About/Journey; frame Why; foto Layanan), daftar fakta (`.af-facts`) dibagi rata setinggi kolom sebelahnya (Office, Contact), hatch di kaki kolom (`.af-side`). Hero: foto lari sampai tepi kanan viewport.
+
 ## Bahasa visual template (apa yang diterjemahkan ke web)
 
 | Elemen template | Terjemahan web (kelas) |

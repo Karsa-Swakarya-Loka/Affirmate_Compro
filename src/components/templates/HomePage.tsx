@@ -53,7 +53,7 @@ export async function HomePage({ locale }: { locale: Locale }) {
       {show.journey && home.journey ? <Reveal><Journey block={home.journey} milestones={milestones} /></Reveal> : null}
       {show.clients && home.clients ? <Reveal><Clients block={home.clients} clients={clients} /></Reveal> : null}
       {show.network && home.network ? <Reveal><Network block={home.network} cities={cities} mapLabel={`${home.network.title}: ${cities.length}`} /></Reveal> : null}
-      {show.office && home.office ? <Reveal><Office block={home.office} site={site} openMaps={ui.cta?.openMaps || 'Open in Google Maps'} /></Reveal> : null}
+      {show.office && home.office ? <Reveal><Office block={home.office} site={site} ui={ui} /></Reveal> : null}
       {show.insights ? <Reveal><Insights locale={locale} posts={posts} ui={ui} /></Reveal> : null}
       {show.contact && home.contact ? <Reveal><Contact block={home.contact} site={site} ui={ui} services={services} locale={locale} /></Reveal> : null}
     </SiteShell>

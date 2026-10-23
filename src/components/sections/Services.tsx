@@ -11,15 +11,17 @@ type Cta = { label: string; href: string }
 type Tag = { id?: string | null; label: string }
 
 const hasDetail = (s: Service) => (s.items?.length ?? 0) > 0 || (s.groups?.length ?? 0) > 0 || Boolean(s.body)
-// Long tag lists and grouped lists span the row; a lone half-width row would leave a hole in the grid, so it spans too.
+// Long lists and grouped lists span the row; a lone half-width row would leave a hole in the grid, so it spans too.
 const isLong = (s: Service) => (s.items?.length ?? 0) > 8 || (s.groups?.length ?? 0) > 0
 
-function Tags({ items }: { items: Tag[] }) {
-  return <div className="af-tags">{items.map(it => <span className="af-tag" key={it.id ?? it.label}>{it.label}</span>)}</div>
+/** Ruled inline list: the scope items separated by thin ticks (no chips). */
+function Specs({ items }: { items: Tag[] }) {
+  return <ul className="af-specs">{items.map(it => <li key={it.id ?? it.label}>{it.label}</li>)}</ul>
 }
 
 export function Services({ block, services, cta }: { block: NonNullable<Home['services']>; services: Service[]; cta?: Cta }) {
-  // The four-petal diagram keeps its shape; a fifth service (Corporate Secretary, 23 Oct 2026) sits as a wide petal under it.
+  // Head on the rule; left the photo stretched to the diagram's height, right the four-petal diagram.
+  // A fifth service (Corporate Secretary, 23 Oct 2026) sits as a wide petal under it.
   const petals = services.slice(0, 4)
   const extra = services.slice(4)
   const withItems = services.filter(hasDetail)
@@ -28,11 +30,11 @@ export function Services({ block, services, cta }: { block: NonNullable<Home['se
   return (
     <section className="af-section" id="services">
       <div className="af-container">
+        <SectionHead title={block.title} eyebrow={block.eyebrow} subtitle={block.subtitle} lead={block.intro} />
         <div className="af-services">
-          <div>
-            <SectionHead title={block.title} eyebrow={block.eyebrow} subtitle={block.subtitle} lead={block.intro} space="tight" />
+          <div className="af-services__side">
             <Photo media={block.image} className="af-services__photo" sizes="(min-width: 1024px) 40vw, 100vw" />
-            <div className="af-hatch" style={{ marginTop: 'var(--space-6)' }} aria-hidden="true" />
+            <div className="af-hatch" aria-hidden="true" />
           </div>
           <div className="af-petalset">
             <div className="af-petals">
@@ -61,14 +63,14 @@ export function Services({ block, services, cta }: { block: NonNullable<Home['se
               return (
                 <div className={['af-svcrow', wide ? 'af-svcrow--wide' : ''].filter(Boolean).join(' ')} key={s.id}>
                   <div className="af-svcrow__head"><span className="af-svcrow__num">{pad(idx + 1)}</span>{s.title}</div>
-                  {s.items?.length ? <Tags items={s.items} /> : null}
+                  {s.items?.length ? <Specs items={s.items} /> : null}
                   {s.groups?.length ? (
                     <div className="af-svcgroups">
                       {s.groups.map((g, i, all) => (
                         <div className="af-svcgroup" key={g.id ?? i}>
                           {i === 0 || all[i - 1].title !== g.title ? <h4 className="af-svcgroup__title">{g.title}</h4> : null}
                           {g.label ? <p className="af-svcgroup__label">{g.label}</p> : null}
-                          {g.items?.length ? <Tags items={g.items} /> : null}
+                          {g.items?.length ? <Specs items={g.items} /> : null}
                         </div>
                       ))}
                     </div>
@@ -93,7 +95,7 @@ export function Services({ block, services, cta }: { block: NonNullable<Home['se
                 ))}
               </div>
             ) : null}
-            {block.platformScope?.length ? <div className="af-chips af-platform__chips">{block.platformScope.map(c => <span className="af-chip" key={c.id ?? c.label}>{c.label}</span>)}</div> : null}
+            {block.platformScope?.length ? <div className="af-platform__scope"><Specs items={block.platformScope} /></div> : null}
           </div>
         ) : null}
       </div>

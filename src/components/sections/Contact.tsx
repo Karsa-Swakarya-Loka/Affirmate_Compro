@@ -1,8 +1,10 @@
 import type { Home, Service, Site, Ui } from '@/payload-types'
-import { Icon } from '@/components/ui/Icon'
 import { ContactForm } from '@/components/forms/ContactForm'
+import { SectionHead } from '@/components/ui/SectionHead'
 import { whatsappDisplay, whatsappHref } from '@/lib/whatsapp'
 
+// Head on the rule (title left, the invitation right); then a ruled fact list (email, phones, WhatsApp, address)
+// spread over the form's height on the left, closed by the hatch, and the form on the right without a box.
 export function Contact({ block, site, ui, services, locale }: { block: NonNullable<Home['contact']>; site: Site; ui: Ui; services: Service[]; locale: 'en' | 'id' }) {
   const f = ui.form ?? {}
   const wa = whatsappHref(site.whatsapp)
@@ -12,22 +14,19 @@ export function Contact({ block, site, ui, services, locale }: { block: NonNulla
     error: f.error || 'Something went wrong.', required: f.required || 'Required', invalid: f.invalid || 'Please check this value', consentRequired: f.consentRequired || 'Please accept', rateLimited: f.rateLimited || 'Too many submissions.',
     consent: block.consentText,
   }
+  const phones = [site.phone, site.phone2].filter((p): p is string => Boolean(p))
   return (
     <section className="af-section af-section--soft" id="contact">
       <div className="af-container">
+        <SectionHead title={block.title} lead={block.text} space="tight" />
         <div className="af-contact">
-          <div className="af-contact__info">
-            <div className="af-sechead af-sechead--flush">
-              <div className="af-sechead__row"><span className="af-mark" aria-hidden="true" /><h2 className="af-h1">{block.title}</h2></div>
-              {block.text ? <p className="af-lead">{block.text}</p> : null}
-            </div>
-            {site.email ? <div className="af-contact__row"><span className="af-ico af-ico--sm"><Icon name="envelope-simple" size={20} /></span><div><strong>{ui.sections?.email || 'Email'}</strong><a href={`mailto:${site.email}`}>{site.email}</a></div></div> : null}
-            {site.phone || site.phone2 ? (
-              <div className="af-contact__row"><span className="af-ico af-ico--sm"><Icon name="phone" size={20} /></span><div><strong>{ui.sections?.phone || 'Phone'}</strong>
-                {[site.phone, site.phone2].filter(Boolean).map((p, i) => <span key={p}>{i ? <br /> : null}<a href={`tel:${String(p).replace(/\D/g, '')}`}>{p}</a></span>)}
-              </div></div>
-            ) : null}
-            {wa ? <div className="af-contact__row"><span className="af-ico af-ico--sm"><Icon name="whatsapp" size={20} /></span><div><strong>WhatsApp</strong><a href={wa} target="_blank" rel="noopener noreferrer">{whatsappDisplay(site.whatsapp)}</a></div></div> : null}
+          <div className="af-side">
+            <dl className="af-facts">
+              {site.email ? <div><dt>{ui.sections?.email || 'Email'}</dt><dd><a href={`mailto:${site.email}`}>{site.email}</a></dd></div> : null}
+              {phones.length ? <div><dt>{ui.sections?.phone || 'Phone'}</dt><dd>{phones.map((p, i) => <span key={p}>{i ? <br /> : null}<a href={`tel:${p.replace(/\D/g, '')}`}>{p}</a></span>)}</dd></div> : null}
+              {wa ? <div><dt>WhatsApp</dt><dd><a href={wa} target="_blank" rel="noopener noreferrer">{whatsappDisplay(site.whatsapp)}</a></dd></div> : null}
+              {site.address ? <div><dt>{ui.sections?.headOffice || 'Head Office'}</dt><dd>{site.address}</dd></div> : null}
+            </dl>
             <div className="af-hatch" aria-hidden="true" />
           </div>
           <ContactForm locale={locale} labels={labels} services={services.map(s => ({ slug: s.slug, title: s.title }))} />

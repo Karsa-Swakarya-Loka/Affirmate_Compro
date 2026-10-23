@@ -1,5 +1,6 @@
-// Leadership (client revision, 23 Oct 2026): heading column plus the leaders as leaf-shaped portraits with name and
-// role, no card chrome (design/README anti-slop: no row of identical cards). Hidden when no person has a photo.
+// Leadership (client revision, 23 Oct 2026): the head takes the first column of the portrait row (its hatch at the
+// row's foot), then the leaders as leaf-shaped portraits with number, name and role; no card chrome.
+// Hidden when no person has a photo.
 import type { Home } from '@/payload-types'
 import { Photo } from '@/components/ui/Photo'
 import { SectionHead } from '@/components/ui/SectionHead'
@@ -14,7 +15,7 @@ export function Leadership({ block }: { block: NonNullable<Home['leadership']> }
       <div className="af-container">
         <div className="af-leaders">
           <div className="af-leaders__head">
-            <SectionHead title={block.title} subtitle={block.subtitle} lead={block.body} space="tight" />
+            <SectionHead title={block.title} subtitle={block.subtitle} lead={block.body} space="flush" stack />
             <div className="af-hatch" aria-hidden="true" />
           </div>
           <ul className="af-leaders__list">

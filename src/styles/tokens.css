@@ -50,8 +50,9 @@
 :root {
   --font-display: var(--font-poppins), "Segoe UI", Arial, sans-serif;
   --font-body: var(--font-poppins), "Segoe UI", Arial, sans-serif;
-  --gradient-brand: linear-gradient(160deg, #37703a 0%, #2f6b3a 55%, #285f33 100%); /* review 13 Okt: start darkened so muted cream text stays >= 4.5:1 */
-  --gradient-overlay: linear-gradient(180deg, rgba(31,74,40,0) 50%, rgba(31,74,40,0.7) 100%);
+  --gradient-brand: var(--green-deep); /* flat (23 Oct 2026): no gradients, one green per surface */
+  --gradient-overlay: none;
+  --rule-on-brand: rgba(247,245,238,0.35);
   --text-display-xl-size: 60px; --text-display-xl-line: 66px; --text-display-xl-weight: 800;
   --text-heading-1-size: 34px; --text-heading-1-line: 42px; --text-heading-1-weight: 800;
   --text-heading-2-size: 30px; --text-heading-2-line: 38px; --text-heading-2-weight: 700;
