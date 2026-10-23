@@ -272,8 +272,8 @@
 /* Service catalogue under the diagram: one ruled block per service. Head: number in a leaf square, title, item count.
    Then the categories as columns (kicker = group title, heading = sub-label, a green rule under each), each a
    numbered list on hairlines. A flat list flows over columns with its numbering continuing (01..11). */
-.af-svcdetail { margin-top: var(--space-12); display: grid; border-top: 1px solid var(--rule); }
-.af-svcrow { display: grid; gap: var(--space-4); align-content: start; padding: var(--space-8) 0; border-bottom: 1px solid var(--rule); }
+.af-svcdetail { margin-top: var(--space-12); display: grid; row-gap: var(--space-12); }
+.af-svcrow { display: grid; gap: var(--space-4); align-content: start; }
 .af-svcrow__head { display: flex; flex-wrap: wrap; align-items: center; gap: var(--space-3); }
 .af-svcrow__title { font-family: var(--font-display); font-weight: 700; font-size: var(--text-heading-2-size); line-height: var(--text-heading-2-line); color: var(--ink); }
 .af-svcrow__num { width: 34px; height: 34px; flex: none; border-radius: var(--radius-sm) var(--radius-sm) var(--radius-sm) 2px; background: var(--green); color: var(--on-brand); display: grid; place-items: center; font-family: var(--font-display); font-size: 13px; font-weight: 800; }
@@ -281,16 +281,19 @@
 .af-svcrow__sum { font-size: 15px; line-height: 24px; color: var(--ink-muted); max-width: 72ch; }
 .af-svcrow__note { display: flex; gap: var(--space-2); align-items: flex-start; margin-top: var(--space-2); font-family: var(--font-display); font-size: 14px; line-height: 22px; font-weight: 500; color: var(--green-deep); max-width: 80ch; }
 .af-svcrow__note svg { flex: none; width: 22px; height: 22px; padding: 4px; border-radius: 7px 7px 7px 2px; background: var(--brand-tint); }
-.af-cats { display: grid; gap: var(--space-6); margin-top: var(--space-2); }
-.af-cat { display: grid; gap: var(--space-2); align-content: start; }
-.af-cat__head { display: grid; gap: 2px; padding-bottom: var(--space-2); border-bottom: 2px solid var(--green); }
+/* Category cards: one leaf card per category (kicker, heading, numbered items), no rules inside */
+.af-cats { display: grid; gap: var(--space-4); margin-top: var(--space-2); align-items: stretch; }
+.af-cat { display: grid; gap: var(--space-4); align-content: start; padding: var(--space-6); background: var(--surface-raised); border-radius: var(--radius-lg) var(--radius-lg) var(--radius-lg) var(--radius-leaf); box-shadow: var(--shadow-card); }
+.af-cat__head { display: grid; gap: 2px; }
 .af-cat__kicker { font-family: var(--font-display); font-size: var(--text-caption-size); line-height: var(--text-caption-line); letter-spacing: 1.2px; text-transform: uppercase; font-weight: 700; color: var(--brand-text); }
-.af-cat__title { font-family: var(--font-display); font-weight: 700; font-size: 16px; line-height: 24px; color: var(--ink); }
-.af-catlist { list-style: none; margin: 0; padding: 0; counter-reset: cat; }
-.af-catlist li { counter-increment: cat; display: grid; grid-template-columns: 26px minmax(0, 1fr); gap: var(--space-2); align-items: start; padding: var(--space-2) 0; border-bottom: 1px solid var(--rule); font-size: 14px; line-height: 22px; color: var(--ink); break-inside: avoid; }
+.af-cat__title { font-family: var(--font-display); font-weight: 700; font-size: 17px; line-height: 25px; color: var(--ink); }
+.af-catlist { list-style: none; margin: 0; padding: 0; counter-reset: cat; display: grid; gap: var(--space-2); }
+.af-catlist li { counter-increment: cat; display: grid; grid-template-columns: 28px minmax(0, 1fr); gap: var(--space-2); align-items: start; font-size: 14px; line-height: 22px; color: var(--ink); break-inside: avoid; }
 .af-catlist li::before { content: counter(cat, decimal-leading-zero); font-family: var(--font-display); font-size: 12px; line-height: 22px; font-weight: 700; color: var(--brand-text); }
-.af-catlist--flow { margin-top: var(--space-2); border-top: 2px solid var(--green); padding-top: var(--space-1); }
-@media (min-width: 768px) { .af-cats { grid-template-columns: repeat(auto-fit, minmax(240px, 1fr)); gap: var(--space-8); } .af-catlist--flow { columns: 2; column-gap: var(--space-8); } }
+/* A flat list (no categories) sits in one card and flows over columns */
+.af-catlist--flow { display: block; padding: var(--space-6); background: var(--surface-raised); border-radius: var(--radius-lg) var(--radius-lg) var(--radius-lg) var(--radius-leaf); box-shadow: var(--shadow-card); }
+.af-catlist--flow li { padding-block: var(--space-1); }
+@media (min-width: 768px) { .af-cats { grid-template-columns: repeat(auto-fit, minmax(240px, 1fr)); gap: var(--space-5); } .af-catlist--flow { columns: 2; column-gap: var(--space-8); } }
 @media (min-width: 1024px) { .af-svcdetail { grid-template-columns: minmax(0, 1fr) minmax(0, 1fr); column-gap: var(--space-10); } .af-svcrow--wide { grid-column: 1 / -1; } .af-catlist--flow { columns: 3; } }
 /* Platform band: the template "green page" as a flat full-width band closing the Services section (no box).
    Left the title and the next step; right the three pillars divided by vertical rules; the scope under one rule. */

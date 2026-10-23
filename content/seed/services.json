@@ -125,54 +125,91 @@
       "en": "Based on a wide network all over Indonesia, we are here to serve clients in obtaining expatriate permits all over Indonesia.",
       "id": "Dengan jaringan luas di seluruh Indonesia, kami siap melayani klien dalam pengurusan izin ekspatriat di seluruh Indonesia."
     },
-    "items": [
+    "items": [],
+    "groups": [
       {
-        "en": "RPTKA (Position Licence)",
-        "id": "RPTKA (Rencana Penggunaan Tenaga Kerja Asing)"
+        "title": {
+          "en": "Work Permits",
+          "id": "Izin Kerja"
+        },
+        "label": {
+          "en": "",
+          "id": ""
+        },
+        "items": [
+          {
+            "en": "RPTKA (Position Licence)",
+            "id": "RPTKA (Rencana Penggunaan Tenaga Kerja Asing)"
+          },
+          {
+            "en": "Notification IMTA",
+            "id": "Notifikasi IMTA"
+          }
+        ]
       },
       {
-        "en": "Notification IMTA",
-        "id": "Notifikasi IMTA"
+        "title": {
+          "en": "Stay Permits & Visas",
+          "id": "Izin Tinggal & Visa"
+        },
+        "label": {
+          "en": "",
+          "id": ""
+        },
+        "items": [
+          {
+            "en": "KITAS (Stay Permit)",
+            "id": "KITAS (Izin Tinggal Terbatas)"
+          },
+          {
+            "en": "KITAS Investor",
+            "id": "KITAS Investor"
+          },
+          {
+            "en": "KITAP",
+            "id": "KITAP"
+          },
+          {
+            "en": "Sponsorship for Retirement Visa",
+            "id": "Sponsor Visa Lansia (Retirement)"
+          },
+          {
+            "en": "Indonesian Business Visa",
+            "id": "Visa Bisnis Indonesia"
+          }
+        ]
       },
       {
-        "en": "KITAS (Stay Permit)",
-        "id": "KITAS (Izin Tinggal Terbatas)"
-      },
-      {
-        "en": "MERP",
-        "id": "MERP"
-      },
-      {
-        "en": "SKTT",
-        "id": "SKTT"
-      },
-      {
-        "en": "STM",
-        "id": "STM"
-      },
-      {
-        "en": "KITAP",
-        "id": "KITAP"
-      },
-      {
-        "en": "Sponsorship for Retirement Visa",
-        "id": "Sponsor Visa Lansia (Retirement)"
-      },
-      {
-        "en": "KITAS Investor",
-        "id": "KITAS Investor"
-      },
-      {
-        "en": "Indonesian Business Visa",
-        "id": "Visa Bisnis Indonesia"
-      },
-      {
-        "en": "Indonesian Passport Formalities Documents",
-        "id": "Dokumen Formalitas Paspor Indonesia"
+        "title": {
+          "en": "Reporting Documents",
+          "id": "Dokumen Pelaporan"
+        },
+        "label": {
+          "en": "",
+          "id": ""
+        },
+        "items": [
+          {
+            "en": "MERP",
+            "id": "MERP"
+          },
+          {
+            "en": "SKTT",
+            "id": "SKTT"
+          },
+          {
+            "en": "STM",
+            "id": "STM"
+          },
+          {
+            "en": "Indonesian Passport Formalities Documents",
+            "id": "Dokumen Formalitas Paspor Indonesia"
+          }
+        ]
       }
     ],
-    "groups": [],
-    "needsReview": true
+    "needsReview": true,
+    "_source": "Pengelompokan 23 Okt 2026 malam (Izin Kerja / Izin Tinggal & Visa / Dokumen Pelaporan) dibuat tim KaryaLo dari 11 butir compro; minta konfirmasi klien."
   },
   {
     "_source": "Revisi klien 23 Okt 2026: Management Advisory diganti nama menjadi Expatriate Advisory (slug lama management-advisory dihapus seed). Ringkasan masih teks compro hal. 5, menunggu teks baru klien (OPEN-QUESTIONS #17).",
