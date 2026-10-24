@@ -1,4 +1,4 @@
-import { readFile } from 'node:fs/promises'
+import { stat, readFile } from 'node:fs/promises'
 import path from 'node:path'
 import type { Locale } from '../i18n/config.ts'
 import { mediaAlt, retiredServices, seedFiles } from './manifest.ts'
@@ -26,7 +26,11 @@ export async function runSeed(store: SeedStore, root: string, overwrite = false)
   async function upsert(collection: SeedCollection, key: string, value: string, data: (locale: Locale) => Data, marker: string, filePath?: string) {
     let doc = await store.find(collection, key, value, 'en')
     if (!doc) doc = await store.create(collection, data('en'), 'en', filePath)
-    else if (overwrite) doc = await store.update(collection, doc.id as number | string, object(alignArrayIDs(data('en'), doc)), 'en')
+    else if (overwrite) {
+      // A changed asset (different size on disk) is re-uploaded; an unchanged one keeps its file and sizes.
+      const changed = filePath && (await stat(filePath)).size !== doc.filesize
+      doc = await store.update(collection, doc.id as number | string, object(alignArrayIDs(data('en'), doc)), 'en', changed ? filePath : undefined)
+    }
     const idDoc = await store.find(collection, key, value, 'id')
     if (overwrite || !idDoc || !atPath(idDoc, marker)) await store.update(collection, doc.id as number | string, object(alignArrayIDs(data('id'), doc)), 'id')
     return doc.id as number | string

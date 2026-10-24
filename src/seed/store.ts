@@ -6,7 +6,8 @@ export type SeedCollection = 'services' | 'group-entities' | 'milestones' | 'cli
 export interface SeedStore {
   find(collection: SeedCollection, key: string, value: string, locale: Locale): Promise<Data | undefined>
   create(collection: SeedCollection, data: Data, locale: Locale, filePath?: string): Promise<Data>
-  update(collection: SeedCollection, id: string | number, data: Data, locale: Locale): Promise<Data>
+  /** With `filePath`, the stored file is replaced too (overwrite of a changed asset). */
+  update(collection: SeedCollection, id: string | number, data: Data, locale: Locale, filePath?: string): Promise<Data>
   delete(collection: SeedCollection, id: string | number): Promise<void>
   global(slug: string, locale: Locale): Promise<Data>
   updateGlobal(slug: string, data: Data, locale: Locale): Promise<Data>
@@ -20,8 +21,8 @@ export function payloadStore(payload: Payload): SeedStore {
     async create(collection, data, locale, filePath) {
       return (await payload.create({ collection, data: data as RequiredDataFromCollectionSlug<SeedCollection>, locale, depth: 0, overrideAccess: true, ...(filePath ? { filePath } : {}) })) as unknown as Data
     },
-    async update(collection, id, data, locale) {
-      return (await payload.update({ collection, id, data: data as Partial<DataFromCollectionSlug<SeedCollection>>, locale, depth: 0, overrideAccess: true })) as unknown as Data
+    async update(collection, id, data, locale, filePath) {
+      return (await payload.update({ collection, id, data: data as Partial<DataFromCollectionSlug<SeedCollection>>, locale, depth: 0, overrideAccess: true, ...(filePath ? { filePath, overwriteExistingFiles: true } : {}) })) as unknown as Data
     },
     async delete(collection, id) {
       await payload.delete({ collection, id, depth: 0, overrideAccess: true })

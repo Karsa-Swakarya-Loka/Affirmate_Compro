@@ -370,8 +370,9 @@
 .af-leaders__head { display: grid; gap: var(--space-5); align-content: space-between; justify-items: start; }
 .af-leaders__list { display: contents; }
 .af-leader { display: grid; gap: var(--space-3); align-content: start; }
-.af-leader__photo { aspect-ratio: 4 / 5; border-radius: var(--radius-xl) var(--radius-xl) var(--radius-xl) var(--radius-leaf); background: var(--surface-soft); }
-.af-leader__photo img { object-position: 50% 12%; filter: saturate(.85) contrast(1.02); }
+/* Portraits are pre-composited on one shared brand-tint backdrop (design/assets/People), so no crop offset or tint */
+.af-leader__photo { aspect-ratio: 4 / 5; border-radius: var(--radius-xl) var(--radius-xl) var(--radius-xl) var(--radius-leaf); background: var(--brand-tint); }
+.af-leader__photo img { object-position: 50% 0; filter: none; }
 .af-leader__photo::after { display: none; }
 .af-leader:nth-child(2n) .af-leader__photo { border-radius: var(--radius-xl) var(--radius-leaf) var(--radius-xl) var(--radius-xl); }
 .af-leader__meta { display: flex; gap: var(--space-3); align-items: flex-start; }
