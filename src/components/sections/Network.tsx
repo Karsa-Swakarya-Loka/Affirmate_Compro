@@ -1,3 +1,4 @@
+import type { CSSProperties } from 'react'
 import type { City, Home } from '@/payload-types'
 import { MAP, project } from '@/lib/indonesia-land'
 import { Icon } from '@/components/ui/Icon'
@@ -19,11 +20,13 @@ export function Network({ block, cities, mapLabel }: { block: NonNullable<Home['
           <div className="af-map">
             <svg viewBox={`0 0 ${MAP.width} ${MAP.height}`} role="img" aria-label={mapLabel} xmlns="http://www.w3.org/2000/svg">
               <image href="/brand/indonesia-land.svg" x="0" y="0" width={MAP.width} height={MAP.height} />
-              {cities.map(c => {
+              {cities.map((c, i) => {
                 const { x, y } = project(c.lng, c.lat)
                 const [anchor, dx, dy] = place[c.name] ?? ['start', 12, 4]
+                // `--i` staggers the pin's arrival and its ring (components.css .af-map__city); pins stay static without JS.
                 return (
-                  <g key={c.id}>
+                  <g key={c.id} className="af-map__city" style={{ '--i': i } as CSSProperties}>
+                    <circle className="af-map__ring" cx={x} cy={y} r={8} aria-hidden="true" />
                     <circle className="af-map__pin" cx={x} cy={y} r={8} /><circle className="af-map__pin-core" cx={x} cy={y} r={3.5} />
                     <text className="af-map__label" x={x + dx} y={y + dy} textAnchor={anchor}>{c.name}</text>
                   </g>

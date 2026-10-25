@@ -1,6 +1,7 @@
 'use client'
 // Reveals a block once when it first enters the viewport (fade + short rise). Content stays visible without
-// JavaScript, with reduced motion, and when already on screen at load. Motion dial 3: this is the only motion.
+// JavaScript, with reduced motion, and when already on screen at load. Motion dial 3: besides the network map's pins
+// (components.css, keyed on this component's `is-in`), this is the only motion.
 import { useEffect, useRef, type ReactNode } from 'react'
 
 export function Reveal({ children, className, as: Tag = 'div' }: { children: ReactNode; className?: string; as?: 'div' | 'section' | 'li' }) {

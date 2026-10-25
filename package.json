@@ -22,6 +22,7 @@
     "seed": "tsx src/seed/index.ts",
     "setup:admin": "tsx scripts/create-admin.ts",
     "verify:cms": "tsx scripts/verify-cms.ts",
+    "media:refresh": "tsx scripts/refresh-media.ts",
     "tokens": "node scripts/build-tokens.mjs",
     "preview": "node scripts/build-preview.mjs",
     "map": "python scripts/build-map-svg.py"

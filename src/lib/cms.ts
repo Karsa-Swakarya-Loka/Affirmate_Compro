@@ -65,8 +65,11 @@ export const getSitemapPosts = cache(async () => {
 export function asMedia(value: unknown): Media | null {
   if (typeof value !== 'object' || value === null || !('url' in value) || !(value as Media).url) return null
   // Payload returns absolute URLs (serverURL). next/image and canonical links want same-origin paths.
-  const strip = (u?: string | null) => (u ? u.replace(/^https?:\/\/[^/]+/, '') : u)
+  // A replaced file keeps its name while optimised images are cached for a year by URL, so the URL carries the
+  // document's updatedAt: a new upload (CMS or seed) shows at once instead of after the cache expires.
   const m = value as Media
+  const stamp = m.updatedAt ? `?v=${Date.parse(m.updatedAt).toString(36)}` : ''
+  const strip = (u?: string | null) => (u ? u.replace(/^https?:\/\/[^/]+/, '') + (u.includes('?') ? '' : stamp) : u)
   const sizes = m.sizes ? Object.fromEntries(Object.entries(m.sizes).map(([k, s]) => [k, s ? { ...s, url: strip(s.url) } : s])) : m.sizes
   return { ...m, url: strip(m.url), sizes } as Media
 }

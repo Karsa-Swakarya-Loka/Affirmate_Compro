@@ -23,6 +23,7 @@ Skrip lain: `npm run verify:cms` (hitung isi CMS), `npm run tokens` (design toke
 - Logo klien hanya bisa dipublikasikan bila "Izin tampil" dicentang.
 - Tombol **Preview** di admin membuka draf di situs (mode draf per browser; "Exit preview" untuk keluar).
 - `npm run seed` tidak menimpa suntingan editor; `SEED_OVERWRITE=true npm run seed` mengembalikan ke JSON.
+- File di `design/assets` diganti (ukuran berbeda) → `npm run media:refresh [People]` meng-upload ulang hanya file itu, tanpa menyentuh teks; `ENV_FILE=.env.production.local` untuk produksi (nilai `[SENSITIVE]` hasil `vercel env pull` diturunkan dari variabel Neon).
 
 ## Produksi (hosting klien)
 
