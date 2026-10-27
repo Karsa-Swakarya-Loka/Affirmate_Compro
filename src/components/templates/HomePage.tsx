@@ -46,7 +46,7 @@ export async function HomePage({ locale }: { locale: Locale }) {
         />
       ) : null}
       {show.clients && home.clients ? <Clients block={home.clients} clients={clients} /> : null}
-      {show.about && home.about ? <Reveal><About about={home.about} showVisionMission={on('visionMission') && home.about.showVisionMission !== false} showStats={on('stats')} labels={aboutLabels} /></Reveal> : null}
+      {show.about && home.about ? <Reveal><About about={home.about} showVisionMission={on('visionMission') && home.about.showVisionMission !== false} showStats={on('stats')} labels={aboutLabels} cta={show.contact ? { label: ui.cta?.contact || 'Contact Us', href: href(locale, 'home', undefined, 'contact') } : undefined} /></Reveal> : null}
       {show.leadership && home.leadership ? <Reveal><Leadership block={home.leadership} /></Reveal> : null}
       {show.why && home.why ? <Reveal><Why why={home.why} /></Reveal> : null}
       {show.group && home.group ? <Reveal><Group group={home.group} entities={entities} /></Reveal> : null}
