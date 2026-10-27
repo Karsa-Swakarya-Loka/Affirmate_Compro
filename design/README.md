@@ -25,7 +25,7 @@ Bahasa visual template v2 dipertahankan (leaf corners, mark, hatch, petal diagra
 | Tab judul hijau berteks krem ("OUR VISION", "COMPANY PROFILE") | `.af-tab`; di hero menjadi tile "Company Profile" + tile panah di bawah foto cover. |
 | Garis arsir diagonal di kaki halaman | `.af-hatch` (repeating-linear-gradient), dipakai di hero, services, network, contact. |
 | Foto gelap/desaturasi dengan nuansa hijau | `.af-photo` (saturate .6 + overlay `photo-tint` multiply). |
-| Halaman hijau penuh dengan panel krem (About) | `.af-section--green` + `.af-panel`; baris visi/misi `.af-vm__row` berbingkai hairline krem. |
+| Halaman hijau penuh dengan panel krem (About) | `.af-section--green` + `.af-panel`; visi = pernyataan besar `.af-vision` di bawah cerita, misi = baris penuh `.af-mission` (label kiri, poin bernomor kanan, hairline per poin). |
 | Foto berbingkai hijau + tab judul di bawahnya (Our Vision) | `.af-split__photo--frame` di section Why. |
 | Diagram 4 kelopak bernomor 01–04 dengan lingkaran tengah (Our Service) | `.af-petals` + `.af-petal` (radius berbeda tiap kuadran) + `.af-petals__core`. Empat layanan compro persis empat kelopak. |
 | Daftar bernomor blok hijau (Table of Content) | `.af-toc` untuk Corporate Journey: tahun di blok hijau leaf. |

@@ -184,13 +184,21 @@
 .af-about__body { font-size: 17px; line-height: 29px; color: var(--on-brand); max-width: 60ch; }
 .af-about__photo { aspect-ratio: 16 / 10; border-radius: var(--radius-xl) var(--radius-xl) var(--radius-leaf) var(--radius-xl); }
 @media (min-width: 1024px) { .af-about { grid-template-columns: minmax(0, 1.05fr) minmax(0, .95fr); gap: var(--space-10); } .af-about__photo { min-height: 380px; } }
-.af-vm { display: grid; gap: var(--space-5); padding-top: var(--space-6); border-top: 1px solid var(--rule); }
-.af-vm__row { font-size: 15px; line-height: 24px; color: var(--on-brand); }
-.af-vm__row strong { display: block; font-family: var(--font-display); font-size: 13px; letter-spacing: 1.2px; text-transform: uppercase; opacity: .85; margin-bottom: var(--space-2); }
-.af-vm__row ol { margin: 0; padding: 0; list-style: none; display: grid; gap: var(--space-2); counter-reset: mission; }
-.af-vm__row ol li { display: grid; grid-template-columns: 28px minmax(0, 1fr); counter-increment: mission; }
-.af-vm__row ol li::before { content: counter(mission, decimal-leading-zero); font-weight: 700; font-size: 13px; opacity: .85; }
-.af-vm__row + .af-vm__row { padding-top: var(--space-5); border-top: 1px solid var(--rule); }
+/* Vision and mission (27 Oct 2026): no fine print. One label style (uppercase, full cream, a short tick before it);
+   the vision is a single large statement under the story; the mission is its own ruled row, label left and the
+   numbered points right at body size, each point on its own hairline. */
+.af-vm__label { margin: 0; display: flex; align-items: center; gap: var(--space-3); font-family: var(--font-display); font-size: var(--text-caption-size); line-height: var(--text-caption-line); font-weight: 700; letter-spacing: var(--text-eyebrow-tracking); text-transform: uppercase; color: var(--on-brand); }
+.af-vm__label::before { content: ""; flex: none; width: 18px; height: 2px; background: var(--on-brand); }
+.af-vision { display: grid; gap: var(--space-3); padding-top: var(--space-6); border-top: 1px solid var(--rule); }
+.af-vision__text { margin: 0; font-size: var(--text-subtitle-size); line-height: var(--text-subtitle-line); font-weight: var(--text-subtitle-weight); color: var(--on-brand); max-width: 32ch; }
+.af-mission { display: grid; gap: var(--space-5); margin-top: var(--space-10); padding-top: var(--space-6); border-top: 1px solid var(--rule); }
+.af-mission__list { margin: 0; padding: 0; list-style: none; display: grid; }
+.af-mission__list li { display: grid; grid-template-columns: 40px minmax(0, 1fr); gap: var(--space-3); align-items: start; padding-block: var(--space-4); border-top: 1px solid var(--rule); }
+.af-mission__list li:first-child { border-top: 0; padding-top: 0; }
+.af-mission__list li:last-child { padding-bottom: 0; }
+.af-mission__n { font-family: var(--font-display); font-size: var(--text-caption-size); line-height: var(--text-body-line); font-weight: 700; letter-spacing: 1px; color: var(--on-brand); }
+.af-mission__list p { margin: 0; font-size: var(--text-body-size); line-height: var(--text-body-line); color: var(--on-brand); max-width: 62ch; }
+@media (min-width: 1024px) { .af-mission { grid-template-columns: minmax(0, 5fr) minmax(0, 7fr); gap: var(--space-8); align-items: start; } }
 
 /* Split (text + photo) */
 .af-split { display: grid; gap: var(--space-8); align-items: center; }
