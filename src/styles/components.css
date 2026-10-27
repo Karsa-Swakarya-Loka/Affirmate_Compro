@@ -177,28 +177,30 @@
 .af-stat__label { font-family: var(--font-display); font-weight: 600; font-size: 15px; line-height: 20px; }
 .af-stat__sub { font-size: 13px; line-height: 18px; opacity: .8; }
 
-/* About: green page. Story and figures on the left (no panel), photo on the right at the same height;
-   vision and mission under one more rule, split by a vertical one. */
+/* About: green page on one 5/7 grid, the same split as the section head, so the subtitle, the photo and the second
+   mission column all start on one vertical line. Story + vision on the left, photo on the right at the same height.
+   On narrow screens the photo comes first so story → vision → mission read without a break. */
 .af-about { display: grid; gap: var(--space-8); align-items: stretch; }
 .af-about__text { display: grid; gap: var(--space-6); align-content: start; }
-.af-about__body { font-size: 17px; line-height: 29px; color: var(--on-brand); max-width: 60ch; }
-.af-about__photo { aspect-ratio: 16 / 10; border-radius: var(--radius-xl) var(--radius-xl) var(--radius-leaf) var(--radius-xl); }
-@media (min-width: 1024px) { .af-about { grid-template-columns: minmax(0, 1.05fr) minmax(0, .95fr); gap: var(--space-10); } .af-about__photo { min-height: 380px; } }
+.af-about__body { font-size: var(--text-body-lg-size); line-height: var(--text-body-lg-line); color: var(--on-brand); }
+.af-about__photo { order: -1; aspect-ratio: 16 / 10; border-radius: var(--radius-xl) var(--radius-xl) var(--radius-leaf) var(--radius-xl); }
+@media (min-width: 1024px) { .af-about { grid-template-columns: minmax(0, 5fr) minmax(0, 7fr); gap: var(--space-8); } .af-about__photo { order: 0; min-height: 380px; } }
 /* Vision and mission (27 Oct 2026): no fine print. One label style (uppercase, full cream, a short tick before it);
    the vision is a single large statement under the story; the mission is its own ruled row, label left and the
    numbered points right at body size, each point on its own hairline. */
 .af-vm__label { margin: 0; display: flex; align-items: center; gap: var(--space-3); font-family: var(--font-display); font-size: var(--text-caption-size); line-height: var(--text-caption-line); font-weight: 700; letter-spacing: var(--text-eyebrow-tracking); text-transform: uppercase; color: var(--on-brand); }
 .af-vm__label::before { content: ""; flex: none; width: 18px; height: 2px; background: var(--on-brand); }
 .af-vision { display: grid; gap: var(--space-3); padding-top: var(--space-6); border-top: 1px solid var(--rule); }
-.af-vision__text { margin: 0; font-size: var(--text-subtitle-size); line-height: var(--text-subtitle-line); font-weight: var(--text-subtitle-weight); color: var(--on-brand); max-width: 32ch; }
-.af-mission { display: grid; gap: var(--space-5); margin-top: var(--space-10); padding-top: var(--space-6); border-top: 1px solid var(--rule); }
-.af-mission__list { margin: 0; padding: 0; list-style: none; display: grid; }
-.af-mission__list li { display: grid; grid-template-columns: 40px minmax(0, 1fr); gap: var(--space-3); align-items: start; padding-block: var(--space-4); border-top: 1px solid var(--rule); }
-.af-mission__list li:first-child { border-top: 0; padding-top: 0; }
-.af-mission__list li:last-child { padding-bottom: 0; }
-.af-mission__n { font-family: var(--font-display); font-size: var(--text-caption-size); line-height: var(--text-body-line); font-weight: 700; letter-spacing: 1px; color: var(--on-brand); }
-.af-mission__list p { margin: 0; font-size: var(--text-body-size); line-height: var(--text-body-line); color: var(--on-brand); max-width: 62ch; }
-@media (min-width: 1024px) { .af-mission { grid-template-columns: minmax(0, 5fr) minmax(0, 7fr); gap: var(--space-8); align-items: start; } }
+.af-vision__text { margin: 0; font-size: 20px; line-height: 30px; font-weight: 600; color: var(--on-brand); }
+@media (max-width: 767px) { .af-vision__text { font-size: 18px; line-height: 27px; } }
+/* Mission: label on the rule, then the points as a ruled list that fills the row (two columns on the 5/7 grid on
+   desktop), closed by a rule at the bottom. */
+.af-mission { display: grid; gap: var(--space-4); margin-top: var(--space-8); padding-top: var(--space-6); border-top: 1px solid var(--rule); }
+.af-mission__list { margin: 0; padding: 0; list-style: none; display: grid; border-bottom: 1px solid var(--rule); }
+.af-mission__list li { display: grid; grid-template-columns: 28px minmax(0, 1fr); gap: var(--space-3); align-items: start; padding-block: var(--space-4); border-top: 1px solid var(--rule); }
+.af-mission__n { font-family: var(--font-display); font-size: 13px; line-height: var(--text-body-line); font-weight: 700; letter-spacing: 1px; color: var(--on-brand); }
+.af-mission__list p { margin: 0; font-size: var(--text-body-size); line-height: var(--text-body-line); color: var(--on-brand); }
+@media (min-width: 1024px) { .af-mission__list { grid-template-columns: minmax(0, 5fr) minmax(0, 7fr); column-gap: var(--space-8); } }
 
 /* Split (text + photo) */
 .af-split { display: grid; gap: var(--space-8); align-items: center; }
