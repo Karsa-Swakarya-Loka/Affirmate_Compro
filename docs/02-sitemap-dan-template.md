@@ -14,7 +14,7 @@ English tanpa prefix (default), Indonesia di `/id`. Slug artikel sama di dua bah
 Layout global: **Header** (logo Affirmate Administrative, nav anchor, toggle EN/ID, tombol "Contact Us") · konten · **Footer** hijau tua ala back cover compro (logo putih, paragraf grup, alamat, telepon, email, LinkedIn, "A dedicated unit of Affirmate Group" + link affirmate.co.id, copyright) · **WhatsAppFloat** (aktif bila `site.whatsapp` terisi).
 
 ## Menu (anchor)
-About · Leadership · Why Us · Group · Services · Journey · Clients · Network · Office · Insights · Contact. Item Leadership/Clients/Insights hilang bila isinya kosong.
+About · Leadership · Why Us · Group · Services · Journey · Network · Office · Insights · Contact (Clients hanya di footer, bandnya di bawah hero). Item Leadership/Clients/Insights hilang bila isinya kosong.
 
 ## Susunan section landing page (mengikuti urutan compro)
 | # | Section | Isi (sumber hal. compro) | Komponen | Tampil bila |
@@ -26,7 +26,7 @@ About · Leadership · Why Us · Group · Services · Journey · Clients · Netw
 | 4 | Affirmate Group | Paragraf ekosistem + 4 kartu entitas (logo, nama PT, kategori, deskripsi, 3 bullet) (hal. 4). Kartu ATN diberi tanda "You are here". | `GroupGrid` | selalu |
 | 5 | Our Services | Eyebrow "END-TO-END BUSINESS SOLUTIONS", paragraf intro, 5 layanan: diagram 4 kelopak (Conversant Expatriate, Expatriate Formalities, Expatriate Advisory, Broad Expatriate Hosting) + kelopak lebar Corporate Secretary (revisi klien 23 Okt 2026), lalu baris rincian: tag, dan untuk Conversant Expatriate kelompok KITAS / Visa Indonesia (single entry C, multiple entry D, E23/E28/E31/E32) / Visa Global. Di bawahnya strip "Administrative Platform" 3 pilar dari hal. 4 (Incorporation & Licensing · Visa / Work Permit · HR / Corp Secretary; payroll dihapus 23 Okt 2026) dengan 7 cakupan hal. 3 sebagai chip. Kartu bisa dibuka (accordion) untuk daftar item panjang di mobile. | `ServiceCard`, `PlatformStrip` | selalu |
 | 6 | Corporate Journey | Judul, sub "Expanding Beyond Advisory into Principal Investment", paragraf, timeline vertikal 7 titik (tahun, label, teks) (hal. 6). Foto skyline di kanan (desktop). | `Timeline` | ≥1 published |
-| 7 | Our Client | "Trusted by Leading Companies" + paragraf + grid logo (hal. 8). | `ClientStrip` | ≥1 published |
+| 7 | Our Client (dipindah 27 Okt 2026) | Band logo tepat di bawah hero seperti situs Apegale: label "Our Client" kiri, logo kanan berjalan terus (marquee tanpa tombol jeda; statis bila OS reduce motion). Logo hal. 8 (unicharm, MUFG Finance and Leasing, Toda Corporation) + MSIG Life dan MSIG Insurance. Subjudul/paragraf hal. 8 tidak ditampilkan. | `Clients` | ≥1 published |
 | 8 | Our Network | "Nationwide Coverage, Global Connections", paragraf, peta Indonesia SVG dengan 13 titik kota (label), 4 pilar (hal. 9). | `NetworkMap` + `Pillars` | selalu |
 | 9 | Office | "Head Office" alamat + telepon + galeri 4 foto kantor (hal. 7). Bisa digabung ke Contact pada mobile. | `OfficeGallery` | ≥1 foto |
 | 10 | Insights | 3 artikel terbaru. | `NewsCard` | ≥1 published |
@@ -39,7 +39,7 @@ About · Leadership · Why Us · Group · Services · Journey · Clients · Netw
 - Services: strip platform + kartu dengan **tag chip** untuk daftar izin; Expatriate Formalities jadi kartu lebar.
 - Network: 4 pilar jadi baris ikon kecil inline, bukan kartu berikon besar.
 - Office: galeri **bento 1+4** foto asli.
-- Clients: band ringkas (judul `af-h2`, tanpa eyebrow).
+- Clients: band hairline di bawah hero, label eyebrow + leaf, logo berwarna tinggi 48px (36px mobile), marquee 22s; tidak ada item menu (ada di footer).
 - Eyebrow hanya di Hero, About, Services.
 
 ## Insights (list & detail)

@@ -23,6 +23,8 @@ export const mediaAlt: Record<string, { en: string; id: string }> = {
   'design/assets/Clients/unicharm.png': { en: 'unicharm logo.', id: 'Logo unicharm.' },
   'design/assets/Clients/mufg-finance-leasing.png': { en: 'MUFG Finance and Leasing logo.', id: 'Logo MUFG Finance and Leasing.' },
   'design/assets/Clients/toda-corporation.png': { en: 'Toda Corporation logo.', id: 'Logo Toda Corporation.' },
+  'design/assets/Clients/msig-life.png': { en: 'MSIG Life logo.', id: 'Logo MSIG Life.' },
+  'design/assets/Clients/msig-insurance.png': { en: 'MSIG Insurance logo.', id: 'Logo MSIG Insurance.' },
 }
 /** Slugs the seed removes before upserting, so a renamed service never leaves its old document behind (23 Oct 2026: Management Advisory → Expatriate Advisory). */
 export const retiredServices = ['management-advisory'] as const

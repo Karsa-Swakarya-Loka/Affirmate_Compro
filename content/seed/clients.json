@@ -1,5 +1,7 @@
 [
-  { "_source": "Compro Rev 3 hal. 8. Status draft sampai file logo asli + izin tampil diterima (OPEN-QUESTIONS #8).", "name": "unicharm", "logo": "design/assets/Clients/unicharm.png", "url": "", "order": 1, "consent": false, "_status": "draft" },
-  { "name": "MUFG Finance and Leasing", "logo": "design/assets/Clients/mufg-finance-leasing.png", "url": "", "order": 2, "consent": false, "_status": "draft", "_note": "Di compro berupa logo MUFG + teks biasa 'Finance and Leasing'; kemungkinan PT BOT Finance Indonesia. Minta logo resmi." },
-  { "name": "Toda Corporation", "logo": "design/assets/Clients/toda-corporation.png", "url": "", "order": 3, "consent": false, "_status": "draft" }
+  { "_source": "Compro Rev 3 hal. 8 (unicharm, MUFG, Toda) + tambahan pemilik 27 Okt 2026 (MSIG Life, MSIG Insurance). Logo dibersihkan ke PNG transparan tinggi 400px.", "name": "unicharm", "logo": "design/assets/Clients/unicharm.png", "url": "", "order": 1, "consent": true, "_status": "published" },
+  { "name": "MUFG Finance and Leasing", "logo": "design/assets/Clients/mufg-finance-leasing.png", "url": "", "order": 2, "consent": true, "_status": "published", "_note": "Di compro berupa logo MUFG + teks biasa 'Finance and Leasing'; kemungkinan PT BOT Finance Indonesia. Ganti bila logo resmi diterima." },
+  { "name": "Toda Corporation", "logo": "design/assets/Clients/toda-corporation.png", "url": "", "order": 3, "consent": true, "_status": "published" },
+  { "name": "MSIG Life", "logo": "design/assets/Clients/msig-life.png", "url": "", "order": 4, "consent": true, "_status": "published", "_note": "PT MSIG Life Insurance Indonesia Tbk; logo resmi dari msiglife.co.id (dengan baris 'Formerly Sinarmas MSIG Life')." },
+  { "name": "MSIG Insurance", "logo": "design/assets/Clients/msig-insurance.png", "url": "", "order": 5, "consent": true, "_status": "published", "_note": "PT Asuransi MSIG Indonesia; tanda + wordmark MSIG seperti logo header msig.co.id." }
 ]

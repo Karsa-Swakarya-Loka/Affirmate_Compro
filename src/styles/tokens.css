@@ -86,6 +86,7 @@
   --radius-pill: 999px;
   --container: 1200px; --gutter: 16px; --diagonal: undefineddeg; --card-bar: undefinedpx;
   --motion-fast: 150ms; --motion-base: 220ms; --motion-reveal: 500ms; --ease: cubic-bezier(.2,.7,.2,1); --lift: 4px;
+  --marquee-duration: 22s; --client-logo-height: 48px; --client-logo-height-mobile: 36px;
 }
 @media (min-width: 768px) { :root { --gutter: 32px; } }
 @media (max-width: 767px) { :root {

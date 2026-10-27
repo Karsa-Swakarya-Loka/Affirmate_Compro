@@ -2,20 +2,39 @@ import Image from 'next/image'
 import type { Client, Home } from '@/payload-types'
 import { asMedia } from '@/lib/cms'
 
-export function Clients({ block, clients }: { block: NonNullable<Home['clients']>; clients: Client[] }) {
+function Logos({ clients, hidden }: { clients: Client[]; hidden?: boolean }) {
   return (
-    <section className="af-section" id="clients" style={{ paddingBlock: 'var(--space-12)' }}>
-      <div className="af-container">
-        <div className="af-sechead af-sechead--center" style={{ marginBottom: 'var(--space-8)' }}>
-          <h2 className="af-h2" style={{ color: 'var(--green-deep)' }}>{block.subtitle || block.title}</h2>
-          {block.body ? <p className="af-lead" style={{ textAlign: 'center' }}>{block.body}</p> : null}
-        </div>
-        <div className="af-clients">
-          {clients.map(c => {
-            const m = asMedia(c.logo)
-            const inner = m?.url ? <Image src={m.url} alt={c.name} width={m.width ?? 300} height={m.height ?? 100} sizes="200px" /> : <span className="af-client__name">{c.name}</span>
-            return c.url ? <a className="af-client" key={c.id} href={c.url} target="_blank" rel="noopener noreferrer">{inner}</a> : <div className="af-client" key={c.id}>{inner}</div>
-          })}
+    <ul className="af-marquee__track" aria-hidden={hidden || undefined}>
+      {clients.map(c => {
+        const m = asMedia(c.logo)
+        const img = m?.url && m.width && m.height
+          ? <Image src={m.url} alt={hidden ? '' : c.name} width={m.width} height={m.height} sizes="(max-width: 767px) 160px, 220px" loading="eager" fetchPriority="low" />
+          : <span className="af-client__name">{c.name}</span>
+        return (
+          <li key={c.id}>
+            {c.url ? <a href={c.url} target="_blank" rel="noopener noreferrer" tabIndex={hidden ? -1 : undefined}>{img}</a> : img}
+          </li>
+        )
+      })}
+    </ul>
+  )
+}
+
+/**
+ * Compro p.8 "Our Client" as a compact proof band right under the hero (same placement, motion and layout as the
+ * Apegale site, owner decision 27 Oct 2026): label left, logos right, running as a permanent ticker with no pause
+ * button and no stop on hover. Two identical tracks loop seamlessly; the second is hidden from assistive tech.
+ * The only exception is the OS "reduce motion" setting, where the logos become a static, centred row.
+ */
+export function Clients({ block, clients }: { block: NonNullable<Home['clients']>; clients: Client[] }) {
+  if (!clients.length) return null
+  return (
+    <section className="af-clients" id="clients" aria-label={block.title}>
+      <div className="af-container af-clients__in">
+        {block.title ? <p className="af-eyebrow af-clients__label"><span className="af-mark" aria-hidden="true" />{block.title}</p> : null}
+        <div className="af-marquee">
+          <Logos clients={clients} />
+          <Logos clients={clients} hidden />
         </div>
       </div>
     </section>

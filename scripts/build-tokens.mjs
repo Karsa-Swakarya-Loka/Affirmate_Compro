@@ -26,6 +26,7 @@ for (const [k, v] of Object.entries(t.space)) lines.push(`  --space-${k}: ${v}px
 for (const [k, v] of Object.entries(t.radius)) lines.push(`  --radius-${k}: ${v}px;`);
 lines.push(`  --container: ${t.layout.container}px; --gutter: ${t.layout.gutterMobile}px; --diagonal: ${t.layout.diagonalAngle}deg; --card-bar: ${t.layout.cardTopBar}px;`);
 lines.push(`  --motion-fast: ${t.motion.fast}ms; --motion-base: ${t.motion.base}ms; --motion-reveal: ${t.motion.reveal}ms; --ease: ${t.motion.easing}; --lift: ${t.motion.liftHover}px;`);
+lines.push(`  --marquee-duration: ${t.motion.marqueeDuration}s; --client-logo-height: ${t.clientLogo.height}px; --client-logo-height-mobile: ${t.clientLogo.heightMobile}px;`);
 lines.push(`}`);
 lines.push(`@media (min-width: 768px) { :root { --gutter: ${t.layout.gutterDesktop}px; } }`);
 lines.push(`@media (max-width: 767px) { :root {`);

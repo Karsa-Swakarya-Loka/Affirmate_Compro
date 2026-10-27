@@ -12,7 +12,7 @@ export function Header({ locale, site, ui, sections }: Props) {
   const logo = asMedia(site.logo)
   const nav = ui.nav ?? {}
   const items: NavItem[] = sections
-    .filter(s => s !== 'contact' && s !== 'insights')
+    .filter(s => s !== 'contact' && s !== 'insights' && s !== 'clients')
     .map(s => ({ label: nav[s] || s, href: href(locale, 'home', undefined, s) }))
   return (
     <header className="af-header">

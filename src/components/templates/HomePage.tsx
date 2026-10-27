@@ -45,13 +45,13 @@ export async function HomePage({ locale }: { locale: Locale }) {
           nextStep={show.contact ? home.contact?.text : null}
         />
       ) : null}
+      {show.clients && home.clients ? <Clients block={home.clients} clients={clients} /> : null}
       {show.about && home.about ? <Reveal><About about={home.about} showVisionMission={on('visionMission') && home.about.showVisionMission !== false} showStats={on('stats')} labels={aboutLabels} /></Reveal> : null}
       {show.leadership && home.leadership ? <Reveal><Leadership block={home.leadership} /></Reveal> : null}
       {show.why && home.why ? <Reveal><Why why={home.why} /></Reveal> : null}
       {show.group && home.group ? <Reveal><Group group={home.group} entities={entities} /></Reveal> : null}
       {show.services && home.services ? <Reveal><Services block={home.services} services={services} locale={locale} cta={show.contact ? { label: ui.cta?.contact || 'Contact Us', href: href(locale, 'home', undefined, 'contact') } : undefined} /></Reveal> : null}
       {show.journey && home.journey ? <Reveal><Journey block={home.journey} milestones={milestones} /></Reveal> : null}
-      {show.clients && home.clients ? <Reveal><Clients block={home.clients} clients={clients} /></Reveal> : null}
       {show.network && home.network ? <Reveal><Network block={home.network} cities={cities} mapLabel={`${home.network.title}: ${cities.length}`} /></Reveal> : null}
       {show.office && home.office ? <Reveal><Office block={home.office} site={site} ui={ui} /></Reveal> : null}
       {show.insights ? <Reveal><Insights locale={locale} posts={posts} ui={ui} /></Reveal> : null}
