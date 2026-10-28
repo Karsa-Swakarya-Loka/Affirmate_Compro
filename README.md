@@ -54,7 +54,17 @@ npm run start -- --port 3100   # atau PM2: pm2 start npm --name affirmate -- sta
 ## Keamanan repo
 `.env`, `media/`, `.data/`, `node_modules/`, `.next/`, log, dan file hasil generate tidak masuk git (lihat `.gitignore`). Jangan commit kredensial, data klien (`inquiries`), atau dump database. Admin publik hanya menerima dokumen `published`; form kontak lewat server action dengan honeypot, validasi, rate limit.
 
-## Deploy ke Vercel (produksi saat ini: `affirmate-compro`)
+## Produksi: Hostinger cPanel (tatakelola.affirmate.co.id, sejak 28 Okt 2026)
+
+Paket klien adalah cPanel shared hosting (Niagahoster `srv152`, Node 22 lewat **Setup Node.js App**/Passenger, tanpa Postgres). Jadi produksi memakai SQLite + media di disk, satu folder app `~/repositories/affirmate` (clone cPanel **Git Version Control**). Domain utama `affirmate.co.id` (WordPress lama di `public_html`) tidak disentuh; subdomain punya document root sendiri.
+
+- Entry Passenger: `server.cjs` (CommonJS, `next` production server). Node.js App: versi 22, mode production, root `repositories/affirmate`, URL `tatakelola.affirmate.co.id`, startup `server.cjs`.
+- cPanel hanya bisa menjalankan npm script lewat tombol **Run JS script**, maka langkah server ada di `package.json`: `hosting:env` (tulis `.env` dengan secret acak di server), `hosting:pull`, `hosting:unpack` (zip ekspor konten di `~`), `hosting:migrate`, `hosting:import`, lalu `build`, lalu **Restart**.
+- Pindah konten antar hosting: `ENV_FILE=<env sumber> npm run content:export` → folder `export-content/` (semua koleksi + global, semua bahasa, versi published + draft terakhir, file media asli) → zip → `content:import` ke database **kosong** (id dokumen dipertahankan). Pengguna admin tidak ikut: buat lewat `/admin/create-first-account`.
+- Upgrade: push ke `main`, lalu di cPanel Git Version Control **Update from Remote** (atau `hosting:pull`), `Run NPM Install` bila dependensi berubah, `hosting:migrate` bila ada migrasi, `build`, **Restart**.
+- Backup: folder `.data/` (SQLite) + `media/` ikut JetBackup cPanel.
+
+## Deploy ke Vercel (prototype lama: `affirmate-compro`, dikosongkan setelah pindah)
 
 Vercel serverless tanpa disk permanen: database Postgres Neon (Singapura) dan media di Vercel Blob (`BLOB_READ_WRITE_TOKEN`; tanpa token, media tetap di `MEDIA_DIR`). Functions di `sin1` (`vercel.json`).
 
