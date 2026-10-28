@@ -16,7 +16,6 @@ node -e "
 const c=require('crypto');require('fs').writeFileSync(process.argv[1],[
 'DATABASE_ADAPTER=sqlite','DATABASE_URI=file:./.data/affirmate.db','MEDIA_DIR=media',
 'PAYLOAD_SECRET='+c.randomBytes(24).toString('hex'),'PREVIEW_SECRET='+c.randomBytes(16).toString('hex'),
-'NEXT_PUBLIC_SITE_URL=https://tatakelola.affirmate.co.id','SMTP_HOST=','SMTP_PORT=465','SMTP_SECURE=true','SMTP_USER=','SMTP_PASS=','INQUIRY_RECIPIENTS=info@affirmate.co.id',''].join('
-'))" "$work/.env"
+'NEXT_PUBLIC_SITE_URL=https://tatakelola.affirmate.co.id','SMTP_HOST=','SMTP_PORT=465','SMTP_SECURE=true','SMTP_USER=','SMTP_PASS=','INQUIRY_RECIPIENTS=info@affirmate.co.id',''].join(String.fromCharCode(10)))" "$work/.env"
 MSYS_NO_PATHCONV=1 docker run --rm -v "$work:/app" -w /app -e NEXT_TELEMETRY_DISABLED=1 node:22-bookworm   bash -c "npm ci --no-audit --no-fund && npm run build && rm -rf .next/cache next-build.tar.gz*     && tar -czf next-build.tar.gz -C .next . && split -b 9m -d next-build.tar.gz next-build.tar.gz.part && ls -la next-build.tar.gz*"
 echo "Upload $work/next-build.tar.gz.part* to /home/u1064437 (cPanel File Manager), then Run JS script hosting:next, then Restart."
