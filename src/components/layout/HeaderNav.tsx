@@ -10,7 +10,7 @@ import { Icon } from '@/components/ui/Icon'
 import { LanguageToggle } from './LanguageToggle'
 
 export type NavItem = { label: string; href: string }
-type Labels = { openMenu: string; closeMenu: string; language: string }
+type Labels = { openMenu: string; closeMenu: string; language: string; nav: string }
 type Props = { items: NavItem[]; cta: { label: string; href: string }; labels: Labels }
 
 function subscribeHash(cb: () => void) {
@@ -67,7 +67,7 @@ export function HeaderNav({ items, cta, labels }: Props) {
 
   return (
     <>
-      <nav className="af-nav" aria-label="Main">{links}</nav>
+      <nav className="af-nav" aria-label={labels.nav}>{links}</nav>
       <div className="af-header__end">
         <LanguageToggle label={labels.language} />
         <Link className="af-btn af-btn--primary af-btn--sm af-header__cta" href={cta.href}>{cta.label}</Link>
@@ -78,7 +78,7 @@ export function HeaderNav({ items, cta, labels }: Props) {
       {/* Only rendered while open, so server and first client render agree and document is always defined. */}
       {open ? createPortal(
         <div id={`${uid}-panel`} className="af-mobile">
-          <nav className="af-mobile__nav" aria-label="Main">{links}</nav>
+          <nav className="af-mobile__nav" aria-label={labels.nav}>{links}</nav>
           <Link className="af-btn af-btn--primary af-mobile__cta" href={cta.href} onClick={() => setOpen(false)}>{cta.label}</Link>
         </div>,
         document.body,

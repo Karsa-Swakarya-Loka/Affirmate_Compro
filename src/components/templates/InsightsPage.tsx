@@ -31,7 +31,7 @@ export async function InsightsPage({ locale, page, category }: { locale: Locale;
         <div className="af-sechead__row"><span className="af-mark" aria-hidden="true" /><h1 className="af-h1">{ui.nav?.insights || 'Insights'}</h1></div>
       </div>
       <div className="af-container" style={{ paddingBottom: 'var(--space-20)' }}>
-        <nav className="af-filter" aria-label="Category">
+        <nav className="af-filter" aria-label={locale === 'id' ? 'Kategori' : 'Category'}>
           <Link href={link(1)} aria-current={!cat ? 'true' : undefined}>{ui.sections?.categoryAll || 'All'}</Link>
           {categories.map(c => <Link key={c} href={link(1, c)} aria-current={cat === c ? 'true' : undefined}>{categoryLabel(c, ui)}</Link>)}
         </nav>
@@ -41,7 +41,7 @@ export async function InsightsPage({ locale, page, category }: { locale: Locale;
           </div>
         ) : <p className="af-lead">{locale === 'id' ? 'Belum ada artikel.' : 'No articles yet.'}</p>}
         {totalPages > 1 ? (
-          <nav className="af-pagination" aria-label="Pagination">
+          <nav className="af-pagination" aria-label={locale === 'id' ? 'Halaman' : 'Pagination'}>
             {Array.from({ length: totalPages }, (_, i) => i + 1).map(p => (p === page ? <span key={p} aria-current="page">{p}</span> : <Link key={p} href={link(p, cat)}>{p}</Link>))}
           </nav>
         ) : null}

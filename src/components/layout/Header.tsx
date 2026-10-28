@@ -21,7 +21,7 @@ export function Header({ locale, site, ui, sections }: Props) {
           {logo ? <Image className="af-header__logo" src={logo.url!} alt={site.brandName} width={logo.width ?? 793} height={logo.height ?? 421} sizes="160px" /> : <strong>{site.brandName}</strong>}
         </Link>
         <HeaderNav items={items} cta={{ label: ui.cta?.contact || 'Contact Us', href: href(locale, 'home', undefined, 'contact') }}
-          labels={{ openMenu: ui.a11y?.openMenu || 'Open menu', closeMenu: ui.a11y?.closeMenu || 'Close menu', language: ui.lang?.label || 'Language' }} />
+          labels={{ openMenu: ui.a11y?.openMenu || 'Open menu', closeMenu: ui.a11y?.closeMenu || 'Close menu', language: ui.lang?.label || 'Language', nav: locale === 'id' ? 'Navigasi utama' : 'Main navigation' }} />
       </div>
     </header>
   )

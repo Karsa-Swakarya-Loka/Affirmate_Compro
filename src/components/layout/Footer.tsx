@@ -32,7 +32,7 @@ export function Footer({ locale, site, ui, sections, showPrivacy }: Props) {
           </ul>
         </div>
         <div>
-          <h2 className="af-footer__h">Explore</h2>
+          <h2 className="af-footer__h">{locale === 'id' ? 'Jelajahi' : 'Explore'}</h2>
           <ul className="af-footer__links">
             {sections.filter(s => s !== 'contact').map(s => <li key={s}><Link href={href(locale, 'home', undefined, s)}>{nav[s] || s}</Link></li>)}
             <li><Link href={href(locale, 'home', undefined, 'contact')}>{nav.contact || 'Contact'}</Link></li>
