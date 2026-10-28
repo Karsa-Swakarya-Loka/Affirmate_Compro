@@ -1,7 +1,10 @@
-import type { NextConfig } from 'next'
 import { withPayload } from '@payloadcms/next/withPayload'
 
-const config: NextConfig = {
+// Plain JavaScript on purpose: a next.config.ts makes `next start` transpile the config with @next/swc at every
+// boot. The hosting's glibc cannot load the native swc binary, so Next then tries to download the WASM fallback
+// with npm on each start (forks, I/O and memory the CloudLinux limits do not allow; found 28 Oct 2026).
+/** @type {import('next').NextConfig} */
+const config = {
   // AVIF first (smallest), WebP for browsers without it.
   // CMS files carry a `?v=` stamp (lib/cms.ts asMedia) so a replaced upload is not served from the year-long image
   // cache; static brand images under /public take no query.
@@ -14,6 +17,7 @@ const config: NextConfig = {
     return [{ source: '/id/', destination: '/id', statusCode: 301 }]
   },
 }
+
 const withPayloadConfig = withPayload(config)
 const payloadHeaders = withPayloadConfig.headers
 

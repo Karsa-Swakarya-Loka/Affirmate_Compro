@@ -51,7 +51,7 @@ web/
 ├── content/seed/      8 JSON (sudah ada)
 ├── design/            sistem desain (sudah ada)
 ├── docs/              dokumen ini + STEP-n-STATUS
-├── next.config.ts · package.json · .env.example · README.md
+├── next.config.mjs · package.json · .env.example · README.md
 ~~~
 
 Route ID adalah pembungkus tipis yang mengirim `locale="id"` ke template bersama; satu root layout publik agar toggle bahasa tidak melintasi root layout. Query CMS di server component, memfilter `published` kecuali mode preview. Komponen client hanya untuk burger menu, toggle bahasa, accordion layanan di mobile, form, dan reveal.
