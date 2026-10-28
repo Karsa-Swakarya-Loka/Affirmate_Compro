@@ -21,3 +21,6 @@ Thumbs.db
 .env*
 !.env.example
 export-content/
+hosting-data/
+hosting-data.zip
+hosting-media/

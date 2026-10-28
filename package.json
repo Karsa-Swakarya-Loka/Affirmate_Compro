@@ -35,7 +35,8 @@
     "hosting:migrate": "NODE_OPTIONS=--disable-wasm-trap-handler payload migrate",
     "hosting:import": "NODE_OPTIONS=--disable-wasm-trap-handler tsx scripts/import-content.ts $HOME/export-content",
     "hosting:status": "git log --oneline -1 && node -v && ls -a && df -h . && free -m",
-    "hosting:build": "NODE_OPTIONS=--disable-wasm-trap-handler next build"
+    "hosting:build": "NODE_OPTIONS=--disable-wasm-trap-handler next build",
+    "hosting:data": "unzip -o $HOME/hosting-data.zip -d . && ls -la .data && ls media | wc -l"
   },
   "dependencies": {
     "@payloadcms/db-postgres": "3.90.2",
