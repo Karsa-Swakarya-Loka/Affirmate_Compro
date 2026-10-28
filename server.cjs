@@ -7,6 +7,7 @@
 // pools from the core count. Set before anything that may initialise them.
 process.env.VIPS_CONCURRENCY ||= '1'
 process.env.UV_THREADPOOL_SIZE ||= '2'
+process.env.TOKIO_WORKER_THREADS ||= '2' // libsql (SQLite driver) runs a Tokio runtime
 
 const { createServer } = require('node:http')
 const next = require('next')
