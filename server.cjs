@@ -2,6 +2,12 @@
 // Passenger requires this file and replaces `listen` with its own socket, so the port is only a fallback for
 // running it by hand: `NODE_ENV=production node server.cjs`. Build first with `npm run build`.
 // CommonJS on purpose: Passenger loads the entry with require(), and the package is otherwise ESM.
+// CloudLinux counts threads against the account's process limit (NPROC, hit 169x on 28 Oct 2026) and the shared
+// server reports many cores, so libvips (sharp, image optimisation) and the libuv pool must not size their thread
+// pools from the core count. Set before anything that may initialise them.
+process.env.VIPS_CONCURRENCY ||= '1'
+process.env.UV_THREADPOOL_SIZE ||= '2'
+
 const { createServer } = require('node:http')
 const next = require('next')
 
