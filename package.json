@@ -26,7 +26,9 @@
     "clients:publish": "tsx scripts/publish-clients.ts",
     "tokens": "node scripts/build-tokens.mjs",
     "preview": "node scripts/build-preview.mjs",
-    "map": "python scripts/build-map-svg.py"
+    "map": "python scripts/build-map-svg.py",
+    "content:export": "tsx scripts/export-content.ts",
+    "content:import": "tsx scripts/import-content.ts"
   },
   "dependencies": {
     "@payloadcms/db-postgres": "3.90.2",
