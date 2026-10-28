@@ -28,7 +28,13 @@
     "preview": "node scripts/build-preview.mjs",
     "map": "python scripts/build-map-svg.py",
     "content:export": "tsx scripts/export-content.ts",
-    "content:import": "tsx scripts/import-content.ts"
+    "content:import": "tsx scripts/import-content.ts",
+    "hosting:env": "node scripts/hosting-env.mjs",
+    "hosting:pull": "git pull --ff-only && git log --oneline -1",
+    "hosting:unpack": "tar -xf $HOME/export-content.zip -C $HOME && ls $HOME/export-content | head",
+    "hosting:migrate": "payload migrate",
+    "hosting:import": "tsx scripts/import-content.ts $HOME/export-content",
+    "hosting:status": "git log --oneline -1 && node -v && ls -a && df -h . && free -m"
   },
   "dependencies": {
     "@payloadcms/db-postgres": "3.90.2",
