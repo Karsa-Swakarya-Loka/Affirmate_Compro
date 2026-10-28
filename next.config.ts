@@ -14,4 +14,15 @@ const config: NextConfig = {
     return [{ source: '/id/', destination: '/id', statusCode: 301 }]
   },
 }
-export default withPayload(config)
+const withPayloadConfig = withPayload(config)
+const payloadHeaders = withPayloadConfig.headers
+
+// withPayload adds `Accept-CH`/`Critical-CH: Sec-CH-Prefers-Color-Scheme` to every path so the admin theme can follow the
+// OS scheme. `Critical-CH` makes browsers re-request the first page load once (Lighthouse counts it as a ~0.9 s
+// redirect on mobile) - the public site does not use the hint, so keep that rule for the admin only.
+withPayloadConfig.headers = async () =>
+  ((await payloadHeaders?.()) || []).map(rule =>
+    rule.source === '/:path*' && rule.headers.some(h => h.key === 'Critical-CH') ? { ...rule, source: '/admin/:path*' } : rule,
+  )
+
+export default withPayloadConfig

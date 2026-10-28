@@ -44,7 +44,7 @@ export async function SiteShell({ locale, children, sections }: { locale: Locale
       <Header locale={locale} site={site} ui={ui} sections={navSections} />
       <main id="content" tabIndex={-1}>{children}</main>
       <Footer locale={locale} site={site} ui={ui} sections={navSections} showPrivacy={Boolean(legal?.privacyTitle)} />
-      {wa ? <a className="af-wa" href={wa} target="_blank" rel="noopener noreferrer"><Icon name="whatsapp" size={22} /><span>{ui.cta?.whatsapp || 'WhatsApp'}</span></a> : null}
+      {wa ? <a className="af-wa" href={wa} target="_blank" rel="noopener noreferrer" aria-label={ui.cta?.whatsapp || 'WhatsApp'}><Icon name="whatsapp" size={22} /><span>{ui.cta?.whatsapp || 'WhatsApp'}</span></a> : null}
     </>
   )
 }
