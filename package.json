@@ -37,6 +37,8 @@
     "hosting:status": "git log --oneline -1 && node -v && ls -a && df -h . && free -m",
     "hosting:data": "unzip -o $HOME/hosting-data.zip -d . && ls -la .data && ls media | wc -l",
     "hosting:next": "cat $HOME/next-build.tar.gz.part* > $HOME/next-build.tar.gz && rm -rf .next && mkdir .next && tar -xzf $HOME/next-build.tar.gz -C .next && rm -f $HOME/next-build.tar.gz.part* && ls .next | head -20",
+    "hosting:ps": "ps -u $(whoami) -o pid,ppid,nlwp,etimes,rss,cmd --sort=-etimes | head -40",
+    "hosting:kill-app": "pkill -f 'server[.]cjs'; sleep 3; ps -u $(whoami) -o pid,nlwp,etimes,cmd | grep -c 'server[.]cjs' || echo 'no app process left'",
     "hosting:clean": "rm -rf $HOME/export-content $HOME/export-content.zip $HOME/hosting-data.zip $HOME/next-build.tar.gz $HOME/next-build.tar.gz.part* $HOME/repositories/Affirmate_Compro && ls -a $HOME && du -sh $HOME/repositories/affirmate"
   },
   "dependencies": {
