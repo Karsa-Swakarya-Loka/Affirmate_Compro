@@ -36,7 +36,8 @@
     "hosting:import": "NODE_OPTIONS=--disable-wasm-trap-handler tsx scripts/import-content.ts $HOME/export-content",
     "hosting:status": "git log --oneline -1 && node -v && ls -a && df -h . && free -m",
     "hosting:data": "unzip -o $HOME/hosting-data.zip -d . && ls -la .data && ls media | wc -l",
-    "hosting:next": "cat $HOME/next-build.tar.gz.part* > $HOME/next-build.tar.gz && rm -rf .next && mkdir .next && tar -xzf $HOME/next-build.tar.gz -C .next && rm -f $HOME/next-build.tar.gz.part* && ls .next | head -20"
+    "hosting:next": "cat $HOME/next-build.tar.gz.part* > $HOME/next-build.tar.gz && rm -rf .next && mkdir .next && tar -xzf $HOME/next-build.tar.gz -C .next && rm -f $HOME/next-build.tar.gz.part* && ls .next | head -20",
+    "hosting:clean": "rm -rf $HOME/export-content $HOME/export-content.zip $HOME/hosting-data.zip $HOME/next-build.tar.gz $HOME/next-build.tar.gz.part* $HOME/repositories/Affirmate_Compro && ls -a $HOME && du -sh $HOME/repositories/affirmate"
   },
   "dependencies": {
     "@payloadcms/db-postgres": "3.90.2",
