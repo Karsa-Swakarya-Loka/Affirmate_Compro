@@ -23,7 +23,7 @@ Skrip lain: `npm run verify:cms` (hitung isi CMS), `npm run tokens` (design toke
 - Logo klien hanya bisa dipublikasikan bila "Izin tampil" dicentang.
 - Tombol **Preview** di admin membuka draf di situs (mode draf per browser; "Exit preview" untuk keluar).
 - `npm run seed` tidak menimpa suntingan editor; `SEED_OVERWRITE=true npm run seed` mengembalikan ke JSON.
-- File di `design/assets` diganti (ukuran berbeda) → `npm run media:refresh [People]` meng-upload ulang hanya file itu, tanpa menyentuh teks; `ENV_FILE=.env.production.local` untuk produksi (nilai `[SENSITIVE]` hasil `vercel env pull` diturunkan dari variabel Neon).
+- File di `design/assets` diganti (ukuran berbeda) → `npm run media:refresh [People]` meng-upload ulang hanya file itu, tanpa menyentuh teks; di produksi cPanel jalankan dari server lewat **Run JS script** (lihat "Produksi: Hostinger cPanel"); `ENV_FILE=.env.production.local` hanya berlaku untuk prototype Vercel yang sudah dihapus.
 
 ## Produksi (hosting klien)
 
@@ -72,7 +72,9 @@ Paket klien adalah cPanel shared hosting (Niagahoster `srv152`, Node 22 lewat **
 - **Akun admin pertama**: sampai dibuat, `/admin/create-first-user` terbuka untuk siapa pun. Buat segera lewat `https://tatakelola.affirmate.co.id/admin/create-first-user` (peran Admin, email KaryaLo), lalu tambahkan pengguna klien dari CMS → Users. Payload otomatis menutup halaman itu setelah pengguna pertama ada.
 - Backup: folder `.data/` (SQLite) + `media/` ikut JetBackup cPanel.
 
-## Deploy ke Vercel (prototype lama: `affirmate-compro`, dikosongkan setelah pindah)
+## Deploy ke Vercel (prototype lama: `affirmate-compro`, SUDAH dikosongkan 28 Okt 2026)
+
+**Status 28 Okt 2026**: project Vercel `affirmate-compro` dan resource Neon `affirmate-db` sudah dihapus (backup terakhir konten: `export-content-vercel-final-2026-10-28.zip`, gitignored, hasil `content:export`). Blob store `affirmate-media` (`store_SmW7yT1uxtDlwjEb`, 87 file) belum terhapus karena CLI menolak penghapusan non-interaktif; pemilik akun menjalankan sendiri `vercel blob delete-store store_SmW7yT1uxtDlwjEb --scope awwalakhalqins-projects` di terminal. `.env.production.local` dan `.vercel/` tidak dipakai lagi. Catatan di bawah dipertahankan sebagai arsip.
 
 Vercel serverless tanpa disk permanen: database Postgres Neon (Singapura) dan media di Vercel Blob (`BLOB_READ_WRITE_TOKEN`; tanpa token, media tetap di `MEDIA_DIR`). Functions di `sin1` (`vercel.json`).
 
