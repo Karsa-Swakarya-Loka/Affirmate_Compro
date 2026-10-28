@@ -32,9 +32,10 @@
     "hosting:env": "node scripts/hosting-env.mjs",
     "hosting:pull": "git pull --ff-only && git log --oneline -1",
     "hosting:unpack": "tar -xf $HOME/export-content.zip -C $HOME && ls $HOME/export-content | head",
-    "hosting:migrate": "payload migrate",
-    "hosting:import": "tsx scripts/import-content.ts $HOME/export-content",
-    "hosting:status": "git log --oneline -1 && node -v && ls -a && df -h . && free -m"
+    "hosting:migrate": "NODE_OPTIONS=--disable-wasm-trap-handler payload migrate",
+    "hosting:import": "NODE_OPTIONS=--disable-wasm-trap-handler tsx scripts/import-content.ts $HOME/export-content",
+    "hosting:status": "git log --oneline -1 && node -v && ls -a && df -h . && free -m",
+    "hosting:build": "NODE_OPTIONS=--disable-wasm-trap-handler next build"
   },
   "dependencies": {
     "@payloadcms/db-postgres": "3.90.2",
